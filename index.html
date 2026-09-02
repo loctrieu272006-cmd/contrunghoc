@@ -270,6 +270,8 @@
   .gallery-card::after{ content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(10,12,8,.84),rgba(10,12,8,0) 65%); pointer-events:none; }
   .gallery-card .gc-cap{ position:absolute; z-index:2; left:16px; right:16px; bottom:13px; font-family:var(--mono); font-size:10px; color:var(--parchment); line-height:1.45; }
   .gallery-card .gc-cap small{ display:block; color:var(--parchment-dim); margin-top:3px; font-size:8.5px; }
+.gallery-card .gc-cap .gc-species{display:block;color:var(--parchment);font-family:var(--serif);font-size:12px;margin-top:4px;}
+.gallery-card .gc-cap .gc-desc{display:block;color:var(--parchment-dim);font-family:var(--sans);font-size:10px;line-height:1.4;margin-top:4px;max-width:520px;}
   .photo-feature + .photo-gallery{ margin-top:18px; }
   @media (max-width:900px){
     .topnav-inner{ min-height:58px; }
@@ -365,11 +367,110 @@ body.presentation-mode .presentation-bar{bottom:24px}
 /* Classification visual aids */
 .type-row{display:grid;grid-template-columns:86px minmax(150px,1fr) minmax(260px,1.7fr) minmax(150px,.8fr);gap:18px;align-items:center;padding:14px 16px;}
 .type-row .type-img{width:86px;height:70px;object-fit:cover;border-radius:5px;border:1px solid var(--line);background:rgba(255,255,255,.04);cursor:zoom-in;transition:transform .2s ease,filter .2s ease;}
+.type-row .type-img:hover{transform:scale(1.05);filter:brightness(1.08);}
+.pupa-photo-card img{cursor:zoom-in;}
 .type-row:hover .type-img{transform:scale(1.04);filter:saturate(1.08);}
 .type-row .tname{min-width:0}.type-row .tdesc{min-width:0}.type-row .tspecies{min-width:0}
 .type-list + .note{margin-top:16px}
 @media(max-width:760px){.type-row{grid-template-columns:64px 1fr;gap:10px}.type-row .type-img{width:64px;height:58px;grid-row:span 2}.type-row .tdesc,.type-row .tspecies{grid-column:2}.type-row .tspecies{margin-top:-3px}}
-</style></head>
+</style>
+<style>
+/* ================= IMAGE SIZE + ZOOM REFINEMENT ================= */
+/* Ảnh trong trang được giữ ở kích thước vừa phải; chỉ phóng lớn khi người xem chủ động bấm. */
+.photo-feature{
+  height:clamp(300px,42vh,430px);
+  min-height:300px;
+  max-height:430px;
+  max-width:980px;
+  margin-left:auto;
+  margin-right:auto;
+  cursor:zoom-in;
+}
+.photo-feature img{transform:scale(1.015);}
+.photo-feature.in img{transform:scale(1);}
+.photo-gallery{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  max-width:980px;
+  margin-left:auto;
+  margin-right:auto;
+  gap:12px;
+  margin-top:22px;
+}
+.gallery-card,.gallery-card:first-child{min-height:190px;height:190px;}
+.gallery-card img{object-fit:contain;background:#0A0C08;}
+.photo-feature img{max-height:330px;object-fit:contain;}
+.photo-thumb{height:135px;}
+.type-row .type-img{width:82px;height:62px;object-fit:contain;}
+
+/* Thẻ ảnh nhộng: gọn trong trang, rõ chú thích; không ép ảnh thành khổ quá lớn. */
+.pupa-photo-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.pupa-photo-card{
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:5px;
+  overflow:hidden;
+  background:rgba(255,255,255,.025);
+}
+.pupa-photo-btn{
+  position:relative;
+  display:block;
+  width:100%;
+  height:190px;
+  padding:0;
+  border:0;
+  background:#0A0C08;
+  cursor:zoom-in;
+  overflow:hidden;
+}
+.pupa-photo-btn img{width:100%;height:100%;object-fit:contain;display:block;}
+.pupa-photo-card figcaption{padding:12px 13px 14px;}
+.pupa-photo-card figcaption strong{display:block;margin:5px 0 2px;font-family:var(--serif);font-size:1rem;}
+.pupa-photo-card figcaption em{display:block;color:var(--parchment-dim);font-family:var(--mono);font-size:9px;font-style:normal;}
+.pupa-photo-card figcaption p{margin-top:9px;font-size:11px;line-height:1.55;color:var(--parchment-dim);}
+.zoom-badge{position:absolute;right:9px;top:9px;padding:5px 8px;border-radius:3px;background:rgba(10,12,8,.78);border:1px solid rgba(237,230,211,.18);font-family:var(--mono);font-size:9px;color:var(--parchment);}
+
+/* Lightbox có nút +/- và có thể lăn chuột để zoom. */
+.lightbox{padding:60px 5vw 75px;}
+.lightbox img{
+  max-width:88vw;
+  max-height:76vh;
+  transform-origin:center center;
+  transition:transform .16s ease;
+  user-select:none;
+}
+.lightbox .lb-tools{
+  position:absolute;left:50%;bottom:25px;transform:translateX(-50%);
+  display:flex;align-items:center;gap:7px;padding:7px;
+  border:1px solid rgba(237,230,211,.16);background:rgba(12,14,10,.88);
+  border-radius:999px;backdrop-filter:blur(12px);
+}
+.lightbox .lb-tools button{
+  width:36px;height:36px;border-radius:50%;border:1px solid rgba(237,230,211,.14);
+  background:rgba(237,230,211,.06);color:var(--parchment);cursor:pointer;font-size:16px;
+}
+.lightbox .lb-tools button:hover{background:rgba(184,147,90,.18);border-color:rgba(184,147,90,.5)}
+.lightbox .lb-zoom-label{min-width:52px;text-align:center;font-family:var(--mono);font-size:9px;color:var(--parchment-dim)}
+.lightbox .lb-help{position:absolute;top:20px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:9px;color:rgba(237,230,211,.55)}
+@media(max-width:900px){
+  .photo-feature{height:340px;min-height:280px;max-height:340px;}
+  .photo-gallery{grid-template-columns:1fr 1fr;}
+  .gallery-card,.gallery-card:first-child{height:180px;min-height:180px;}
+  .pupa-photo-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:560px){
+  .photo-feature{height:280px;min-height:240px;max-height:280px;}
+  .photo-gallery{grid-template-columns:1fr;}
+  .gallery-card,.gallery-card:first-child{height:210px;min-height:210px;}
+  .pupa-photo-grid{grid-template-columns:1fr;}
+  .pupa-photo-btn{height:220px;}
+  .lightbox .lb-help{display:none;}
+}
+</style>
+</head>
 <body>
 <!-- Thanh điều hướng chính -->
 <nav aria-label="Điều hướng bài trình bày" class="topnav" id="topnav">
@@ -393,8 +494,15 @@ body.presentation-mode .presentation-bar{bottom:24px}
 <!-- Phóng to hình ảnh -->
 <div aria-label="Xem hình ảnh" aria-modal="true" class="lightbox" id="lightbox" role="dialog">
 <button aria-label="Đóng" class="lb-close" id="lbClose">×</button>
-<img alt="" id="lbImage"/>
+<div class="lb-help">Cuộn chuột để zoom · kéo ảnh khi đã phóng · ESC để đóng</div>
+<img alt="" id="lbImage" draggable="false"/>
 <div class="lb-caption" id="lbCaption"></div>
+<div class="lb-tools" aria-label="Điều khiển thu phóng">
+  <button type="button" id="lbMinus" aria-label="Thu nhỏ">−</button>
+  <span class="lb-zoom-label" id="lbZoomLabel">100%</span>
+  <button type="button" id="lbPlus" aria-label="Phóng to">＋</button>
+  <button type="button" id="lbReset" aria-label="Đặt lại kích thước">↺</button>
+</div>
 </div>
 <!-- ============ TIÊU ĐỀ ============ -->
 <section class="hero simple-hero" id="hero">
@@ -452,9 +560,9 @@ body.presentation-mode .presentation-bar{bottom:24px}
 </div>
 </div>
 <div aria-label="Hình ảnh minh họa sâu non" class="photo-gallery reveal">
-<figure class="gallery-card"><img alt="Ảnh macro sâu non" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Macro_of_caterpillar.jpg?width=1200"/><figcaption class="gc-cap">Cận cảnh sâu non<small>Macro of caterpillar · Wikimedia Commons</small></figcaption></figure>
-<figure class="gallery-card"><img alt="Sâu non bướm chúa" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=900"/><figcaption class="gc-cap">Sâu non bướm chúa<small>Danaus plexippus · Wikimedia Commons</small></figcaption></figure>
-<figure class="gallery-card"><img alt="Sâu non trên lá" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=900"/><figcaption class="gc-cap">Pha ăn — tích lũy<small>Minh họa chức năng dinh dưỡng</small></figcaption></figure>
+<figure class="gallery-card"><img alt="Ảnh macro sâu non" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Macro_of_caterpillar.jpg?width=1200"/><figcaption class="gc-cap">Cận cảnh sâu non<span class="gc-species"><em>Ấu trùng Lepidoptera</em></span><small>Macro of caterpillar · Wikimedia Commons</small><span class="gc-desc">Cơ thể phân đốt, đầu phát triển và bộ máy miệng gặm nhai thích nghi với ăn lá.</span></figcaption></figure>
+<figure class="gallery-card"><img alt="Sâu non bướm chúa" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=900"/><figcaption class="gc-cap">Sâu non bướm chúa<span class="gc-species"><em>Danaus plexippus</em></span><small>Nymphalidae · Lepidoptera</small><span class="gc-desc">Sâu non ăn lá bông tai, tích lũy vật chất và năng lượng cho quá trình biến thái.</span></figcaption></figure>
+<figure class="gallery-card"><img alt="Sâu non trên lá" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=900"/><figcaption class="gc-cap">Pha ăn — tích lũy<span class="gc-species"><em>Danaus plexippus</em></span><small>Nymphalidae · Lepidoptera</small><span class="gc-desc">Giai đoạn tập trung mạnh vào dinh dưỡng và sinh trưởng khối lượng trước khi hóa nhộng.</span></figcaption></figure>
 </div>
 <!-- Morphology -->
 <div class="block split">
@@ -631,9 +739,9 @@ body.presentation-mode .presentation-bar{bottom:24px}
 </div>
 </div>
 <div aria-label="Hình ảnh minh họa nhộng" class="photo-gallery reveal">
-<figure class="gallery-card"><img alt="Nhộng bướm" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Butterfly_chrysalis.jpg?width=1200"/><figcaption class="gc-cap">Nhộng bướm (chrysalis)<small>Wikimedia Commons</small></figcaption></figure>
-<figure class="gallery-card"><img alt="Nhộng Euploea core" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Butterfly_pupa_Euploea_core_(Cramer,_1780)_(49277108727).jpg?width=900"/><figcaption class="gc-cap">Nhộng Euploea core<small>Dinesh Valke · Wikimedia Commons</small></figcaption></figure>
-<figure class="gallery-card"><img alt="Bướm vừa vũ hóa" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Common_Crow_Butterfly,_newly_emerged_from_its_chrysalis_or_pupa.jpg?width=900"/><figcaption class="gc-cap">Khoảnh khắc vũ hóa<small>Common Crow · Wikimedia Commons</small></figcaption></figure>
+<figure class="gallery-card"><img alt="Nhộng bướm" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Butterfly_chrysalis.jpg?width=1200"/><figcaption class="gc-cap">Nhộng bướm (chrysalis)<span class="gc-species"><em>Papilio</em> sp.</span><small>Lepidoptera · Wikimedia Commons</small><span class="gc-desc">Các phần phụ trưởng thành phát triển bên trong lớp vỏ nhộng; hoạt động bên ngoài giảm mạnh.</span></figcaption></figure>
+<figure class="gallery-card"><img alt="Nhộng Euploea core" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Butterfly_pupa_Euploea_core_(Cramer,_1780)_(49277108727).jpg?width=900"/><figcaption class="gc-cap">Nhộng Euploea core<span class="gc-species"><em>Euploea core</em></span><small>Nymphalidae · Lepidoptera</small><span class="gc-desc">Nhộng kiểu obtect điển hình ở nhiều bướm; cánh và phần phụ áp sát cơ thể.</span></figcaption></figure>
+<figure class="gallery-card"><img alt="Bướm vừa vũ hóa" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Common_Crow_Butterfly,_newly_emerged_from_its_chrysalis_or_pupa.jpg?width=900"/><figcaption class="gc-cap">Khoảnh khắc vũ hóa<span class="gc-species"><em>Euploea core</em> (Common Crow)</span><small>Nymphalidae · Lepidoptera</small><span class="gc-desc">Côn trùng trưởng thành thoát khỏi vỏ nhộng; cánh còn mềm và được bơm dịch để duỗi hoàn toàn.</span></figcaption></figure>
 </div>
 <!-- Pupa types -->
 <div class="block">
@@ -738,9 +846,9 @@ body.presentation-mode .presentation-bar{bottom:24px}
 </div>
 </div>
 <div aria-label="Hình ảnh minh họa côn trùng trưởng thành" class="photo-gallery reveal">
-<figure class="gallery-card"><img alt="Bướm trưởng thành với cánh hoàn chỉnh" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Swallowtail_butterfly_2.JPG?width=1200"/><figcaption class="gc-cap">Trưởng thành — hình thái hoàn chỉnh<small>Wikimedia Commons</small></figcaption></figure>
-<figure class="gallery-card"><img alt="Bọ cánh cứng cận cảnh" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Beetle_macro.jpg?width=900"/><figcaption class="gc-cap">Côn trùng trưởng thành: chuyên hóa cao<small>Beetle macro · Wikimedia Commons</small></figcaption></figure>
-<figure class="gallery-card"><img alt="Kiến thợ" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/LeafAnt.jpg?width=900"/><figcaption class="gc-cap">Nhiều hình xã hội<small>Kiến thợ · Wikimedia Commons</small></figcaption></figure>
+<figure class="gallery-card"><img alt="Bướm trưởng thành với cánh hoàn chỉnh" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Swallowtail_butterfly_2.JPG?width=1200"/><figcaption class="gc-cap">Trưởng thành — hình thái hoàn chỉnh<span class="gc-species"><em>Papilio</em> sp.</span><small>Papilionidae · Lepidoptera</small><span class="gc-desc">Có 3 đôi chân, mắt kép, râu và cánh phát triển; chức năng chính là sinh sản và phát tán.</span></figcaption></figure>
+<figure class="gallery-card"><img alt="Bọ cánh cứng cận cảnh" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Beetle_macro.jpg?width=900"/><figcaption class="gc-cap">Côn trùng trưởng thành: chuyên hóa cao<span class="gc-species"><em>Lucanidae</em> / beetle</span><small>Coleoptera · Wikimedia Commons</small><span class="gc-desc">Cơ thể trưởng thành hóa cứng, phần phụ và cơ quan cảm giác hoàn thiện, thích nghi với môi trường và sinh sản.</span></figcaption></figure>
+<figure class="gallery-card"><img alt="Kiến thợ" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/LeafAnt.jpg?width=900"/><figcaption class="gc-cap">Nhiều hình xã hội<span class="gc-species"><em>Formicidae</em> — kiến thợ</span><small>Hymenoptera · Wikimedia Commons</small><span class="gc-desc">Kiến trưởng thành có thể phân hóa hình thái theo đẳng cấp xã hội như thợ, lính và sinh sản.</span></figcaption></figure>
 </div>
 <div class="block split reveal">
 <div class="illus-frame" id="adultIllus">
@@ -1087,13 +1195,46 @@ body.presentation-mode .presentation-bar{bottom:24px}
   // Lightbox cho toàn bộ ảnh trong bài.
   const lightbox=document.getElementById('lightbox'),lbImage=document.getElementById('lbImage'),lbCaption=document.getElementById('lbCaption');
   function openLightbox(img){
+    resetLbZoom();
     if(!img?.src) return;
     lbImage.src=img.currentSrc||img.src; lbImage.alt=img.alt||'';
     const fig=img.closest('figure,.photo-feature,.photo-thumb,.panel');
     lbCaption.textContent=fig?.querySelector('figcaption,.pf-title,.pt-credit')?.textContent||img.alt||'';
     lightbox.classList.add('open'); document.body.style.overflow='hidden';
   }
-  document.querySelectorAll('.photo-feature img,.photo-gallery img,.photo-thumb img').forEach(img=>img.addEventListener('click',()=>openLightbox(img)));
+  document.querySelectorAll('.photo-feature img,.photo-gallery img,.photo-thumb img,.pupa-photo-card img,.type-row .type-img').forEach(img=>img.addEventListener('click',()=>openLightbox(img)));
+  
+  // Image zoom controls: + / - / wheel / drag.
+  const lb=document.getElementById('lightbox');
+  const lbImg=document.getElementById('lbImage');
+  const lbMinus=document.getElementById('lbMinus');
+  const lbPlus=document.getElementById('lbPlus');
+  const lbReset=document.getElementById('lbReset');
+  const lbZoomLabel=document.getElementById('lbZoomLabel');
+  let lbZoom=1, drag=false, sx=0, sy=0, ox=0, oy=0;
+  function applyLbZoom(){
+    lbImg.style.transform=`translate(${ox}px,${oy}px) scale(${lbZoom})`;
+    lbZoomLabel.textContent=Math.round(lbZoom*100)+'%';
+  }
+  function resetLbZoom(){lbZoom=1;ox=0;oy=0;applyLbZoom();}
+  function changeLbZoom(delta){lbZoom=Math.max(.5,Math.min(4,lbZoom+delta));applyLbZoom();}
+  lbPlus?.addEventListener('click',()=>changeLbZoom(.25));
+  lbMinus?.addEventListener('click',()=>changeLbZoom(-.25));
+  lbReset?.addEventListener('click',resetLbZoom);
+  lb?.addEventListener('wheel',e=>{if(!lb.classList.contains('open'))return;e.preventDefault();changeLbZoom(e.deltaY<0?.2:-.2)},{passive:false});
+  lbImg?.addEventListener('mousedown',e=>{if(lbZoom<=1)return;drag=true;sx=e.clientX;sy=e.clientY;lbImg.style.transition='none';});
+  window.addEventListener('mousemove',e=>{if(!drag)return;ox+=e.clientX-sx;oy+=e.clientY-sy;sx=e.clientX;sy=e.clientY;applyLbZoom();});
+  window.addEventListener('mouseup',()=>{drag=false;if(lbImg)lbImg.style.transition='transform .16s ease';});
+  document.addEventListener('keydown',e=>{
+    if(!lb?.classList.contains('open'))return;
+    if(e.key==='+ '||e.key==='+')changeLbZoom(.25);
+    if(e.key==='-'||e.key==='_')changeLbZoom(-.25);
+    if(e.key==='0')resetLbZoom();
+  });
+  const oldOpenLightbox=window.openLightbox;
+  // Reset whenever the lightbox is opened through the existing image handlers.
+  lb?.addEventListener('click',e=>{if(e.target===lb) {resetLbZoom();}});
+
   document.querySelectorAll('.pupa-photo-btn img').forEach(img=>img.addEventListener('click',e=>{e.stopPropagation();openLightbox(img);}));
   function closeLightbox(){lightbox.classList.remove('open');document.body.style.overflow='';lbImage.src='';}
   document.getElementById('lbClose')?.addEventListener('click',closeLightbox);
