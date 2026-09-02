@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Biến thái — Ba pha đời sống côn trùng</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;1,9..144,500&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <style>
   :root{
     --ink:#14170F;
@@ -359,508 +360,520 @@ body.presentation-mode .presentation-bar{bottom:24px}
 </style>
 </head>
 <body>
-
 <!-- Thanh điều hướng chính -->
-<nav class="topnav" id="topnav" aria-label="Điều hướng bài trình bày">
-  <div class="topnav-inner">
-    <a class="brand" href="#hero" aria-label="Về trang đầu">CÔN TRÙNG HỌC <span>· NHÓM 3</span></a>
-    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainMenu">☰ <span>Mục lục</span></button>
-    <div class="main-menu" id="mainMenu">
-      <a href="#larva">01 · Sâu non</a>
-      <a href="#pupa">02 · Nhộng</a>
-      <a href="#adult">03 · Trưởng thành</a>
-    </div>
-  </div>
+<nav aria-label="Điều hướng bài trình bày" class="topnav" id="topnav">
+<div class="topnav-inner">
+<a aria-label="Về trang đầu" class="brand" href="#hero">CÔN TRÙNG HỌC <span>· NHÓM 3</span></a>
+<button aria-controls="mainMenu" aria-expanded="false" class="menu-toggle" id="menuToggle">☰ <span>Mục lục</span></button>
+<div class="main-menu" id="mainMenu"><a href="#overview">Tổng quan</a><a href="#larva">01 · Sâu non</a><a href="#pupa">02 · Nhộng</a><a href="#adult">03 · Trưởng thành</a><a href="#compare">So sánh</a><a href="#conclusion">Kết luận</a></div>
+</div>
 </nav>
-
 <nav id="rail"></nav>
-
-<button class="to-top" id="toTop" aria-label="Lên đầu trang" title="Lên đầu trang">↑</button>
-
+<button aria-label="Lên đầu trang" class="to-top" id="toTop" title="Lên đầu trang">↑</button>
 <!-- Thanh điều khiển trình chiếu -->
-<div class="presentation-bar" id="presentationBar" aria-label="Điều khiển trình chiếu">
-  <button id="prevStage" title="Pha trước (←)">‹</button>
-  <button class="play" id="presentBtn" title="Bật/tắt chế độ trình chiếu (P)">▶ <span>Trình chiếu</span></button>
-  <div class="progress" aria-hidden="true"><i id="stageProgress"></i></div>
-  <div class="counter" id="stageCounter">1/4</div>
-  <button id="nextStage" title="Pha tiếp (→)">›</button>
+<div aria-label="Điều khiển trình chiếu" class="presentation-bar" id="presentationBar">
+<button id="prevStage" title="Mục trước (←)">‹</button>
+<button class="play" id="presentBtn" title="Bật/tắt chế độ trình chiếu (P)">▶ <span>Trình chiếu</span></button>
+<div aria-hidden="true" class="progress"><i id="stageProgress"></i></div>
+<div class="counter" id="stageCounter">1/7</div>
+<button id="nextStage" title="Mục tiếp (→)">›</button>
 </div>
-<div class="keyhint">← → chuyển pha · P trình chiếu · Esc thoát</div>
-
+<div class="keyhint">← → chuyển mục · P trình chiếu · Esc thoát</div>
 <!-- Phóng to hình ảnh -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Xem hình ảnh">
-  <button class="lb-close" id="lbClose" aria-label="Đóng">×</button>
-  <img id="lbImage" alt="">
-  <div class="lb-caption" id="lbCaption"></div>
+<div aria-label="Xem hình ảnh" aria-modal="true" class="lightbox" id="lightbox" role="dialog">
+<button aria-label="Đóng" class="lb-close" id="lbClose">×</button>
+<img alt="" id="lbImage"/>
+<div class="lb-caption" id="lbCaption"></div>
 </div>
-
 <!-- ============ TIÊU ĐỀ ============ -->
 <section class="hero simple-hero" id="hero">
-  <div class="wrap">
-    <div class="simple-title">
-      <div class="simple-kicker">CÔN TRÙNG HỌC</div>
-      <h1>Đặc điểm hình thái và sinh lý<br>ở 3 pha phát triển của côn trùng</h1>
-      <p>Sâu non — Nhộng — Trưởng thành</p>
-    </div>
-  </div>
+<div class="wrap">
+<div class="simple-title">
+<div class="simple-kicker">CÔN TRÙNG HỌC</div>
+<h1>Đặc điểm hình thái và sinh lý<br/>ở 3 pha phát triển của côn trùng</h1>
+<p>Sâu non — Nhộng — Trưởng thành</p>
+</div>
+</div>
+</section><section class="stage bg-ink" data-rail="Tổng quan" id="overview">
+<div class="wrap">
+<div class="stage-head reveal">
+<div class="tag"><span class="dot"></span>ĐC.00 — TỔNG QUAN VÒNG ĐỜI</div>
+<h2>Bốn điểm dừng, một hành trình khép kín</h2>
+<p>Côn trùng biến thái hoàn toàn (Holometabola) đi qua bốn hình hài khác biệt tuyệt đối — mỗi pha giải một bài toán sinh tồn riêng, trước khi nhường chỗ cho pha kế tiếp.</p>
+</div>
+<div class="lifecycle reveal">
+<div class="lc-row">
+<div class="lc-node" style="--c:var(--parchment-dim)">
+<div class="lc-dot"></div><div class="lc-label">Trứng</div><div class="lc-sub">Khởi đầu</div>
+</div>
+<div class="lc-link"></div>
+<div class="lc-node" style="--c:var(--rust)">
+<div class="lc-dot"></div><div class="lc-label">Sâu non</div><div class="lc-sub">Ăn — tích lũy</div>
+</div>
+<div class="lc-link"></div>
+<div class="lc-node" style="--c:var(--brass)">
+<div class="lc-dot"></div><div class="lc-label">Nhộng</div><div class="lc-sub">Tái tạo</div>
+</div>
+<div class="lc-link"></div>
+<div class="lc-node" style="--c:var(--lichen)">
+<div class="lc-dot"></div><div class="lc-label">Trưởng thành</div><div class="lc-sub">Sinh sản — phát tán</div>
+</div>
+</div>
+</div>
+<p class="note reveal">Ở nhóm biến thái không hoàn toàn (Hemimetabola), pha nhộng bị bỏ qua — ấu trùng chuyển trực tiếp thành trưởng thành, hình thái thay đổi dần qua mỗi lần lột xác.</p>
+</div>
 </section>
-
-
-
 <!-- ============ STAGE 01 — SÂU NON ============ -->
-<section class="stage bg-canopy" id="larva" data-rail="01 · Sâu non">
-  <div class="wrap">
-    <div class="stage-head reveal">
-      <div class="tag"><span class="dot"></span>ĐC.01 — SÂU NON / ẤU TRÙNG</div>
-    <div class="stage-tools" data-tools="larva"><span class="tool-label">ĐIỀU HƯỚNG PHA</span><button type="button">Hình thái ngoài</button><button type="button">Hệ cơ quan</button><button type="button">Lột xác & sinh trưởng</button></div>
-      <h2>Đặc điểm hình thái và sinh lý — sâu non</h2>
-      <p>Toàn bộ cấu tạo của sâu non phục vụ một mục tiêu duy nhất: ăn, tích lũy dinh dưỡng và sinh trưởng khối lượng nhanh nhất có thể trước khi hóa nhộng.</p>
-    </div>
-
-    <div class="photo-feature reveal-zoom">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=1600" alt="Sâu non bướm chúa (Danaus plexippus) đang ăn lá" loading="lazy">
-      <div class="pf-cap">
-        <div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · DANAUS PLEXIPPUS</div>
-        <div class="pf-title">Sâu non bướm chúa đang ăn lá bông tai (Asclepias)</div>
-        <div class="pf-credit">Ảnh: Derek Ramsey (Ram-Man) · Wikimedia Commons</div>
-      </div>
-    </div>
-
-    <div class="photo-gallery reveal" aria-label="Hình ảnh minh họa sâu non">
-      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Macro_of_caterpillar.jpg?width=1200" alt="Ảnh macro sâu non" loading="lazy"><figcaption class="gc-cap">Cận cảnh sâu non<small>Macro of caterpillar · Wikimedia Commons</small></figcaption></figure>
-      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=900" alt="Sâu non bướm chúa" loading="lazy"><figcaption class="gc-cap">Sâu non bướm chúa<small>Danaus plexippus · Wikimedia Commons</small></figcaption></figure>
-      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=900" alt="Sâu non trên lá" loading="lazy"><figcaption class="gc-cap">Pha ăn — tích lũy<small>Minh họa chức năng dinh dưỡng</small></figcaption></figure>
-    </div>
-
-    <!-- Morphology -->
-    <div class="block split">
-      <div class="illus-frame reveal-l" id="larvaIllus">
-        <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="segG" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#A8B67F"/>
-              <stop offset="100%" stop-color="#6E7F4C"/>
-            </linearGradient>
-            <linearGradient id="headG" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#9C4A2E"/>
-              <stop offset="100%" stop-color="#6E2F1D"/>
-            </linearGradient>
-          </defs>
-          <!-- twig -->
-          <path d="M 10 260 Q 280 300 550 250" stroke="#4A3A28" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.6"/>
-
-          <!-- body segments (abdomen, drawn back to front) -->
-          <g>
-            <ellipse cx="470" cy="205" rx="34" ry="30" fill="url(#segG)"/>
-            <ellipse cx="418" cy="200" rx="38" ry="33" fill="url(#segG)"/>
-            <ellipse cx="364" cy="197" rx="40" ry="35" fill="url(#segG)"/>
-            <ellipse cx="308" cy="196" rx="41" ry="36" fill="url(#segG)"/>
-            <ellipse cx="252" cy="197" rx="40" ry="35" fill="url(#segG)"/>
-            <ellipse cx="198" cy="200" rx="37" ry="32" fill="url(#segG)"/>
-            <!-- thorax (3 segs, slightly darker) -->
-            <ellipse cx="150" cy="203" rx="30" ry="27" fill="#8A9B68"/>
-            <ellipse cx="108" cy="203" rx="27" ry="24" fill="#8A9B68"/>
-            <ellipse cx="72" cy="200" rx="24" ry="22" fill="#8A9B68"/>
-          </g>
-
-          <!-- spiracles -->
-          <g fill="#2A2A1E" opacity="0.55">
-            <circle cx="470" cy="192" r="3"/><circle cx="418" cy="186" r="3"/><circle cx="364" cy="182" r="3"/>
-            <circle cx="308" cy="181" r="3"/><circle cx="252" cy="182" r="3"/><circle cx="198" cy="186" r="3"/>
-          </g>
-
-          <!-- prolegs (abdomen) -->
-          <g fill="#5C6B3E">
-            <path d="M 460 232 q -4 20 -14 26 q 14 4 22 -6 q 8 -12 2 -22 Z"/>
-            <path d="M 404 228 q -4 20 -14 26 q 14 4 22 -6 q 8 -12 2 -22 Z"/>
-            <path d="M 350 226 q -4 20 -14 26 q 14 4 22 -6 q 8 -12 2 -22 Z"/>
-            <path d="M 294 226 q -4 20 -14 26 q 14 4 22 -6 q 8 -12 2 -22 Z"/>
-          </g>
-          <!-- true legs (thorax) -->
-          <g stroke="#3A2E1F" stroke-width="4" stroke-linecap="round">
-            <path d="M 122 222 L 112 244"/>
-            <path d="M 96 222 L 88 244"/>
-            <path d="M 68 218 L 62 240"/>
-          </g>
-
-          <!-- head -->
-          <circle cx="34" cy="196" r="26" fill="url(#headG)"/>
-          <circle cx="26" cy="188" r="3.4" fill="#EDE6D3"/>
-          <circle cx="26" cy="200" r="2.6" fill="#EDE6D3" opacity="0.7"/>
-          <circle cx="22" cy="209" r="2" fill="#EDE6D3" opacity="0.5"/>
-          <path d="M 20 176 q -14 -10 -26 -4" stroke="#3A2E1F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-
-          <!-- fine texture lines on body -->
-          <g stroke="#3A4A2C" stroke-width="1" opacity="0.3" fill="none">
-            <path d="M 470 175 v 60"/><path d="M 418 167 v 66"/><path d="M 364 162 v 70"/>
-            <path d="M 308 160 v 72"/><path d="M 252 162 v 70"/><path d="M 198 168 v 64"/>
-          </g>
-        </svg>
-      </div>
-      <div class="reveal-r">
-        <div class="block-title"><span class="no">01</span> Cấu tạo hình thái ngoài</div>
-        <div class="grid-2">
-          <div class="panel"><span class="num">ĐẦU</span><h4>Không mắt kép</h4><p>Chỉ có mắt đơn (mắt bên) 1–7 đôi hai bên đầu. Râu tiêu giảm, ngắn.</p></div>
-          <div class="panel"><span class="num">NGỰC</span><h4>3 đốt, chân đơn giản</h4><p>3 đôi chân ngực ngắn. Chưa có cánh hoàn chỉnh, chỉ có mầm cánh.</p></div>
-          <div class="panel"><span class="num">BỤNG</span><h4>Nhiều đốt, lỗ thở</h4><p>Một số nhóm có chân bụng (pedes spurii) với móc bám chắc giá thể.</p></div>
-          <div class="panel"><span class="num">VỎ</span><h4>Mềm, đàn hồi</h4><p>Chitin mỏng — ranh giới đầu/ngực/bụng chưa rõ rệt, thân 13 đốt.</p></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Internal organs -->
-    <div class="block reveal">
-      <div class="block-title"><span class="no">02</span> Các hệ cơ quan bên trong</div>
-      <div class="grid-3 stagger">
-        <div class="panel reveal" style="--i:0"><span class="num">TIÊU HÓA</span><h4>Ống 3 phần</h4><p>Ruột trước–giữa–sau; ruột giữa hấp thu dinh dưỡng chính, hoạt động mạnh do ăn liên tục.</p></div>
-        <div class="panel reveal" style="--i:1"><span class="num">BÀI TIẾT</span><h4>Ống Malpighi</h4><p>Lọc axit uric từ máu, đổ vào ranh giới ruột giữa – ruột sau.</p></div>
-        <div class="panel reveal" style="--i:2"><span class="num">TUẦN HOÀN</span><h4>Hệ hở</h4><p>Mạch lưng bơm huyết tương mang dinh dưỡng & hormon, không mang oxy.</p></div>
-        <div class="panel reveal" style="--i:3"><span class="num">HÔ HẤP</span><h4>Ống khí quản</h4><p>Phân nhánh tới tận mô; thông ngoài qua lỗ thở hai bên đốt.</p></div>
-        <div class="panel reveal" style="--i:4"><span class="num">THẦN KINH</span><h4>Chuỗi hạch</h4><p>Não — dưới hầu — ngực/bụng, điều khiển vận động & phối hợp nội tiết.</p></div>
-        <div class="panel reveal" style="--i:5; background:rgba(156,74,46,0.14); border-color:rgba(156,74,46,0.4);"><span class="num" style="color:var(--rust)">VAI TRÒ CHUNG</span><h4>Ăn — tích lũy — sinh trưởng</h4><p>Mọi hệ cơ quan phục vụ một mục tiêu cốt lõi duy nhất.</p></div>
-      </div>
-    </div>
-
-    <!-- Molting / instar -->
-    <div class="block reveal">
-      <div class="block-title"><span class="no">03</span> Sinh trưởng nhảy vọt: cơ chế lột xác</div>
-      <p style="color:var(--parchment-dim); max-width:70ch; margin-bottom:36px;">Vỏ chitin cứng giới hạn thể tích cơ thể → côn trùng bắt buộc lột xác nhiều lần để lớn lên. Sau mỗi lần lột xác, kích thước cơ thể tăng đột ngột.</p>
-      <div class="instar-row stagger">
-        <div class="instar reveal-zoom" style="--i:0"><div class="idot" style="width:34px;height:34px;">T1</div><div class="ilabel">Mới nở</div></div>
-        <div class="iarrow reveal" style="--i:1">lột xác</div>
-        <div class="instar reveal-zoom" style="--i:2"><div class="idot" style="width:42px;height:42px;">T2</div></div>
-        <div class="iarrow reveal" style="--i:3">lột xác</div>
-        <div class="instar reveal-zoom" style="--i:4"><div class="idot" style="width:50px;height:50px;">T3</div></div>
-        <div class="iarrow reveal" style="--i:5">lột xác</div>
-        <div class="instar reveal-zoom" style="--i:6"><div class="idot" style="width:58px;height:58px;">T4</div></div>
-        <div class="iarrow reveal" style="--i:7">lột xác</div>
-        <div class="instar reveal-zoom" style="--i:8"><div class="idot rust" style="width:66px;height:66px;">T5</div><div class="ilabel">Hóa nhộng</div></div>
-      </div>
-      <div class="split" style="margin-top:48px; align-items:start;">
-        <div class="panel reveal-l">
-          <span class="num">CÔNG THỨC</span>
-          <h4 style="font-size:1.4rem;">Tuổi sâu = Số lần lột xác + 1</h4>
-          <p style="margin-top:10px;">Khoảng thời gian giữa hai lần lột xác gọi là một tuổi. Sâu mới nở ra từ trứng là tuổi 1.</p>
-        </div>
-        <div class="panel reveal-r"><span class="num">Ý NGHĨA</span><h4>Thời điểm mẫn cảm</h4><p>Sâu tuổi nhỏ (1–2) sức đề kháng yếu, ăn ít. Ngay sau lột xác, da còn mềm — dễ tiêu diệt nhất bằng biện pháp hóa học/sinh học.</p></div>
-      </div>
-    </div>
-
-    <!-- Hormone -->
-    <div class="block reveal">
-      <div class="block-title"><span class="no">04</span> Điều hòa hormone quá trình lột xác</div>
-      <div class="hormone-flow stagger">
-        <div class="hnode reveal" style="--i:0"><div class="hno">01</div><h4>Tế bào thần kinh (não)</h4><p>Tổng hợp hormon hoạt hóa PTTH</p></div>
-        <div class="harrow reveal" style="--i:1">→</div>
-        <div class="hnode reveal" style="--i:2"><div class="hno">02</div><h4>Tuyến tim <span style="opacity:.6; font-weight:400;">(Corpora cardiaca)</span></h4><p>Vận chuyển & phóng thích PTTH</p></div>
-        <div class="harrow reveal" style="--i:3">→</div>
-        <div class="hnode reveal" style="--i:4"><div class="hno">03</div><h4>Tuyến ngực trước</h4><p>Tiết Ecdyson → gây lột xác</p></div>
-        <div class="harrow reveal" style="--i:5">→</div>
-        <div class="hnode reveal" style="--i:6"><div class="hno">04</div><h4>Thể allata <span style="opacity:.6; font-weight:400;">(Corpora allata)</span></h4><p>Tiết hormon trẻ (JH), ức chế hóa nhộng</p></div>
-      </div>
-      <p class="note reveal">Nội bì tiết dịch men vào khe Exuviae, tiêu hóa và tái hấp thu ~90% lớp biểu bì trong. Áp lực máu và hô hấp tăng làm vỏ ngoài nứt theo đường chữ Y sau gáy để sâu chui ra.</p>
-    </div>
-
-    <!-- Classification: mouth & prolegs -->
-    <div class="block reveal">
-      <div class="block-title"><span class="no">05</span> Phân loại kiểu miệng và chân bụng</div>
-      <p style="color:var(--brass); font-family:var(--mono); font-size:12px; margin-bottom:6px;">KIỂU MIỆNG</p>
-      <div class="type-list c-rust">
-        <div class="type-row"><div class="tname">Gặm nhai <span style="opacity:.55; font-weight:400;">(phổ biến nhất)</span></div><div class="tdesc">Cắn xé mô lá — kiểu miệng của đa số sâu non bộ Cánh vẩy, Cánh cứng.</div><div class="tspecies">Helicoverpa armigera</div></div>
-        <div class="type-row"><div class="tname">Chích hút</div><div class="tdesc">Thiếu trùng biến thái không hoàn toàn — cùng kiểu miệng với trưởng thành.</div><div class="tspecies">Nilaparvata lugens</div></div>
-      </div>
-      <p style="color:var(--brass); font-family:var(--mono); font-size:12px; margin:28px 0 6px;">KIỂU CHÂN BỤNG (PEDES SPURII)</p>
-      <div class="type-list c-lichen">
-        <div class="type-row"><div class="tname">Đầy đủ 5 đôi</div><div class="tdesc">Điển hình bộ Cánh vẩy — di chuyển bò thông thường.</div><div class="tspecies">Spodoptera litura</div></div>
-        <div class="type-row"><div class="tname">Thiếu, chỉ 2 đôi cuối</div><div class="tdesc">Họ Sâu đo (Geometridae) — di chuyển kiểu "đo" đặc trưng.</div><div class="tspecies">Hyposidra talaca</div></div>
-        <div class="type-row"><div class="tname">Không có (dạng dòi)</div><div class="tdesc">Không chân bụng, cơ thể hình trụ trơn.</div><div class="tspecies">Bactrocera dorsalis</div></div>
-      </div>
-    </div>
-
-    <!-- Classification: hairs/spines -->
-    <div class="block reveal">
-      <div class="block-title"><span class="no">06</span> Phân loại lông, gai trên cơ thể</div>
-      <div class="grid-2 stagger">
-        <div class="panel reveal" style="--i:0"><span class="num">TRƠN</span><h4>Không lông</h4><p>Cơ thể nhẵn, không có lông hay gai đáng kể.</p><p class="sp">Spodoptera exigua</p></div>
-        <div class="panel reveal" style="--i:1"><span class="num">LÔNG TƠ</span><h4>Mềm, rải rác</h4><p>Lông mảnh, không độc, mọc thưa quanh cơ thể.</p><p class="sp">Họ Noctuidae</p></div>
-        <div class="panel reveal" style="--i:2"><span class="num">LÔNG ĐỘC</span><h4>Gai độc</h4><p>Lông cứng chứa độc tố, gây ngứa rát khi tiếp xúc.</p><p class="sp">Dendrolimus punctatus</p></div>
-        <div class="panel reveal" style="--i:3"><span class="num">GAI / SỪNG</span><h4>U lồi đuôi</h4><p>Gai hoặc sừng nhô ở đốt cuối bụng — đặc trưng phân loại họ.</p><p class="sp">Manduca sexta</p></div>
-      </div>
-    </div>
-
-    <!-- BVTV significance -->
-    <div class="block reveal">
-      <div class="block-title"><span class="no">07</span> Ý nghĩa trong bảo vệ thực vật</div>
-      <div class="grid-2 stagger">
-        <div class="panel reveal" style="--i:0"><h4>Lượng ăn tăng theo tuổi</h4><p>Sâu tuổi nhỏ (1–2) sức đề kháng yếu, ăn ít, gây hại chưa đáng kể.</p></div>
-        <div class="panel reveal" style="--i:1"><h4>Tuổi lớn phá hại mạnh</h4><p>Càng về cuối tuổi, sức ăn càng lớn — giai đoạn gây thiệt hại mùa màng chủ yếu.</p></div>
-        <div class="panel reveal" style="--i:2"><h4>Thời điểm "mẫn cảm" nhất</h4><p>Ngay sau lột xác, da còn mềm — dễ tiêu diệt nhất bằng biện pháp hóa học & sinh học.</p></div>
-        <div class="panel reveal" style="--i:3"><h4>Ứng dụng phòng trừ</h4><p>Theo dõi tuổi sâu để chọn đúng thời điểm và biện pháp phòng trừ hiệu quả.</p></div>
-      </div>
-    </div>
-
-  </div>
+<section class="stage bg-canopy" data-rail="01 · Sâu non" id="larva">
+<div class="wrap">
+<div class="stage-head reveal">
+<div class="tag"><span class="dot"></span>ĐC.01 — SÂU NON / ẤU TRÙNG</div>
+<div class="stage-tools" data-tools="larva"><span class="tool-label">ĐIỀU HƯỚNG PHA</span><button type="button">Hình thái ngoài</button><button type="button">Hệ cơ quan</button><button type="button">Lột xác &amp; sinh trưởng</button></div>
+<h2>Đặc điểm hình thái và sinh lý — sâu non</h2>
+<p>Toàn bộ cấu tạo của sâu non phục vụ một mục tiêu duy nhất: ăn, tích lũy dinh dưỡng và sinh trưởng khối lượng nhanh nhất có thể trước khi hóa nhộng.</p>
+</div>
+<div class="photo-feature reveal-zoom">
+<img alt="Sâu non bướm chúa (Danaus plexippus) đang ăn lá" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=1600"/>
+<div class="pf-cap">
+<div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · DANAUS PLEXIPPUS</div>
+<div class="pf-title">Sâu non bướm chúa đang ăn lá bông tai (Asclepias)</div>
+<div class="pf-credit">Ảnh: Derek Ramsey (Ram-Man) · Wikimedia Commons</div>
+</div>
+</div>
+<div aria-label="Hình ảnh minh họa sâu non" class="photo-gallery reveal">
+<figure class="gallery-card"><img alt="Ảnh macro sâu non" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Macro_of_caterpillar.jpg?width=1200"/><figcaption class="gc-cap">Cận cảnh sâu non<small>Macro of caterpillar · Wikimedia Commons</small></figcaption></figure>
+<figure class="gallery-card"><img alt="Sâu non bướm chúa" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=900"/><figcaption class="gc-cap">Sâu non bướm chúa<small>Danaus plexippus · Wikimedia Commons</small></figcaption></figure>
+<figure class="gallery-card"><img alt="Sâu non trên lá" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=900"/><figcaption class="gc-cap">Pha ăn — tích lũy<small>Minh họa chức năng dinh dưỡng</small></figcaption></figure>
+</div>
+<!-- Morphology -->
+<div class="block split">
+<div class="illus-frame reveal-l" id="larvaIllus">
+<svg viewbox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="segG" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#A8B67F"></stop>
+<stop offset="100%" stop-color="#6E7F4C"></stop>
+</lineargradient>
+<lineargradient id="headG" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#9C4A2E"></stop>
+<stop offset="100%" stop-color="#6E2F1D"></stop>
+</lineargradient>
+</defs>
+<!-- twig -->
+<path d="M 10 260 Q 280 300 550 250" fill="none" opacity="0.6" stroke="#4A3A28" stroke-linecap="round" stroke-width="4"></path>
+<!-- body segments (abdomen, drawn back to front) -->
+<g>
+<ellipse cx="470" cy="205" fill="url(#segG)" rx="34" ry="30"></ellipse>
+<ellipse cx="418" cy="200" fill="url(#segG)" rx="38" ry="33"></ellipse>
+<ellipse cx="364" cy="197" fill="url(#segG)" rx="40" ry="35"></ellipse>
+<ellipse cx="308" cy="196" fill="url(#segG)" rx="41" ry="36"></ellipse>
+<ellipse cx="252" cy="197" fill="url(#segG)" rx="40" ry="35"></ellipse>
+<ellipse cx="198" cy="200" fill="url(#segG)" rx="37" ry="32"></ellipse>
+<!-- thorax (3 segs, slightly darker) -->
+<ellipse cx="150" cy="203" fill="#8A9B68" rx="30" ry="27"></ellipse>
+<ellipse cx="108" cy="203" fill="#8A9B68" rx="27" ry="24"></ellipse>
+<ellipse cx="72" cy="200" fill="#8A9B68" rx="24" ry="22"></ellipse>
+</g>
+<!-- spiracles -->
+<g fill="#2A2A1E" opacity="0.55">
+<circle cx="470" cy="192" r="3"></circle><circle cx="418" cy="186" r="3"></circle><circle cx="364" cy="182" r="3"></circle>
+<circle cx="308" cy="181" r="3"></circle><circle cx="252" cy="182" r="3"></circle><circle cx="198" cy="186" r="3"></circle>
+</g>
+<!-- prolegs (abdomen) -->
+<g fill="#5C6B3E">
+<path d="M 460 232 q -4 20 -14 26 q 14 4 22 -6 q 8 -12 2 -22 Z"></path>
+<path d="M 404 228 q -4 20 -14 26 q 14 4 22 -6 q 8 -12 2 -22 Z"></path>
+<path d="M 350 226 q -4 20 -14 26 q 14 4 22 -6 q 8 -12 2 -22 Z"></path>
+<path d="M 294 226 q -4 20 -14 26 q 14 4 22 -6 q 8 -12 2 -22 Z"></path>
+</g>
+<!-- true legs (thorax) -->
+<g stroke="#3A2E1F" stroke-linecap="round" stroke-width="4">
+<path d="M 122 222 L 112 244"></path>
+<path d="M 96 222 L 88 244"></path>
+<path d="M 68 218 L 62 240"></path>
+</g>
+<!-- head -->
+<circle cx="34" cy="196" fill="url(#headG)" r="26"></circle>
+<circle cx="26" cy="188" fill="#EDE6D3" r="3.4"></circle>
+<circle cx="26" cy="200" fill="#EDE6D3" opacity="0.7" r="2.6"></circle>
+<circle cx="22" cy="209" fill="#EDE6D3" opacity="0.5" r="2"></circle>
+<path d="M 20 176 q -14 -10 -26 -4" fill="none" stroke="#3A2E1F" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- fine texture lines on body -->
+<g fill="none" opacity="0.3" stroke="#3A4A2C" stroke-width="1">
+<path d="M 470 175 v 60"></path><path d="M 418 167 v 66"></path><path d="M 364 162 v 70"></path>
+<path d="M 308 160 v 72"></path><path d="M 252 162 v 70"></path><path d="M 198 168 v 64"></path>
+</g>
+</svg>
+</div>
+<div class="reveal-r">
+<div class="block-title"><span class="no">01</span> Cấu tạo hình thái ngoài</div>
+<div class="grid-2">
+<div class="panel"><span class="num">ĐẦU</span><h4>Không mắt kép</h4><p>Chỉ có mắt đơn (mắt bên) 1–7 đôi hai bên đầu. Râu tiêu giảm, ngắn.</p></div>
+<div class="panel"><span class="num">NGỰC</span><h4>3 đốt, chân đơn giản</h4><p>3 đôi chân ngực ngắn. Chưa có cánh hoàn chỉnh, chỉ có mầm cánh.</p></div>
+<div class="panel"><span class="num">BỤNG</span><h4>Nhiều đốt, lỗ thở</h4><p>Một số nhóm có chân bụng (pedes spurii) với móc bám chắc giá thể.</p></div>
+<div class="panel"><span class="num">VỎ</span><h4>Mềm, đàn hồi</h4><p>Chitin mỏng — ranh giới đầu/ngực/bụng chưa rõ rệt, thân 13 đốt.</p></div>
+</div>
+</div>
+</div>
+<!-- Internal organs -->
+<div class="block reveal">
+<div class="block-title"><span class="no">02</span> Các hệ cơ quan bên trong</div>
+<div class="grid-3 stagger">
+<div class="panel reveal" style="--i:0"><span class="num">TIÊU HÓA</span><h4>Ống 3 phần</h4><p>Ruột trước–giữa–sau; ruột giữa hấp thu dinh dưỡng chính, hoạt động mạnh do ăn liên tục.</p></div>
+<div class="panel reveal" style="--i:1"><span class="num">BÀI TIẾT</span><h4>Ống Malpighi</h4><p>Lọc axit uric từ máu, đổ vào ranh giới ruột giữa – ruột sau.</p></div>
+<div class="panel reveal" style="--i:2"><span class="num">TUẦN HOÀN</span><h4>Hệ hở</h4><p>Mạch lưng bơm huyết tương mang dinh dưỡng &amp; hormon, không mang oxy.</p></div>
+<div class="panel reveal" style="--i:3"><span class="num">HÔ HẤP</span><h4>Ống khí quản</h4><p>Phân nhánh tới tận mô; thông ngoài qua lỗ thở hai bên đốt.</p></div>
+<div class="panel reveal" style="--i:4"><span class="num">THẦN KINH</span><h4>Chuỗi hạch</h4><p>Não — dưới hầu — ngực/bụng, điều khiển vận động &amp; phối hợp nội tiết.</p></div>
+<div class="panel reveal" style="--i:5; background:rgba(156,74,46,0.14); border-color:rgba(156,74,46,0.4);"><span class="num" style="color:var(--rust)">VAI TRÒ CHUNG</span><h4>Ăn — tích lũy — sinh trưởng</h4><p>Mọi hệ cơ quan phục vụ một mục tiêu cốt lõi duy nhất.</p></div>
+</div>
+</div>
+<!-- Molting / instar -->
+<div class="block reveal">
+<div class="block-title"><span class="no">03</span> Sinh trưởng nhảy vọt: cơ chế lột xác</div>
+<p style="color:var(--parchment-dim); max-width:70ch; margin-bottom:36px;">Vỏ chitin cứng giới hạn thể tích cơ thể → côn trùng bắt buộc lột xác nhiều lần để lớn lên. Sau mỗi lần lột xác, kích thước cơ thể tăng đột ngột.</p>
+<div class="instar-row stagger">
+<div class="instar reveal-zoom" style="--i:0"><div class="idot" style="width:34px;height:34px;">T1</div><div class="ilabel">Mới nở</div></div>
+<div class="iarrow reveal" style="--i:1">lột xác</div>
+<div class="instar reveal-zoom" style="--i:2"><div class="idot" style="width:42px;height:42px;">T2</div></div>
+<div class="iarrow reveal" style="--i:3">lột xác</div>
+<div class="instar reveal-zoom" style="--i:4"><div class="idot" style="width:50px;height:50px;">T3</div></div>
+<div class="iarrow reveal" style="--i:5">lột xác</div>
+<div class="instar reveal-zoom" style="--i:6"><div class="idot" style="width:58px;height:58px;">T4</div></div>
+<div class="iarrow reveal" style="--i:7">lột xác</div>
+<div class="instar reveal-zoom" style="--i:8"><div class="idot rust" style="width:66px;height:66px;">T5</div><div class="ilabel">Hóa nhộng</div></div>
+</div>
+<div class="split" style="margin-top:48px; align-items:start;">
+<div class="panel reveal-l">
+<span class="num">CÔNG THỨC</span>
+<h4 style="font-size:1.4rem;">Tuổi sâu = Số lần lột xác + 1</h4>
+<p style="margin-top:10px;">Khoảng thời gian giữa hai lần lột xác gọi là một tuổi. Sâu mới nở ra từ trứng là tuổi 1.</p>
+</div>
+<div class="panel reveal-r"><span class="num">Ý NGHĨA</span><h4>Thời điểm mẫn cảm</h4><p>Sâu tuổi nhỏ (1–2) sức đề kháng yếu, ăn ít. Ngay sau lột xác, da còn mềm — dễ tiêu diệt nhất bằng biện pháp hóa học/sinh học.</p></div>
+</div>
+</div>
+<!-- Hormone -->
+<div class="block reveal">
+<div class="block-title"><span class="no">04</span> Điều hòa hormone quá trình lột xác</div>
+<div class="hormone-flow stagger">
+<div class="hnode reveal" style="--i:0"><div class="hno">01</div><h4>Tế bào thần kinh (não)</h4><p>Tổng hợp hormon hoạt hóa PTTH</p></div>
+<div class="harrow reveal" style="--i:1">→</div>
+<div class="hnode reveal" style="--i:2"><div class="hno">02</div><h4>Tuyến tim <span style="opacity:.6; font-weight:400;">(Corpora cardiaca)</span></h4><p>Vận chuyển &amp; phóng thích PTTH</p></div>
+<div class="harrow reveal" style="--i:3">→</div>
+<div class="hnode reveal" style="--i:4"><div class="hno">03</div><h4>Tuyến ngực trước</h4><p>Tiết Ecdyson → gây lột xác</p></div>
+<div class="harrow reveal" style="--i:5">→</div>
+<div class="hnode reveal" style="--i:6"><div class="hno">04</div><h4>Thể allata <span style="opacity:.6; font-weight:400;">(Corpora allata)</span></h4><p>Tiết hormon trẻ (JH), ức chế hóa nhộng</p></div>
+</div>
+<p class="note reveal">Nội bì tiết dịch men vào khe Exuviae, tiêu hóa và tái hấp thu ~90% lớp biểu bì trong. Áp lực máu và hô hấp tăng làm vỏ ngoài nứt theo đường chữ Y sau gáy để sâu chui ra.</p>
+</div>
+<!-- Classification: mouth & prolegs -->
+<div class="block reveal">
+<div class="block-title"><span class="no">05</span> Phân loại kiểu miệng và chân bụng</div>
+<p style="color:var(--brass); font-family:var(--mono); font-size:12px; margin-bottom:6px;">KIỂU MIỆNG</p>
+<div class="type-list c-rust">
+<div class="type-row"><div class="tname">Gặm nhai <span style="opacity:.55; font-weight:400;">(phổ biến nhất)</span></div><div class="tdesc">Cắn xé mô lá — kiểu miệng của đa số sâu non bộ Cánh vẩy, Cánh cứng.</div><div class="tspecies">Helicoverpa armigera</div></div>
+<div class="type-row"><div class="tname">Chích hút</div><div class="tdesc">Thiếu trùng biến thái không hoàn toàn — cùng kiểu miệng với trưởng thành.</div><div class="tspecies">Nilaparvata lugens</div></div>
+</div>
+<p style="color:var(--brass); font-family:var(--mono); font-size:12px; margin:28px 0 6px;">KIỂU CHÂN BỤNG (PEDES SPURII)</p>
+<div class="type-list c-lichen">
+<div class="type-row"><div class="tname">Đầy đủ 5 đôi</div><div class="tdesc">Điển hình bộ Cánh vẩy — di chuyển bò thông thường.</div><div class="tspecies">Spodoptera litura</div></div>
+<div class="type-row"><div class="tname">Thiếu, chỉ 2 đôi cuối</div><div class="tdesc">Họ Sâu đo (Geometridae) — di chuyển kiểu "đo" đặc trưng.</div><div class="tspecies">Hyposidra talaca</div></div>
+<div class="type-row"><div class="tname">Không có (dạng dòi)</div><div class="tdesc">Không chân bụng, cơ thể hình trụ trơn.</div><div class="tspecies">Bactrocera dorsalis</div></div>
+</div>
+</div>
+<!-- Classification: hairs/spines -->
+<div class="block reveal">
+<div class="block-title"><span class="no">06</span> Phân loại lông, gai trên cơ thể</div>
+<div class="grid-2 stagger">
+<div class="panel reveal" style="--i:0"><span class="num">TRƠN</span><h4>Không lông</h4><p>Cơ thể nhẵn, không có lông hay gai đáng kể.</p><p class="sp">Spodoptera exigua</p></div>
+<div class="panel reveal" style="--i:1"><span class="num">LÔNG TƠ</span><h4>Mềm, rải rác</h4><p>Lông mảnh, không độc, mọc thưa quanh cơ thể.</p><p class="sp">Họ Noctuidae</p></div>
+<div class="panel reveal" style="--i:2"><span class="num">LÔNG ĐỘC</span><h4>Gai độc</h4><p>Lông cứng chứa độc tố, gây ngứa rát khi tiếp xúc.</p><p class="sp">Dendrolimus punctatus</p></div>
+<div class="panel reveal" style="--i:3"><span class="num">GAI / SỪNG</span><h4>U lồi đuôi</h4><p>Gai hoặc sừng nhô ở đốt cuối bụng — đặc trưng phân loại họ.</p><p class="sp">Manduca sexta</p></div>
+</div>
+</div>
+<!-- BVTV significance -->
+<div class="block reveal">
+<div class="block-title"><span class="no">07</span> Ý nghĩa trong bảo vệ thực vật</div>
+<div class="grid-2 stagger">
+<div class="panel reveal" style="--i:0"><h4>Lượng ăn tăng theo tuổi</h4><p>Sâu tuổi nhỏ (1–2) sức đề kháng yếu, ăn ít, gây hại chưa đáng kể.</p></div>
+<div class="panel reveal" style="--i:1"><h4>Tuổi lớn phá hại mạnh</h4><p>Càng về cuối tuổi, sức ăn càng lớn — giai đoạn gây thiệt hại mùa màng chủ yếu.</p></div>
+<div class="panel reveal" style="--i:2"><h4>Thời điểm "mẫn cảm" nhất</h4><p>Ngay sau lột xác, da còn mềm — dễ tiêu diệt nhất bằng biện pháp hóa học &amp; sinh học.</p></div>
+<div class="panel reveal" style="--i:3"><h4>Ứng dụng phòng trừ</h4><p>Theo dõi tuổi sâu để chọn đúng thời điểm và biện pháp phòng trừ hiệu quả.</p></div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ============ STAGE 02 — NHỘNG ============ -->
-<section class="stage bg-ink" id="pupa" data-rail="02 · Nhộng">
-  <div class="wrap">
-    <div class="stage-head reveal">
-      <div class="tag"><span class="dot"></span>ĐC.02 — NHỘNG (PUPA)</div>
-    <div class="stage-tools" data-tools="pupa"><span class="tool-label">ĐIỀU HƯỚNG PHA</span><button type="button">Đặc điểm hình thái</button><button type="button">Sinh lý & biến đổi</button><button type="button">Hormone & vũ hóa</button></div>
-      <h2>Tĩnh lặng bên ngoài, cách mạng bên trong</h2>
-      <p>Nhộng không di chuyển và không ăn — nhưng bên trong lớp vỏ bất động ấy là quá trình phá hủy và tái thiết triệt để nhất trong toàn bộ vòng đời côn trùng.</p>
-    </div>
-
-    <div class="photo-feature reveal-zoom">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Papilio_machaon_chrysalis_01.jpg?width=1600" alt="Nhộng trong suốt của bướm phượng, lộ rõ màu cánh bên trong ngay trước khi vũ hóa" loading="lazy">
-      <div class="pf-cap">
-        <div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · PAPILIO MACHAON</div>
-        <div class="pf-title">Khoảnh khắc trước vũ hóa — lớp vỏ nhộng trong suốt để lộ đôi cánh đã hoàn thiện bên trong</div>
-        <div class="pf-credit">Ảnh: hamon jp · Wikimedia Commons</div>
-      </div>
-    </div>
-
-    <div class="photo-gallery reveal" aria-label="Hình ảnh minh họa nhộng">
-      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Butterfly_chrysalis.jpg?width=1200" alt="Nhộng bướm" loading="lazy"><figcaption class="gc-cap">Nhộng bướm (chrysalis)<small>Wikimedia Commons</small></figcaption></figure>
-      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Butterfly_pupa_Euploea_core_(Cramer,_1780)_(49277108727).jpg?width=900" alt="Nhộng Euploea core" loading="lazy"><figcaption class="gc-cap">Nhộng Euploea core<small>Dinesh Valke · Wikimedia Commons</small></figcaption></figure>
-      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Common_Crow_Butterfly,_newly_emerged_from_its_chrysalis_or_pupa.jpg?width=900" alt="Bướm vừa vũ hóa" loading="lazy"><figcaption class="gc-cap">Khoảnh khắc vũ hóa<small>Common Crow · Wikimedia Commons</small></figcaption></figure>
-    </div>
-
-    <!-- Pupa types -->
-    <div class="block">
-      <div class="block-title reveal"><span class="no">01</span> Phân loại các kiểu nhộng</div>
-      <div class="grid-3 stagger">
-        <div class="pupa-card reveal-zoom" style="--i:0">
-          <div class="illus-frame" style="min-height:180px;">
-            <svg viewBox="0 0 160 200" width="120"><ellipse cx="80" cy="100" rx="46" ry="70" fill="none" stroke="#8A9B68" stroke-width="2.5"/><path d="M 50 60 L 42 45 M 110 60 L 118 45" stroke="#8A9B68" stroke-width="2" stroke-linecap="round"/><line x1="80" y1="45" x2="80" y2="155" stroke="#8A9B68" stroke-width="1" opacity="0.4" stroke-dasharray="3 4"/></svg>
-          </div>
-          <span class="num">PUPA DECTICA</span><h4>Nhộng có hàm trên</h4>
-          <p>Hàm trên hoàn chỉnh, cắn rách kén tơ. Mầm chân, cánh tự do.</p>
-          <p class="sp">Chrysoperla sp. · Trichoptera</p>
-        </div>
-        <div class="pupa-card reveal-zoom" style="--i:1">
-          <div class="illus-frame" style="min-height:180px;">
-            <svg viewBox="0 0 160 200" width="120"><ellipse cx="80" cy="100" rx="44" ry="72" fill="#B8935A" opacity="0.14" stroke="#B8935A" stroke-width="2.5"/><path d="M 45 70 Q 30 100 45 135 M 115 70 Q 130 100 115 135" stroke="#B8935A" stroke-width="1.6" fill="none" opacity="0.7"/></svg>
-          </div>
-          <span class="num">PUPA EXARATA</span><h4>Nhộng trần</h4>
-          <p>Mầm cánh, chân, râu tự do bên ngoài, không dính sát thân.</p>
-          <p class="sp">Coccinella transversalis · Apis mellifera</p>
-        </div>
-        <div class="pupa-card reveal-zoom" style="--i:2">
-          <div class="illus-frame" style="min-height:180px;">
-            <svg viewBox="0 0 160 200" width="120"><path d="M 80 30 C 40 30 34 90 40 130 C 46 168 114 168 120 130 C 126 90 120 30 80 30 Z" fill="#9C4A2E" opacity="0.16" stroke="#9C4A2E" stroke-width="2.5"/><circle cx="60" cy="70" r="3" fill="#B8935A"/><circle cx="100" cy="90" r="3" fill="#B8935A"/><circle cx="70" cy="120" r="3" fill="#B8935A"/></svg>
-          </div>
-          <span class="num">PUPA OBTECTA</span><h4>Nhộng màng</h4>
-          <p>Lớp màng keo dính chặt mầm cánh & chân vào thân.</p>
-          <p class="sp">Pieris rapae · Bombyx mori</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Histolysis / histogenesis -->
-    <div class="block split reveal">
-      <div class="panel" style="background:rgba(156,74,46,0.12); border-color:rgba(156,74,46,0.35);">
-        <span class="num" style="color:var(--rust)">HISTOLYSIS</span>
-        <h4 style="font-size:1.3rem;">Tiêu mô</h4>
-        <p style="margin:12px 0;">Phân giải hóa học & thực bào tiêu hủy các cơ quan tạm thời không còn phù hợp: hệ cơ sâu non, ống tiêu hóa cũ, thể mỡ, khí quản…</p>
-        <p style="font-style:italic; color:var(--parchment-dim); border-top:1px solid var(--line); padding-top:12px; margin-top:12px;">→ Các cơ quan hóa lỏng, tạo chất dịch dinh dưỡng đậm đặc.</p>
-      </div>
-      <div class="panel" style="background:rgba(184,147,90,0.1); border-color:rgba(184,147,90,0.35);">
-        <span class="num">HISTOGENESIS</span>
-        <h4 style="font-size:1.3rem;">Sinh mô</h4>
-        <p style="margin:12px 0;">Sử dụng chất dịch tiêu mô cùng các đĩa mầm trưởng thành (Imaginal discs) chưa phân hóa để kiến tạo cơ quan chuyên hóa mới.</p>
-        <p style="font-style:italic; color:var(--parchment-dim); border-top:1px solid var(--line); padding-top:12px; margin-top:12px;">→ Hình thành cánh, mắt kép, râu đầu, cơ quan sinh dục hoàn chỉnh.</p>
-      </div>
-    </div>
-
-    <!-- Respiration / diapause -->
-    <div class="block reveal">
-      <div class="block-title"><span class="no">02</span> Hô hấp, đình dục và lớp vỏ bảo vệ</div>
-      <div class="grid-3 stagger">
-        <div class="panel reveal" style="--i:0"><h4>Hô hấp trong trạng thái tĩnh</h4><p>Dù bất động, nhộng vẫn hô hấp liên tục qua lỗ thở; cường độ trao đổi khí giảm giữa giai đoạn rồi tăng dần khi gần vũ hóa.</p></div>
-        <div class="panel reveal" style="--i:1"><h4>Hiện tượng đình dục</h4><p>Tạm ngừng phát triển để vượt điều kiện bất lợi (đông lạnh, mùa khô) do PTTH giảm tiết; quang chu kỳ & nhiệt độ là yếu tố cảm ứng chính.</p></div>
-        <div class="panel reveal" style="--i:2"><h4>Kén tơ và kén giả</h4><p>Kén tơ: do tuyến tơ nhả dệt, bao ngoài nhộng. Kén giả (puparium): chính da sâu non tuổi cuối hóa cứng lại.</p></div>
-      </div>
-    </div>
-
-    <!-- Puparium detail -->
-    <div class="block split rev reveal">
-      <div>
-        <div class="block-title"><span class="no">03</span> Nhộng bọc — Kén giả (Puparium)</div>
-        <p style="color:var(--parchment-dim); margin-bottom:24px;">Ở bộ Hai cánh (Diptera), da sâu non tuổi cuối KHÔNG lột bỏ mà co ngắn, cứng hóa, sẫm màu — tạo vỏ bọc riêng bao bọc nhộng thật bên trong.</p>
-        <div class="type-list c-brass">
-          <div class="type-row"><div class="tname">Ruồi nhà</div><div class="tdesc">Sâu non không chân (dòi), sống trong chất hữu cơ phân hủy.</div><div class="tspecies">Musca domestica</div></div>
-          <div class="type-row"><div class="tname">Ruồi đục quả</div><div class="tdesc">Gây hại nghiêm trọng trên nhiều loại cây ăn quả.</div><div class="tspecies">Bactrocera dorsalis</div></div>
-          <div class="type-row"><div class="tname">Ruồi đục lá</div><div class="tdesc">Sâu non đục hầm bên trong mô lá.</div><div class="tspecies">Liriomyza sativae</div></div>
-        </div>
-      </div>
-      <div class="illus-frame">
-        <svg viewBox="0 0 300 220" width="280">
-          <ellipse cx="150" cy="110" rx="120" ry="72" fill="#D8C9A3" opacity="0.18" stroke="#B8935A" stroke-width="2.5"/>
-          <ellipse cx="150" cy="110" rx="66" ry="42" fill="#8A9B68" opacity="0.35" stroke="#8A9B68" stroke-width="1.5" stroke-dasharray="4 5"/>
-          <text x="150" y="40" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#B8935A">VỎ PUPARIUM</text>
-          <text x="150" y="112" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#8A9B68">NHỘNG THẬT</text>
-        </svg>
-      </div>
-    </div>
-
-  </div>
+<section class="stage bg-ink" data-rail="02 · Nhộng" id="pupa">
+<div class="wrap">
+<div class="stage-head reveal">
+<div class="tag"><span class="dot"></span>ĐC.02 — NHỘNG (PUPA)</div>
+<div class="stage-tools" data-tools="pupa"><span class="tool-label">ĐIỀU HƯỚNG PHA</span><button type="button">Đặc điểm hình thái</button><button type="button">Sinh lý &amp; biến đổi</button><button type="button">Hormone &amp; vũ hóa</button></div>
+<h2>Tĩnh lặng bên ngoài, cách mạng bên trong</h2>
+<p>Nhộng không di chuyển và không ăn — nhưng bên trong lớp vỏ bất động ấy là quá trình phá hủy và tái thiết triệt để nhất trong toàn bộ vòng đời côn trùng.</p>
+</div>
+<div class="photo-feature reveal-zoom">
+<img alt="Nhộng trong suốt của bướm phượng, lộ rõ màu cánh bên trong ngay trước khi vũ hóa" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Papilio_machaon_chrysalis_01.jpg?width=1600"/>
+<div class="pf-cap">
+<div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · PAPILIO MACHAON</div>
+<div class="pf-title">Khoảnh khắc trước vũ hóa — lớp vỏ nhộng trong suốt để lộ đôi cánh đã hoàn thiện bên trong</div>
+<div class="pf-credit">Ảnh: hamon jp · Wikimedia Commons</div>
+</div>
+</div>
+<div aria-label="Hình ảnh minh họa nhộng" class="photo-gallery reveal">
+<figure class="gallery-card"><img alt="Nhộng bướm" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Butterfly_chrysalis.jpg?width=1200"/><figcaption class="gc-cap">Nhộng bướm (chrysalis)<small>Wikimedia Commons</small></figcaption></figure>
+<figure class="gallery-card"><img alt="Nhộng Euploea core" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Butterfly_pupa_Euploea_core_(Cramer,_1780)_(49277108727).jpg?width=900"/><figcaption class="gc-cap">Nhộng Euploea core<small>Dinesh Valke · Wikimedia Commons</small></figcaption></figure>
+<figure class="gallery-card"><img alt="Bướm vừa vũ hóa" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Common_Crow_Butterfly,_newly_emerged_from_its_chrysalis_or_pupa.jpg?width=900"/><figcaption class="gc-cap">Khoảnh khắc vũ hóa<small>Common Crow · Wikimedia Commons</small></figcaption></figure>
+</div>
+<!-- Pupa types -->
+<div class="block">
+<div class="block-title reveal"><span class="no">01</span> Phân loại các kiểu nhộng</div>
+<div class="grid-3 stagger">
+<div class="pupa-card reveal-zoom" style="--i:0">
+<div class="illus-frame" style="min-height:180px;">
+<svg viewbox="0 0 160 200" width="120"><ellipse cx="80" cy="100" fill="none" rx="46" ry="70" stroke="#8A9B68" stroke-width="2.5"></ellipse><path d="M 50 60 L 42 45 M 110 60 L 118 45" stroke="#8A9B68" stroke-linecap="round" stroke-width="2"></path><line opacity="0.4" stroke="#8A9B68" stroke-dasharray="3 4" stroke-width="1" x1="80" x2="80" y1="45" y2="155"></line></svg>
+</div>
+<span class="num">PUPA DECTICA</span><h4>Nhộng có hàm trên</h4>
+<p>Hàm trên hoàn chỉnh, cắn rách kén tơ. Mầm chân, cánh tự do.</p>
+<p class="sp">Chrysoperla sp. · Trichoptera</p>
+</div>
+<div class="pupa-card reveal-zoom" style="--i:1">
+<div class="illus-frame" style="min-height:180px;">
+<svg viewbox="0 0 160 200" width="120"><ellipse cx="80" cy="100" fill="#B8935A" opacity="0.14" rx="44" ry="72" stroke="#B8935A" stroke-width="2.5"></ellipse><path d="M 45 70 Q 30 100 45 135 M 115 70 Q 130 100 115 135" fill="none" opacity="0.7" stroke="#B8935A" stroke-width="1.6"></path></svg>
+</div>
+<span class="num">PUPA EXARATA</span><h4>Nhộng trần</h4>
+<p>Mầm cánh, chân, râu tự do bên ngoài, không dính sát thân.</p>
+<p class="sp">Coccinella transversalis · Apis mellifera</p>
+</div>
+<div class="pupa-card reveal-zoom" style="--i:2">
+<div class="illus-frame" style="min-height:180px;">
+<svg viewbox="0 0 160 200" width="120"><path d="M 80 30 C 40 30 34 90 40 130 C 46 168 114 168 120 130 C 126 90 120 30 80 30 Z" fill="#9C4A2E" opacity="0.16" stroke="#9C4A2E" stroke-width="2.5"></path><circle cx="60" cy="70" fill="#B8935A" r="3"></circle><circle cx="100" cy="90" fill="#B8935A" r="3"></circle><circle cx="70" cy="120" fill="#B8935A" r="3"></circle></svg>
+</div>
+<span class="num">PUPA OBTECTA</span><h4>Nhộng màng</h4>
+<p>Lớp màng keo dính chặt mầm cánh &amp; chân vào thân.</p>
+<p class="sp">Pieris rapae · Bombyx mori</p>
+</div>
+</div>
+</div>
+<!-- Histolysis / histogenesis -->
+<div class="block split reveal">
+<div class="panel" style="background:rgba(156,74,46,0.12); border-color:rgba(156,74,46,0.35);">
+<span class="num" style="color:var(--rust)">HISTOLYSIS</span>
+<h4 style="font-size:1.3rem;">Tiêu mô</h4>
+<p style="margin:12px 0;">Phân giải hóa học &amp; thực bào tiêu hủy các cơ quan tạm thời không còn phù hợp: hệ cơ sâu non, ống tiêu hóa cũ, thể mỡ, khí quản…</p>
+<p style="font-style:italic; color:var(--parchment-dim); border-top:1px solid var(--line); padding-top:12px; margin-top:12px;">→ Các cơ quan hóa lỏng, tạo chất dịch dinh dưỡng đậm đặc.</p>
+</div>
+<div class="panel" style="background:rgba(184,147,90,0.1); border-color:rgba(184,147,90,0.35);">
+<span class="num">HISTOGENESIS</span>
+<h4 style="font-size:1.3rem;">Sinh mô</h4>
+<p style="margin:12px 0;">Sử dụng chất dịch tiêu mô cùng các đĩa mầm trưởng thành (Imaginal discs) chưa phân hóa để kiến tạo cơ quan chuyên hóa mới.</p>
+<p style="font-style:italic; color:var(--parchment-dim); border-top:1px solid var(--line); padding-top:12px; margin-top:12px;">→ Hình thành cánh, mắt kép, râu đầu, cơ quan sinh dục hoàn chỉnh.</p>
+</div>
+</div>
+<!-- Respiration / diapause -->
+<div class="block reveal">
+<div class="block-title"><span class="no">02</span> Hô hấp, đình dục và lớp vỏ bảo vệ</div>
+<div class="grid-3 stagger">
+<div class="panel reveal" style="--i:0"><h4>Hô hấp trong trạng thái tĩnh</h4><p>Dù bất động, nhộng vẫn hô hấp liên tục qua lỗ thở; cường độ trao đổi khí giảm giữa giai đoạn rồi tăng dần khi gần vũ hóa.</p></div>
+<div class="panel reveal" style="--i:1"><h4>Hiện tượng đình dục</h4><p>Tạm ngừng phát triển để vượt điều kiện bất lợi (đông lạnh, mùa khô) do PTTH giảm tiết; quang chu kỳ &amp; nhiệt độ là yếu tố cảm ứng chính.</p></div>
+<div class="panel reveal" style="--i:2"><h4>Kén tơ và kén giả</h4><p>Kén tơ: do tuyến tơ nhả dệt, bao ngoài nhộng. Kén giả (puparium): chính da sâu non tuổi cuối hóa cứng lại.</p></div>
+</div>
+</div>
+<!-- Puparium detail -->
+<div class="block split rev reveal">
+<div>
+<div class="block-title"><span class="no">03</span> Nhộng bọc — Kén giả (Puparium)</div>
+<p style="color:var(--parchment-dim); margin-bottom:24px;">Ở bộ Hai cánh (Diptera), da sâu non tuổi cuối KHÔNG lột bỏ mà co ngắn, cứng hóa, sẫm màu — tạo vỏ bọc riêng bao bọc nhộng thật bên trong.</p>
+<div class="type-list c-brass">
+<div class="type-row"><div class="tname">Ruồi nhà</div><div class="tdesc">Sâu non không chân (dòi), sống trong chất hữu cơ phân hủy.</div><div class="tspecies">Musca domestica</div></div>
+<div class="type-row"><div class="tname">Ruồi đục quả</div><div class="tdesc">Gây hại nghiêm trọng trên nhiều loại cây ăn quả.</div><div class="tspecies">Bactrocera dorsalis</div></div>
+<div class="type-row"><div class="tname">Ruồi đục lá</div><div class="tdesc">Sâu non đục hầm bên trong mô lá.</div><div class="tspecies">Liriomyza sativae</div></div>
+</div>
+</div>
+<div class="illus-frame">
+<svg viewbox="0 0 300 220" width="280">
+<ellipse cx="150" cy="110" fill="#D8C9A3" opacity="0.18" rx="120" ry="72" stroke="#B8935A" stroke-width="2.5"></ellipse>
+<ellipse cx="150" cy="110" fill="#8A9B68" opacity="0.35" rx="66" ry="42" stroke="#8A9B68" stroke-dasharray="4 5" stroke-width="1.5"></ellipse>
+<text fill="#B8935A" font-family="IBM Plex Mono" font-size="10" text-anchor="middle" x="150" y="40">VỎ PUPARIUM</text>
+<text fill="#8A9B68" font-family="IBM Plex Mono" font-size="9.5" text-anchor="middle" x="150" y="112">NHỘNG THẬT</text>
+</svg>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ============ STAGE 03 — TRƯỞNG THÀNH ============ -->
-<section class="stage bg-canopy" id="adult" data-rail="03 · Trưởng thành">
-  <div class="wrap">
-    <div class="stage-head reveal">
-      <div class="tag"><span class="dot"></span>ĐC.03 — TRƯỞNG THÀNH (ADULT / IMAGO)</div>
-    <div class="stage-tools" data-tools="adult"><span class="tool-label">ĐIỀU HƯỚNG PHA</span><button type="button">Hình thái ngoài</button><button type="button">Sinh sản</button><button type="button">Kiểu miệng · cánh · râu</button></div>
-      <h2>Đặc điểm hình thái và sinh lý — trưởng thành</h2>
-      <p>Cơ thể đã ổn định kích thước, ngừng lột xác — mọi cấu tạo giờ đây tập trung toàn bộ vào việc tìm bạn tình, giao phối và duy trì nòi giống.</p>
-    </div>
-
-    <div class="photo-feature reveal-zoom">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Swallowtail_butterfly_2.JPG?width=1600" alt="Bướm phượng hổ (Papilio rutulus) trưởng thành với đôi cánh hoàn chỉnh" loading="lazy">
-      <div class="pf-cap">
-        <div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · PAPILIO RUTULUS</div>
-        <div class="pf-title">Hình hài hoàn thiện — đôi cánh vảy đầy đủ hoa văn của bướm phượng hổ</div>
-        <div class="pf-credit">Ảnh: Brocken Inaglory · Wikimedia Commons</div>
-      </div>
-    </div>
-
-    <div class="photo-gallery reveal" aria-label="Hình ảnh minh họa côn trùng trưởng thành">
-      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Swallowtail_butterfly_2.JPG?width=1200" alt="Bướm trưởng thành với cánh hoàn chỉnh" loading="lazy"><figcaption class="gc-cap">Trưởng thành — hình thái hoàn chỉnh<small>Wikimedia Commons</small></figcaption></figure>
-      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Beetle_macro.jpg?width=900" alt="Bọ cánh cứng cận cảnh" loading="lazy"><figcaption class="gc-cap">Côn trùng trưởng thành: chuyên hóa cao<small>Beetle macro · Wikimedia Commons</small></figcaption></figure>
-      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/LeafAnt.jpg?width=900" alt="Kiến thợ" loading="lazy"><figcaption class="gc-cap">Nhiều hình xã hội<small>Kiến thợ · Wikimedia Commons</small></figcaption></figure>
-    </div>
-
-    <div class="block split reveal">
-      <div class="illus-frame" id="adultIllus">
-        <svg viewBox="0 0 400 380" width="320">
-          <defs>
-            <linearGradient id="wingTop2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#C98A4E"/><stop offset="55%" stop-color="#9C4A2E"/><stop offset="100%" stop-color="#6E2F1D"/>
-            </linearGradient>
-            <linearGradient id="wingBot2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#8A9B68"/><stop offset="100%" stop-color="#4A5D3A"/>
-            </linearGradient>
-          </defs>
-          <g transform="translate(200,190)">
-            <g>
-              <path d="M -6 -20 C -90 -110 -210 -95 -235 -10 C -250 45 -195 78 -140 55 C -95 36 -55 5 -6 -8 Z" fill="url(#wingTop2)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
-              <path d="M -8 4 C -70 40 -150 55 -175 105 C -192 140 -160 168 -120 152 C -78 135 -40 90 -8 34 Z" fill="url(#wingBot2)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
-              <circle cx="-155" cy="-38" r="9" fill="#EDE6D3" opacity="0.55"/><circle cx="-100" cy="-4" r="5.5" fill="#EDE6D3" opacity="0.4"/><circle cx="-120" cy="100" r="7" fill="#1E1712" opacity="0.4"/>
-            </g>
-            <g transform="scale(-1,1)">
-              <path d="M -6 -20 C -90 -110 -210 -95 -235 -10 C -250 45 -195 78 -140 55 C -95 36 -55 5 -6 -8 Z" fill="url(#wingTop2)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
-              <path d="M -8 4 C -70 40 -150 55 -175 105 C -192 140 -160 168 -120 152 C -78 135 -40 90 -8 34 Z" fill="url(#wingBot2)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
-              <circle cx="-155" cy="-38" r="9" fill="#EDE6D3" opacity="0.55"/><circle cx="-100" cy="-4" r="5.5" fill="#EDE6D3" opacity="0.4"/><circle cx="-120" cy="100" r="7" fill="#1E1712" opacity="0.4"/>
-            </g>
-            <ellipse cx="0" cy="-32" rx="7.5" ry="9" fill="#181410"/>
-            <path d="M -6 -26 C -13 -5 -13 60 0 108 C 13 60 13 -5 6 -26 Z" fill="#181410"/>
-            <path d="M 0 -38 C -14 -52 -30 -54 -38 -46" fill="none" stroke="#181410" stroke-width="3" stroke-linecap="round"/>
-            <path d="M 0 -38 C 14 -52 30 -54 38 -46" fill="none" stroke="#181410" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="-38" cy="-46" r="3.5" fill="#B8935A"/><circle cx="38" cy="-46" r="3.5" fill="#B8935A"/>
-          </g>
-        </svg>
-      </div>
-      <div>
-        <div class="block-title"><span class="no">01</span> So với pha sâu non</div>
-        <div class="cmp-list">
-          <div class="cmp-row"><div class="cmp-k">Vỏ cơ thể</div><div class="cmp-a">Mềm, đàn hồi</div><div class="cmp-b">Chitin hóa cứng + melanin</div></div>
-          <div class="cmp-row"><div class="cmp-k">Mắt</div><div class="cmp-a">Chưa có mắt kép</div><div class="cmp-b">Mắt kép lớn, hoàn chỉnh</div></div>
-          <div class="cmp-row"><div class="cmp-k">Cánh</div><div class="cmp-a">Chưa có / mầm cánh</div><div class="cmp-b">2 đôi cánh phát triển</div></div>
-          <div class="cmp-row"><div class="cmp-k">Lột xác</div><div class="cmp-a">Nhiều lần để lớn lên</div><div class="cmp-b">Ngừng hẳn (trừ vài nhóm)</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Polymorphism -->
-    <div class="block reveal">
-      <div class="block-title"><span class="no">02</span> Hiện tượng nhiều hình (Polymorphism)</div>
-      <div class="grid-3 stagger">
-        <div class="panel reveal" style="--i:0"><div class="photo-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Stag_beetle_(Lucanus_servus)_-_geograph.org.uk_-_1340474.jpg?width=700" alt="Bọ sừng hươu đực với hàm to đặc trưng" loading="lazy"><span class="pt-credit">Kevin Hale · Wikimedia Commons</span></div><span class="num">SEXUAL DIMORPHISM</span><h4>Nhị hình giới tính</h4><p>Cái: bụng to chứa trứng. Đực: cơ quan nhận pheromone, gạc/sừng lớn, móc bám giao phối.</p></div>
-        <div class="panel reveal" style="--i:1"><span class="num">SEASONAL DIMORPHISM</span><h4>Nhị hình theo mùa</h4><p>Cùng loài, thế hệ sinh vào mùa khác nhau có màu sắc/kích thước khác do nhiệt độ & quang chu kỳ.</p></div>
-        <div class="panel reveal" style="--i:2"><div class="photo-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/LeafAnt.jpg?width=700" alt="Kiến thợ tha lá về tổ" loading="lazy"><span class="pt-credit">Adrian Pingstone · Public Domain</span></div><span class="num">SOCIAL POLYMORPHISM</span><h4>Nhiều hình xã hội</h4><p>Côn trùng tập đoàn (ong, kiến, mối) phân hóa đẳng cấp: chúa, đực, thợ, lính.</p></div>
-      </div>
-    </div>
-
-    <!-- Emergence / reproduction -->
-    <div class="block reveal">
-      <div class="block-title"><span class="no">03</span> Vũ hóa, sinh sản và ăn bổ sung</div>
-      <div class="grid-2 stagger">
-        <div class="panel reveal" style="--i:0"><h4>Vũ hóa (Emergence)</h4><p>Lột bỏ vỏ nhộng cuối cùng. Bơm khí quản & máu vào cánh để giang cánh, tăng hô hấp làm cứng biểu bì.</p></div>
-        <div class="panel reveal" style="--i:1"><h4>Sinh sản & bảo tồn nòi giống</h4><p>Chức năng quan trọng nhất: tìm bạn tình qua âm thanh, ánh sáng, pheromone; giao phối, đẻ trứng.</p></div>
-        <div class="panel reveal" style="--i:2"><h4>Ăn bổ sung (ăn thêm)</h4><p>Đa số cần ăn thêm (mật hoa, dịch quả…) để tuyến sinh dục chín muồi. Một số (ruồi) không cần ăn.</p></div>
-        <div class="panel reveal" style="--i:3"><h4>Chăm sóc thế hệ sau</h4><p>Tìm nơi đẻ trứng an toàn, làm kén bảo vệ, tích trữ thức ăn nuôi ấu trùng non.</p></div>
-      </div>
-    </div>
-
-    <!-- Mouth types -->
-    <div class="block reveal">
-      <div class="block-title"><span class="no">04</span> Phân loại kiểu miệng</div>
-      <div class="type-list c-rust">
-        <div class="type-row"><div class="tname">Gặm nhai <span style="opacity:.55;font-weight:400;">(Mandibulate)</span></div><div class="tdesc">Hàm khỏe, cắn xé thức ăn rắn — kiểu miệng nguyên thủy nhất.</div><div class="tspecies">Oxya chinensis</div></div>
-        <div class="type-row"><div class="tname">Chích hút <span style="opacity:.55;font-weight:400;">(Piercing–sucking)</span></div><div class="tdesc">Vòi cứng nhọn đâm xuyên mô để hút dịch cây/máu.</div><div class="tspecies">Aedes aegypti</div></div>
-        <div class="type-row"><div class="tname">Chích hút</div><div class="tdesc">Cùng nhóm chích hút, gây hại trực tiếp trên cây trồng.</div><div class="tspecies">Nezara viridula</div></div>
-        <div class="type-row"><div class="tname">Hút vòi cuộn <span style="opacity:.55;font-weight:400;">(Siphoning)</span></div><div class="tdesc">Vòi dài cuộn tròn khi nghỉ, duỗi ra hút mật hoa.</div><div class="tspecies">Papilio polytes</div></div>
-        <div class="type-row"><div class="tname">Liếm hút <span style="opacity:.55;font-weight:400;">(Sponging)</span></div><div class="tdesc">Đầu vòi dạng đệm xốp, thấm hút thức ăn lỏng.</div><div class="tspecies">Musca domestica</div></div>
-        <div class="type-row"><div class="tname">Nghiền – liếm <span style="opacity:.55;font-weight:400;">(Chewing–lapping)</span></div><div class="tdesc">Kết hợp hàm nghiền phấn hoa và lưỡi liếm mật.</div><div class="tspecies">Apis mellifera</div></div>
-      </div>
-    </div>
-
-    <!-- Leg types -->
-    <div class="block reveal">
-      <div class="block-title"><span class="no">05</span> Phân loại kiểu chân</div>
-      <div class="type-list c-lichen">
-        <div class="type-row"><div class="tname">Chân bò <span style="opacity:.55;font-weight:400;">(Walking)</span></div><div class="tdesc">Cấu tạo đơn giản, cân đối — kiểu chân phổ biến nhất.</div><div class="tspecies">Coccinella transversalis</div></div>
-        <div class="type-row"><div class="tname">Chân nhảy <span style="opacity:.55;font-weight:400;">(Jumping)</span></div><div class="tdesc">Đùi đốt sau rất phát triển, to khỏe để bật nhảy.</div><div class="tspecies">Oxya chinensis</div></div>
-        <div class="type-row"><div class="tname">Chân đào bới <span style="opacity:.55;font-weight:400;">(Digging)</span></div><div class="tdesc">Đốt trước dẹt, rộng bản, mép có răng cưa để đào đất.</div><div class="tspecies">Gryllotalpa orientalis</div></div>
-        <div class="type-row"><div class="tname">Chân bơi <span style="opacity:.55;font-weight:400;">(Swimming)</span></div><div class="tdesc">Dẹt, có lông tơ dày dọc hai bên như mái chèo.</div><div class="tspecies">Cybister sp.</div></div>
-        <div class="type-row"><div class="tname">Chân bắt mồi <span style="opacity:.55;font-weight:400;">(Raptorial)</span></div><div class="tdesc">Đốt đùi có gai nhọn, gấp khúc như lưỡi kéo.</div><div class="tspecies">Tenodera sinensis</div></div>
-        <div class="type-row"><div class="tname">Chân thu phấn hoa</div><div class="tdesc">Có "giỏ phấn" và lông tơ dày để gom phấn hoa.</div><div class="tspecies">Apis mellifera</div></div>
-      </div>
-    </div>
-
-    <!-- Wing types -->
-    <div class="block reveal">
-      <div class="block-title"><span class="no">06</span> Phân loại kiểu cánh</div>
-      <div class="type-list c-brass">
-        <div class="type-row"><div class="tname">Cánh màng <span style="opacity:.55;font-weight:400;">(Membranous)</span></div><div class="tdesc">Mỏng, trong suốt, gân rõ — cả 2 đôi đều dùng để bay.</div><div class="tspecies">Apis mellifera</div></div>
-        <div class="type-row"><div class="tname">Cánh màng</div><div class="tdesc">Bay lượn linh hoạt, 2 đôi cánh gần bằng nhau.</div><div class="tspecies">Orthetrum sabina</div></div>
-        <div class="type-row"><div class="tname">Cánh cứng <span style="opacity:.55;font-weight:400;">(Elytra)</span></div><div class="tdesc">Đôi cánh trước hóa cứng, bảo vệ cánh màng bên dưới.</div><div class="tspecies">Scarabaeidae</div></div>
-        <div class="type-row"><div class="tname">Cánh vẩy <span style="opacity:.55;font-weight:400;">(Scaled)</span></div><div class="tdesc">Phủ đầy vảy nhỏ li ti tạo màu sắc, hoa văn đặc trưng.</div><div class="tspecies">Papilio polytes</div></div>
-        <div class="type-row"><div class="tname">Cánh nửa <span style="opacity:.55;font-weight:400;">(Hemelytra)</span></div><div class="tdesc">Nửa gốc cứng dai, nửa ngọn mỏng như màng.</div><div class="tspecies">Nezara viridula</div></div>
-        <div class="type-row"><div class="tname">Cánh da <span style="opacity:.55;font-weight:400;">(Tegmina)</span></div><div class="tdesc">Dai, gân dày, che phủ và bảo vệ cánh sau mỏng.</div><div class="tspecies">Orthoptera</div></div>
-      </div>
-    </div>
-
-    <!-- Antennae types -->
-    <div class="block reveal">
-      <div class="block-title"><span class="no">07</span> Phân loại kiểu râu đầu (Antennae)</div>
-      <div class="type-list c-rust">
-        <div class="type-row"><div class="tname">Hình sợi chỉ <span style="opacity:.55;font-weight:400;">(Filiform)</span></div><div class="tdesc">Các đốt đều nhau về kích thước từ gốc đến ngọn.</div><div class="tspecies">Periplaneta americana</div></div>
-        <div class="type-row"><div class="tname">Hình lông chim <span style="opacity:.55;font-weight:400;">(Plumose)</span></div><div class="tdesc">Phân nhánh mảnh — thường ở con đực để bắt pheromone.</div><div class="tspecies">Bombyx mori (đực)</div></div>
-        <div class="type-row"><div class="tname">Hình dùi trống <span style="opacity:.55;font-weight:400;">(Clavate)</span></div><div class="tdesc">Thon dài rồi phình to đột ngột ở đầu mút.</div><div class="tspecies">Pieris rapae</div></div>
-        <div class="type-row"><div class="tname">Hình đầu gối <span style="opacity:.55;font-weight:400;">(Geniculate)</span></div><div class="tdesc">Gấp khúc rõ rệt tại một khớp giữa.</div><div class="tspecies">Formicidae</div></div>
-        <div class="type-row"><div class="tname">Hình lá lợp <span style="opacity:.55;font-weight:400;">(Lamellate)</span></div><div class="tdesc">Các đốt cuối xòe rộng, xếp chồng như lá.</div><div class="tspecies">Oryctes rhinoceros</div></div>
-      </div>
-      <p class="note">Kiểu râu là một trong những chỉ tiêu hình thái quan trọng nhất để phân loại bộ, họ côn trùng.</p>
-    </div>
-
-    <!-- Lifespan -->
-    <div class="block reveal">
-      <div class="block-title"><span class="no">08</span> Tuổi thọ và số thế hệ trong năm</div>
-      <div class="grid-3 stagger">
-        <div class="panel reveal" style="--i:0"><h4>Vài giờ – vài ngày</h4><p>Phù du (Ephemeroptera), một số muỗi — chỉ sống để giao phối và đẻ trứng.</p></div>
-        <div class="panel reveal" style="--i:1"><h4>Vài tuần – vài tháng</h4><p>Đa số bướm ngày, ruồi, bọ cánh cứng nhỏ — đủ thời gian sinh sản nhiều lứa.</p></div>
-        <div class="panel reveal" style="--i:2"><h4>Qua đông / nhiều tháng</h4><p>Một số bọ cánh cứng, bướm đêm đình dục qua mùa lạnh rồi sinh sản vào xuân.</p></div>
-      </div>
-    </div>
-
-  </div>
+<section class="stage bg-canopy" data-rail="03 · Trưởng thành" id="adult">
+<div class="wrap">
+<div class="stage-head reveal">
+<div class="tag"><span class="dot"></span>ĐC.03 — TRƯỞNG THÀNH (ADULT / IMAGO)</div>
+<div class="stage-tools" data-tools="adult"><span class="tool-label">ĐIỀU HƯỚNG PHA</span><button type="button">Hình thái ngoài</button><button type="button">Sinh sản</button><button type="button">Kiểu miệng · cánh · râu</button></div>
+<h2>Đặc điểm hình thái và sinh lý — trưởng thành</h2>
+<p>Cơ thể đã ổn định kích thước, ngừng lột xác — mọi cấu tạo giờ đây tập trung toàn bộ vào việc tìm bạn tình, giao phối và duy trì nòi giống.</p>
+</div>
+<div class="photo-feature reveal-zoom">
+<img alt="Bướm phượng hổ (Papilio rutulus) trưởng thành với đôi cánh hoàn chỉnh" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Swallowtail_butterfly_2.JPG?width=1600"/>
+<div class="pf-cap">
+<div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · PAPILIO RUTULUS</div>
+<div class="pf-title">Hình hài hoàn thiện — đôi cánh vảy đầy đủ hoa văn của bướm phượng hổ</div>
+<div class="pf-credit">Ảnh: Brocken Inaglory · Wikimedia Commons</div>
+</div>
+</div>
+<div aria-label="Hình ảnh minh họa côn trùng trưởng thành" class="photo-gallery reveal">
+<figure class="gallery-card"><img alt="Bướm trưởng thành với cánh hoàn chỉnh" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Swallowtail_butterfly_2.JPG?width=1200"/><figcaption class="gc-cap">Trưởng thành — hình thái hoàn chỉnh<small>Wikimedia Commons</small></figcaption></figure>
+<figure class="gallery-card"><img alt="Bọ cánh cứng cận cảnh" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Beetle_macro.jpg?width=900"/><figcaption class="gc-cap">Côn trùng trưởng thành: chuyên hóa cao<small>Beetle macro · Wikimedia Commons</small></figcaption></figure>
+<figure class="gallery-card"><img alt="Kiến thợ" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/LeafAnt.jpg?width=900"/><figcaption class="gc-cap">Nhiều hình xã hội<small>Kiến thợ · Wikimedia Commons</small></figcaption></figure>
+</div>
+<div class="block split reveal">
+<div class="illus-frame" id="adultIllus">
+<svg viewbox="0 0 400 380" width="320">
+<defs>
+<lineargradient id="wingTop2" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#C98A4E"></stop><stop offset="55%" stop-color="#9C4A2E"></stop><stop offset="100%" stop-color="#6E2F1D"></stop>
+</lineargradient>
+<lineargradient id="wingBot2" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#8A9B68"></stop><stop offset="100%" stop-color="#4A5D3A"></stop>
+</lineargradient>
+</defs>
+<g transform="translate(200,190)">
+<g>
+<path d="M -6 -20 C -90 -110 -210 -95 -235 -10 C -250 45 -195 78 -140 55 C -95 36 -55 5 -6 -8 Z" fill="url(#wingTop2)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"></path>
+<path d="M -8 4 C -70 40 -150 55 -175 105 C -192 140 -160 168 -120 152 C -78 135 -40 90 -8 34 Z" fill="url(#wingBot2)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"></path>
+<circle cx="-155" cy="-38" fill="#EDE6D3" opacity="0.55" r="9"></circle><circle cx="-100" cy="-4" fill="#EDE6D3" opacity="0.4" r="5.5"></circle><circle cx="-120" cy="100" fill="#1E1712" opacity="0.4" r="7"></circle>
+</g>
+<g transform="scale(-1,1)">
+<path d="M -6 -20 C -90 -110 -210 -95 -235 -10 C -250 45 -195 78 -140 55 C -95 36 -55 5 -6 -8 Z" fill="url(#wingTop2)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"></path>
+<path d="M -8 4 C -70 40 -150 55 -175 105 C -192 140 -160 168 -120 152 C -78 135 -40 90 -8 34 Z" fill="url(#wingBot2)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"></path>
+<circle cx="-155" cy="-38" fill="#EDE6D3" opacity="0.55" r="9"></circle><circle cx="-100" cy="-4" fill="#EDE6D3" opacity="0.4" r="5.5"></circle><circle cx="-120" cy="100" fill="#1E1712" opacity="0.4" r="7"></circle>
+</g>
+<ellipse cx="0" cy="-32" fill="#181410" rx="7.5" ry="9"></ellipse>
+<path d="M -6 -26 C -13 -5 -13 60 0 108 C 13 60 13 -5 6 -26 Z" fill="#181410"></path>
+<path d="M 0 -38 C -14 -52 -30 -54 -38 -46" fill="none" stroke="#181410" stroke-linecap="round" stroke-width="3"></path>
+<path d="M 0 -38 C 14 -52 30 -54 38 -46" fill="none" stroke="#181410" stroke-linecap="round" stroke-width="3"></path>
+<circle cx="-38" cy="-46" fill="#B8935A" r="3.5"></circle><circle cx="38" cy="-46" fill="#B8935A" r="3.5"></circle>
+</g>
+</svg>
+</div>
+<div>
+<div class="block-title"><span class="no">01</span> So với pha sâu non</div>
+<div class="cmp-list">
+<div class="cmp-row"><div class="cmp-k">Vỏ cơ thể</div><div class="cmp-a">Mềm, đàn hồi</div><div class="cmp-b">Chitin hóa cứng + melanin</div></div>
+<div class="cmp-row"><div class="cmp-k">Mắt</div><div class="cmp-a">Chưa có mắt kép</div><div class="cmp-b">Mắt kép lớn, hoàn chỉnh</div></div>
+<div class="cmp-row"><div class="cmp-k">Cánh</div><div class="cmp-a">Chưa có / mầm cánh</div><div class="cmp-b">2 đôi cánh phát triển</div></div>
+<div class="cmp-row"><div class="cmp-k">Lột xác</div><div class="cmp-a">Nhiều lần để lớn lên</div><div class="cmp-b">Ngừng hẳn (trừ vài nhóm)</div></div>
+</div>
+</div>
+</div>
+<!-- Polymorphism -->
+<div class="block reveal">
+<div class="block-title"><span class="no">02</span> Hiện tượng nhiều hình (Polymorphism)</div>
+<div class="grid-3 stagger">
+<div class="panel reveal" style="--i:0"><div class="photo-thumb"><img alt="Bọ sừng hươu đực với hàm to đặc trưng" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Stag_beetle_(Lucanus_servus)_-_geograph.org.uk_-_1340474.jpg?width=700"/><span class="pt-credit">Kevin Hale · Wikimedia Commons</span></div><span class="num">SEXUAL DIMORPHISM</span><h4>Nhị hình giới tính</h4><p>Cái: bụng to chứa trứng. Đực: cơ quan nhận pheromone, gạc/sừng lớn, móc bám giao phối.</p></div>
+<div class="panel reveal" style="--i:1"><span class="num">SEASONAL DIMORPHISM</span><h4>Nhị hình theo mùa</h4><p>Cùng loài, thế hệ sinh vào mùa khác nhau có màu sắc/kích thước khác do nhiệt độ &amp; quang chu kỳ.</p></div>
+<div class="panel reveal" style="--i:2"><div class="photo-thumb"><img alt="Kiến thợ tha lá về tổ" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/LeafAnt.jpg?width=700"/><span class="pt-credit">Adrian Pingstone · Public Domain</span></div><span class="num">SOCIAL POLYMORPHISM</span><h4>Nhiều hình xã hội</h4><p>Côn trùng tập đoàn (ong, kiến, mối) phân hóa đẳng cấp: chúa, đực, thợ, lính.</p></div>
+</div>
+</div>
+<!-- Emergence / reproduction -->
+<div class="block reveal">
+<div class="block-title"><span class="no">03</span> Vũ hóa, sinh sản và ăn bổ sung</div>
+<div class="grid-2 stagger">
+<div class="panel reveal" style="--i:0"><h4>Vũ hóa (Emergence)</h4><p>Lột bỏ vỏ nhộng cuối cùng. Bơm khí quản &amp; máu vào cánh để giang cánh, tăng hô hấp làm cứng biểu bì.</p></div>
+<div class="panel reveal" style="--i:1"><h4>Sinh sản &amp; bảo tồn nòi giống</h4><p>Chức năng quan trọng nhất: tìm bạn tình qua âm thanh, ánh sáng, pheromone; giao phối, đẻ trứng.</p></div>
+<div class="panel reveal" style="--i:2"><h4>Ăn bổ sung (ăn thêm)</h4><p>Đa số cần ăn thêm (mật hoa, dịch quả…) để tuyến sinh dục chín muồi. Một số (ruồi) không cần ăn.</p></div>
+<div class="panel reveal" style="--i:3"><h4>Chăm sóc thế hệ sau</h4><p>Tìm nơi đẻ trứng an toàn, làm kén bảo vệ, tích trữ thức ăn nuôi ấu trùng non.</p></div>
+</div>
+</div>
+<!-- Mouth types -->
+<div class="block reveal">
+<div class="block-title"><span class="no">04</span> Phân loại kiểu miệng</div>
+<div class="type-list c-rust">
+<div class="type-row"><div class="tname">Gặm nhai <span style="opacity:.55;font-weight:400;">(Mandibulate)</span></div><div class="tdesc">Hàm khỏe, cắn xé thức ăn rắn — kiểu miệng nguyên thủy nhất.</div><div class="tspecies">Oxya chinensis</div></div>
+<div class="type-row"><div class="tname">Chích hút <span style="opacity:.55;font-weight:400;">(Piercing–sucking)</span></div><div class="tdesc">Vòi cứng nhọn đâm xuyên mô để hút dịch cây/máu.</div><div class="tspecies">Aedes aegypti</div></div>
+<div class="type-row"><div class="tname">Chích hút</div><div class="tdesc">Cùng nhóm chích hút, gây hại trực tiếp trên cây trồng.</div><div class="tspecies">Nezara viridula</div></div>
+<div class="type-row"><div class="tname">Hút vòi cuộn <span style="opacity:.55;font-weight:400;">(Siphoning)</span></div><div class="tdesc">Vòi dài cuộn tròn khi nghỉ, duỗi ra hút mật hoa.</div><div class="tspecies">Papilio polytes</div></div>
+<div class="type-row"><div class="tname">Liếm hút <span style="opacity:.55;font-weight:400;">(Sponging)</span></div><div class="tdesc">Đầu vòi dạng đệm xốp, thấm hút thức ăn lỏng.</div><div class="tspecies">Musca domestica</div></div>
+<div class="type-row"><div class="tname">Nghiền – liếm <span style="opacity:.55;font-weight:400;">(Chewing–lapping)</span></div><div class="tdesc">Kết hợp hàm nghiền phấn hoa và lưỡi liếm mật.</div><div class="tspecies">Apis mellifera</div></div>
+</div>
+</div>
+<!-- Leg types -->
+<div class="block reveal">
+<div class="block-title"><span class="no">05</span> Phân loại kiểu chân</div>
+<div class="type-list c-lichen">
+<div class="type-row"><div class="tname">Chân bò <span style="opacity:.55;font-weight:400;">(Walking)</span></div><div class="tdesc">Cấu tạo đơn giản, cân đối — kiểu chân phổ biến nhất.</div><div class="tspecies">Coccinella transversalis</div></div>
+<div class="type-row"><div class="tname">Chân nhảy <span style="opacity:.55;font-weight:400;">(Jumping)</span></div><div class="tdesc">Đùi đốt sau rất phát triển, to khỏe để bật nhảy.</div><div class="tspecies">Oxya chinensis</div></div>
+<div class="type-row"><div class="tname">Chân đào bới <span style="opacity:.55;font-weight:400;">(Digging)</span></div><div class="tdesc">Đốt trước dẹt, rộng bản, mép có răng cưa để đào đất.</div><div class="tspecies">Gryllotalpa orientalis</div></div>
+<div class="type-row"><div class="tname">Chân bơi <span style="opacity:.55;font-weight:400;">(Swimming)</span></div><div class="tdesc">Dẹt, có lông tơ dày dọc hai bên như mái chèo.</div><div class="tspecies">Cybister sp.</div></div>
+<div class="type-row"><div class="tname">Chân bắt mồi <span style="opacity:.55;font-weight:400;">(Raptorial)</span></div><div class="tdesc">Đốt đùi có gai nhọn, gấp khúc như lưỡi kéo.</div><div class="tspecies">Tenodera sinensis</div></div>
+<div class="type-row"><div class="tname">Chân thu phấn hoa</div><div class="tdesc">Có "giỏ phấn" và lông tơ dày để gom phấn hoa.</div><div class="tspecies">Apis mellifera</div></div>
+</div>
+</div>
+<!-- Wing types -->
+<div class="block reveal">
+<div class="block-title"><span class="no">06</span> Phân loại kiểu cánh</div>
+<div class="type-list c-brass">
+<div class="type-row"><div class="tname">Cánh màng <span style="opacity:.55;font-weight:400;">(Membranous)</span></div><div class="tdesc">Mỏng, trong suốt, gân rõ — cả 2 đôi đều dùng để bay.</div><div class="tspecies">Apis mellifera</div></div>
+<div class="type-row"><div class="tname">Cánh màng</div><div class="tdesc">Bay lượn linh hoạt, 2 đôi cánh gần bằng nhau.</div><div class="tspecies">Orthetrum sabina</div></div>
+<div class="type-row"><div class="tname">Cánh cứng <span style="opacity:.55;font-weight:400;">(Elytra)</span></div><div class="tdesc">Đôi cánh trước hóa cứng, bảo vệ cánh màng bên dưới.</div><div class="tspecies">Scarabaeidae</div></div>
+<div class="type-row"><div class="tname">Cánh vẩy <span style="opacity:.55;font-weight:400;">(Scaled)</span></div><div class="tdesc">Phủ đầy vảy nhỏ li ti tạo màu sắc, hoa văn đặc trưng.</div><div class="tspecies">Papilio polytes</div></div>
+<div class="type-row"><div class="tname">Cánh nửa <span style="opacity:.55;font-weight:400;">(Hemelytra)</span></div><div class="tdesc">Nửa gốc cứng dai, nửa ngọn mỏng như màng.</div><div class="tspecies">Nezara viridula</div></div>
+<div class="type-row"><div class="tname">Cánh da <span style="opacity:.55;font-weight:400;">(Tegmina)</span></div><div class="tdesc">Dai, gân dày, che phủ và bảo vệ cánh sau mỏng.</div><div class="tspecies">Orthoptera</div></div>
+</div>
+</div>
+<!-- Antennae types -->
+<div class="block reveal">
+<div class="block-title"><span class="no">07</span> Phân loại kiểu râu đầu (Antennae)</div>
+<div class="type-list c-rust">
+<div class="type-row"><div class="tname">Hình sợi chỉ <span style="opacity:.55;font-weight:400;">(Filiform)</span></div><div class="tdesc">Các đốt đều nhau về kích thước từ gốc đến ngọn.</div><div class="tspecies">Periplaneta americana</div></div>
+<div class="type-row"><div class="tname">Hình lông chim <span style="opacity:.55;font-weight:400;">(Plumose)</span></div><div class="tdesc">Phân nhánh mảnh — thường ở con đực để bắt pheromone.</div><div class="tspecies">Bombyx mori (đực)</div></div>
+<div class="type-row"><div class="tname">Hình dùi trống <span style="opacity:.55;font-weight:400;">(Clavate)</span></div><div class="tdesc">Thon dài rồi phình to đột ngột ở đầu mút.</div><div class="tspecies">Pieris rapae</div></div>
+<div class="type-row"><div class="tname">Hình đầu gối <span style="opacity:.55;font-weight:400;">(Geniculate)</span></div><div class="tdesc">Gấp khúc rõ rệt tại một khớp giữa.</div><div class="tspecies">Formicidae</div></div>
+<div class="type-row"><div class="tname">Hình lá lợp <span style="opacity:.55;font-weight:400;">(Lamellate)</span></div><div class="tdesc">Các đốt cuối xòe rộng, xếp chồng như lá.</div><div class="tspecies">Oryctes rhinoceros</div></div>
+</div>
+<p class="note">Kiểu râu là một trong những chỉ tiêu hình thái quan trọng nhất để phân loại bộ, họ côn trùng.</p>
+</div>
+<!-- Lifespan -->
+<div class="block reveal">
+<div class="block-title"><span class="no">08</span> Tuổi thọ và số thế hệ trong năm</div>
+<div class="grid-3 stagger">
+<div class="panel reveal" style="--i:0"><h4>Vài giờ – vài ngày</h4><p>Phù du (Ephemeroptera), một số muỗi — chỉ sống để giao phối và đẻ trứng.</p></div>
+<div class="panel reveal" style="--i:1"><h4>Vài tuần – vài tháng</h4><p>Đa số bướm ngày, ruồi, bọ cánh cứng nhỏ — đủ thời gian sinh sản nhiều lứa.</p></div>
+<div class="panel reveal" style="--i:2"><h4>Qua đông / nhiều tháng</h4><p>Một số bọ cánh cứng, bướm đêm đình dục qua mùa lạnh rồi sinh sản vào xuân.</p></div>
+</div>
+</div>
+</div>
 </section>
-
-<style>
+<section class="stage bg-ink" data-rail="Tổng hợp" id="compare">
+<div class="wrap">
+<div class="stage-head reveal">
+<div class="tag"><span class="dot"></span>ĐC.04 — TỔNG HỢP</div>
+<h2>Ba pha, nhìn cạnh nhau</h2>
+</div>
+<div class="ctable reveal">
+<div class="ctable-row ctable-head">
+<div>Tiêu chí</div><div>Sâu non</div><div>Nhộng</div><div>Trưởng thành</div>
+</div>
+<div class="ctable-row"><div>Chức năng cốt lõi</div><div>Ăn, tích lũy dinh dưỡng, sinh trưởng khối lượng</div><div>Biến đổi tổ chức mô (tiêu mô &amp; sinh mô)</div><div>Sinh sản, duy trì &amp; phát tán nòi giống</div></div>
+<div class="ctable-row"><div>Vỏ cơ thể</div><div>Mềm, mỏng; lột xác nhiều lần</div><div>Hóa cứng tạo kén/màng bảo vệ, bất động</div><div>Hóa cứng hoàn chỉnh, ngừng lột xác</div></div>
+<div class="ctable-row"><div>Cơ quan vận động</div><div>Chân ngực đơn giản, chưa có cánh</div><div>Mầm chân/cánh áp sát thân</div><div>3 đôi chân, 2 đôi cánh hoàn chỉnh</div></div>
+<div class="ctable-row"><div>Chức năng sinh sản</div><div>Chưa có khả năng</div><div>Tuyến sinh dục đang hoàn thiện</div><div>Hoàn chỉnh: giao phối, đẻ trứng</div></div>
+<div class="ctable-row"><div>Mức độ gây hại</div><div>Phá hại mùa màng nghiêm trọng nhất</div><div>Tĩnh, không gây hại trực tiếp</div><div>Gây hại gián tiếp / ăn bổ sung</div></div>
+</div>
+</div>
+</section><section class="stage bg-canopy" data-rail="Kết luận" id="conclusion">
+<div class="wrap">
+<div class="stage-head reveal">
+<div class="tag"><span class="dot"></span>KẾT LUẬN</div>
+<h2>Ba pha — một vòng đời</h2>
+</div>
+<div class="grid-3 stagger" style="margin-bottom:6vh;">
+<div class="panel reveal" style="--i:0"><span class="num" style="color:var(--rust)">SÂU NON</span><h4>"Ăn để lớn"</h4><p>Nền tảng năng lượng cho cả vòng đời.</p></div>
+<div class="panel reveal" style="--i:1"><span class="num" style="color:var(--brass)">NHỘNG</span><h4>"Lột xác của số phận"</h4><p>Kiến tạo lại toàn bộ cơ thể.</p></div>
+<div class="panel reveal" style="--i:2"><span class="num" style="color:var(--lichen)">TRƯỞNG THÀNH</span><h4>"Sống để truyền nòi"</h4><p>Hoàn thiện và phát tán.</p></div>
+</div>
+<p class="note reveal" style="font-size:1.2rem; max-width:70ch;">Nắm vững đặc điểm hình thái &amp; chức năng sinh lý từng pha giúp xác định đúng tuổi sâu, dự báo thời điểm gây hại và lựa chọn biện pháp phòng trừ kịp thời, hiệu quả trong bảo vệ thực vật.</p>
+<div class="reveal" style="margin-top:8vh; padding-top:26px; border-top:1px solid var(--line); font-family:var(--mono); font-size:11.5px; color:var(--parchment-dim);">
+      NHÓM 3 · BẢO VỆ THỰC VẬT — Triệu Đình Lộc (nhóm trưởng) · Lương Thái Khang · Phạm Thị Thu Hường · Triệu Thị Liên · Đồng Mạnh Huấn
+    </div>
+</div>
+</section><style>
   .cmp-list{ margin-top:10px; }
   .cmp-row{ display:grid; grid-template-columns:0.9fr 1fr 1.1fr; gap:14px; padding:14px 0; border-bottom:1px solid var(--line); align-items:center; }
   .cmp-k{ font-family:var(--mono); font-size:11px; color:var(--lichen); }
@@ -868,7 +881,6 @@ body.presentation-mode .presentation-bar{bottom:24px}
   .cmp-b{ font-size:0.92rem; font-weight:600; color:var(--parchment); }
   @media (max-width:760px){ .cmp-row{ grid-template-columns:1fr; gap:4px; padding:16px 0;} }
 </style>
-
 <style>
   .pupa-card{ background:rgba(237,230,211,0.045); border:1px solid var(--line); border-radius:3px; padding:24px; text-align:center; }
   .pupa-card p{ font-size:0.9rem; color:var(--parchment-dim); margin-top:6px; }
@@ -887,11 +899,8 @@ body.presentation-mode .presentation-bar{bottom:24px}
   .harrow{ display:flex; align-items:center; font-size:1.3rem; color:var(--brass); opacity:0.6; }
   @media (max-width:900px){ .hormone-flow{ flex-direction:column; } .harrow{ transform:rotate(90deg); align-self:center; } }
 </style>
-
 <!-- ============ COMPARISON TABLE ============ -->
-
 <!-- ============ CONCLUSION ============ -->
-
 <style>
   .ctable{ border-top:1px solid var(--line); margin-top:2vh; }
   .ctable-row{ display:grid; grid-template-columns:1fr 1.3fr 1.3fr 1.3fr; gap:20px; padding:18px 0; border-bottom:1px solid var(--line); font-size:0.88rem; }
@@ -901,7 +910,6 @@ body.presentation-mode .presentation-bar{bottom:24px}
   .ctable-head > div:first-child{ color:var(--parchment); }
   @media (max-width:820px){ .ctable-row{ grid-template-columns:1fr; gap:4px; } .ctable-head{ display:none; } .ctable-row{ padding:20px 0; } .ctable-row > div:first-child{ margin-bottom:4px; } }
 </style>
-
 <script>
   // Top menu: mobile toggle + smooth close after selecting a section
   const menuToggle = document.getElementById('menuToggle');
