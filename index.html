@@ -287,6 +287,9 @@
   @media (max-width:560px){
     .brand span{ display:none; }
     .photo-gallery{ grid-template-columns:1fr; }
+    .pupa-photo-grid{grid-template-columns:1fr;}
+    .pupa-photo-btn{height:250px;}
+    .pupa-key{grid-template-columns:1fr;}
     .gallery-card,.gallery-card:first-child{ min-height:230px; grid-column:auto; }
     .to-top{ right:16px; bottom:16px; width:42px; height:42px; }
   }
@@ -634,32 +637,41 @@ body.presentation-mode .presentation-bar{bottom:24px}
 </div>
 <!-- Pupa types -->
 <div class="block">
-<div class="block-title reveal"><span class="no">01</span> Phân loại các kiểu nhộng</div>
-<div class="grid-3 stagger">
-<div class="pupa-card reveal-zoom" style="--i:0">
-<div class="illus-frame" style="min-height:180px;">
-<svg viewbox="0 0 160 200" width="120"><ellipse cx="80" cy="100" fill="none" rx="46" ry="70" stroke="#8A9B68" stroke-width="2.5"></ellipse><path d="M 50 60 L 42 45 M 110 60 L 118 45" stroke="#8A9B68" stroke-linecap="round" stroke-width="2"></path><line opacity="0.4" stroke="#8A9B68" stroke-dasharray="3 4" stroke-width="1" x1="80" x2="80" y1="45" y2="155"></line></svg>
+<div class="block-title reveal"><span class="no">01</span> Phân loại kiểu nhộng — có hàm / không có hàm</div>
+<p class="note class-visual-note">Bấm vào từng ảnh để phóng to. Chú thích dưới ảnh ghi rõ loài đại diện và đặc điểm dùng để nhận diện. Về hàm trên: <b>decticous</b> có hàm trên có khớp, còn <b>adecticous</b> không có hàm trên có khớp/chức năng ở pha nhộng.</p>
+<div class="pupa-photo-grid">
+<figure class="pupa-photo-card reveal-zoom">
+  <button class="pupa-photo-btn" type="button" aria-label="Phóng to nhộng Osmylus fulvicephalus">
+    <img loading="lazy" alt="Nhộng Osmylus fulvicephalus, bộ Neuroptera" src="https://commons.wikimedia.org/wiki/Special:FilePath/OsmylusPupa.jpg?width=1400"/>
+    <span class="zoom-badge">＋ Zoom</span>
+  </button>
+  <figcaption><span class="num">DECTICOUS · CÓ HÀM</span><strong>Osmylus fulvicephalus</strong><em>Osmylidae · Neuroptera</em><p>Nhộng có hàm trên có khớp; thuộc nhóm nhộng exarate. Hàm có thể tham gia phá kén/cấu trúc bao khi vũ hóa.</p></figcaption>
+</figure>
+<figure class="pupa-photo-card reveal-zoom">
+  <button class="pupa-photo-btn" type="button" aria-label="Phóng to nhộng ong mật Apis mellifera">
+    <img loading="lazy" alt="Nhộng ong mật Apis mellifera" src="https://commons.wikimedia.org/wiki/Special:FilePath/202208_European_honey_bee_pupa.svg?width=1400"/>
+    <span class="zoom-badge">＋ Zoom</span>
+  </button>
+  <figcaption><span class="num">ADECTICOUS · KHÔNG HÀM KHỚP</span><strong>Apis mellifera</strong><em>Apidae · Hymenoptera</em><p>Nhộng không có hàm trên có khớp để sử dụng ở pha nhộng; đây là nhộng exarate, các phần phụ nhìn thấy tương đối tự do.</p></figcaption>
+</figure>
+<figure class="pupa-photo-card reveal-zoom">
+  <button class="pupa-photo-btn" type="button" aria-label="Phóng to nhộng bọ rùa Coccinella septempunctata">
+    <img loading="lazy" alt="Nhộng bọ rùa bảy chấm Coccinella septempunctata" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coccinella_septempunctata_emerging_from_pupa.jpg?width=1400"/>
+    <span class="zoom-badge">＋ Zoom</span>
+  </button>
+  <figcaption><span class="num">ADECTICOUS · OBTECT</span><strong>Coccinella septempunctata</strong><em>Coccinellidae · Coleoptera</em><p>Nhộng không có hàm trên có khớp; phần phụ trưởng thành áp sát cơ thể. Ảnh ghi lại quá trình bọ rùa bảy chấm vũ hóa.</p></figcaption>
+</figure>
+<figure class="pupa-photo-card reveal-zoom">
+  <button class="pupa-photo-btn" type="button" aria-label="Phóng to puparium Calliphora">
+    <img loading="lazy" alt="Puparium và nhộng Calliphora vomitoria" src="https://commons.wikimedia.org/wiki/Special:FilePath/Calliphora_puparium_pupa_Leuckart.png?width=1400"/>
+    <span class="zoom-badge">＋ Zoom</span>
+  </button>
+  <figcaption><span class="num">ADECTICOUS · COARCTATE</span><strong>Calliphora vomitoria</strong><em>Calliphoridae · Diptera</em><p>Nhộng thật nằm trong puparium — lớp vỏ cứng hình thành từ da sâu non tuổi cuối. Bản thân nhộng thuộc dạng exarate adecticous.</p></figcaption>
+</figure>
 </div>
-<span class="num">PUPA DECTICA</span><h4>Nhộng có hàm trên</h4>
-<p>Hàm trên hoàn chỉnh, cắn rách kén tơ. Mầm chân, cánh tự do.</p>
-<p class="sp">Chrysoperla sp. · Trichoptera</p>
-</div>
-<div class="pupa-card reveal-zoom" style="--i:1">
-<div class="illus-frame" style="min-height:180px;">
-<svg viewbox="0 0 160 200" width="120"><ellipse cx="80" cy="100" fill="#B8935A" opacity="0.14" rx="44" ry="72" stroke="#B8935A" stroke-width="2.5"></ellipse><path d="M 45 70 Q 30 100 45 135 M 115 70 Q 130 100 115 135" fill="none" opacity="0.7" stroke="#B8935A" stroke-width="1.6"></path></svg>
-</div>
-<span class="num">PUPA EXARATA</span><h4>Nhộng trần</h4>
-<p>Mầm cánh, chân, râu tự do bên ngoài, không dính sát thân.</p>
-<p class="sp">Coccinella transversalis · Apis mellifera</p>
-</div>
-<div class="pupa-card reveal-zoom" style="--i:2">
-<div class="illus-frame" style="min-height:180px;">
-<svg viewbox="0 0 160 200" width="120"><path d="M 80 30 C 40 30 34 90 40 130 C 46 168 114 168 120 130 C 126 90 120 30 80 30 Z" fill="#9C4A2E" opacity="0.16" stroke="#9C4A2E" stroke-width="2.5"></path><circle cx="60" cy="70" fill="#B8935A" r="3"></circle><circle cx="100" cy="90" fill="#B8935A" r="3"></circle><circle cx="70" cy="120" fill="#B8935A" r="3"></circle></svg>
-</div>
-<span class="num">PUPA OBTECTA</span><h4>Nhộng màng</h4>
-<p>Lớp màng keo dính chặt mầm cánh &amp; chân vào thân.</p>
-<p class="sp">Pieris rapae · Bombyx mori</p>
-</div>
+<div class="pupa-key reveal">
+  <div><b>Có hàm:</b> Decticous → hàm trên có khớp, là đặc điểm liên quan đến khả năng phá kén/cell ở một số nhóm.</div>
+  <div><b>Không có hàm:</b> Adecticous → hàm trên không có khớp/chức năng ở pha nhộng; có thể gặp ở dạng exarate, obtect hoặc coarctate.</div>
 </div>
 </div>
 <!-- Histolysis / histogenesis -->
@@ -1082,6 +1094,7 @@ body.presentation-mode .presentation-bar{bottom:24px}
     lightbox.classList.add('open'); document.body.style.overflow='hidden';
   }
   document.querySelectorAll('.photo-feature img,.photo-gallery img,.photo-thumb img').forEach(img=>img.addEventListener('click',()=>openLightbox(img)));
+  document.querySelectorAll('.pupa-photo-btn img').forEach(img=>img.addEventListener('click',e=>{e.stopPropagation();openLightbox(img);}));
   function closeLightbox(){lightbox.classList.remove('open');document.body.style.overflow='';lbImage.src='';}
   document.getElementById('lbClose')?.addEventListener('click',closeLightbox);
   lightbox?.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox();});
