@@ -192,6 +192,38 @@
     font-family:var(--serif); font-style:italic; font-size:1.05rem; color:var(--brass);
     border-left:2px solid var(--brass); padding-left:18px; margin-top:8px; line-height:1.5;
   }
+
+  /* ---------- real photo feature (full-bleed cinematic) ---------- */
+  .photo-feature{
+    position:relative; margin-top:9vh; border-radius:4px; overflow:hidden;
+    height:78vh; min-height:460px; max-height:760px;
+    background:#0A0C08;
+  }
+  .photo-feature img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    transform:scale(1.06); transition:transform 2.4s cubic-bezier(.16,.8,.24,1);
+    filter:saturate(0.94) contrast(1.03);
+    color:transparent; font-size:0;
+  }
+  .photo-feature.in img{ transform:scale(1); }
+  .photo-feature::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(0deg, rgba(10,12,8,0.88) 0%, rgba(10,12,8,0.15) 42%, rgba(10,12,8,0.05) 100%);
+  }
+  .photo-feature .pf-cap{
+    position:absolute; left:0; right:0; bottom:0; padding:34px 5vw 30px; z-index:2;
+  }
+  .photo-feature .pf-tag{ margin-bottom:12px; }
+  .photo-feature .pf-title{ font-family:var(--serif); font-weight:600; font-size:clamp(1.5rem,3vw,2.2rem); color:var(--parchment); max-width:22ch; }
+  .photo-feature .pf-credit{ margin-top:10px; font-family:var(--mono); font-size:10.5px; color:var(--parchment-dim); letter-spacing:.02em; }
+
+  /* ---------- small photo thumb inside panels ---------- */
+  .photo-thumb{ position:relative; border-radius:3px; overflow:hidden; height:170px; margin-bottom:16px; background:#0A0C08; }
+  .photo-thumb img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(0.92); color:transparent; font-size:0; }
+  .photo-thumb .pt-credit{
+    position:absolute; right:8px; bottom:6px; font-family:var(--mono); font-size:8.5px; color:rgba(237,230,211,0.75);
+    background:rgba(10,12,8,0.55); padding:2px 6px; border-radius:2px;
+  }
 </style>
 </head>
 <body>
@@ -330,6 +362,15 @@
       <div class="tag"><span class="dot"></span>ĐC.01 — SÂU NON / ẤU TRÙNG</div>
       <h2>Cỗ máy ăn không ngừng nghỉ</h2>
       <p>Toàn bộ cấu tạo của sâu non phục vụ một mục tiêu duy nhất: ăn, tích lũy dinh dưỡng và sinh trưởng khối lượng nhanh nhất có thể trước khi hóa nhộng.</p>
+    </div>
+
+    <div class="photo-feature reveal-zoom">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=1600" alt="Sâu non bướm chúa (Danaus plexippus) đang ăn lá" loading="lazy">
+      <div class="pf-cap">
+        <div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · DANAUS PLEXIPPUS</div>
+        <div class="pf-title">Sâu non bướm chúa đang ăn lá bông tai (Asclepias)</div>
+        <div class="pf-credit">Ảnh: Derek Ramsey (Ram-Man) · Wikimedia Commons</div>
+      </div>
     </div>
 
     <!-- Morphology -->
@@ -511,6 +552,15 @@
       <p>Nhộng không di chuyển và không ăn — nhưng bên trong lớp vỏ bất động ấy là quá trình phá hủy và tái thiết triệt để nhất trong toàn bộ vòng đời côn trùng.</p>
     </div>
 
+    <div class="photo-feature reveal-zoom">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Papilio_machaon_chrysalis_01.jpg?width=1600" alt="Nhộng trong suốt của bướm phượng, lộ rõ màu cánh bên trong ngay trước khi vũ hóa" loading="lazy">
+      <div class="pf-cap">
+        <div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · PAPILIO MACHAON</div>
+        <div class="pf-title">Khoảnh khắc trước vũ hóa — lớp vỏ nhộng trong suốt để lộ đôi cánh đã hoàn thiện bên trong</div>
+        <div class="pf-credit">Ảnh: hamon jp · Wikimedia Commons</div>
+      </div>
+    </div>
+
     <!-- Pupa types -->
     <div class="block">
       <div class="block-title reveal"><span class="no">01</span> Phân loại các kiểu nhộng</div>
@@ -601,6 +651,15 @@
       <p>Cơ thể đã ổn định kích thước, ngừng lột xác — mọi cấu tạo giờ đây tập trung toàn bộ vào việc tìm bạn tình, giao phối và duy trì nòi giống.</p>
     </div>
 
+    <div class="photo-feature reveal-zoom">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Swallowtail_butterfly_2.JPG?width=1600" alt="Bướm phượng hổ (Papilio rutulus) trưởng thành với đôi cánh hoàn chỉnh" loading="lazy">
+      <div class="pf-cap">
+        <div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · PAPILIO RUTULUS</div>
+        <div class="pf-title">Hình hài hoàn thiện — đôi cánh vảy đầy đủ hoa văn của bướm phượng hổ</div>
+        <div class="pf-credit">Ảnh: Brocken Inaglory · Wikimedia Commons</div>
+      </div>
+    </div>
+
     <div class="block split reveal">
       <div class="illus-frame" id="adultIllus">
         <svg viewBox="0 0 400 380" width="320">
@@ -646,9 +705,9 @@
     <div class="block reveal">
       <div class="block-title"><span class="no">02</span> Hiện tượng nhiều hình (Polymorphism)</div>
       <div class="grid-3 stagger">
-        <div class="panel reveal" style="--i:0"><span class="num">SEXUAL DIMORPHISM</span><h4>Nhị hình giới tính</h4><p>Cái: bụng to chứa trứng. Đực: cơ quan nhận pheromone, gạc/sừng lớn, móc bám giao phối.</p></div>
+        <div class="panel reveal" style="--i:0"><div class="photo-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Stag_beetle_(Lucanus_servus)_-_geograph.org.uk_-_1340474.jpg?width=700" alt="Bọ sừng hươu đực với hàm to đặc trưng" loading="lazy"><span class="pt-credit">Kevin Hale · Wikimedia Commons</span></div><span class="num">SEXUAL DIMORPHISM</span><h4>Nhị hình giới tính</h4><p>Cái: bụng to chứa trứng. Đực: cơ quan nhận pheromone, gạc/sừng lớn, móc bám giao phối.</p></div>
         <div class="panel reveal" style="--i:1"><span class="num">SEASONAL DIMORPHISM</span><h4>Nhị hình theo mùa</h4><p>Cùng loài, thế hệ sinh vào mùa khác nhau có màu sắc/kích thước khác do nhiệt độ & quang chu kỳ.</p></div>
-        <div class="panel reveal" style="--i:2"><span class="num">SOCIAL POLYMORPHISM</span><h4>Nhiều hình xã hội</h4><p>Côn trùng tập đoàn (ong, kiến, mối) phân hóa đẳng cấp: chúa, đực, thợ, lính.</p></div>
+        <div class="panel reveal" style="--i:2"><div class="photo-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/LeafAnt.jpg?width=700" alt="Kiến thợ tha lá về tổ" loading="lazy"><span class="pt-credit">Adrian Pingstone · Public Domain</span></div><span class="num">SOCIAL POLYMORPHISM</span><h4>Nhiều hình xã hội</h4><p>Côn trùng tập đoàn (ong, kiến, mối) phân hóa đẳng cấp: chúa, đực, thợ, lính.</p></div>
       </div>
     </div>
 
