@@ -23,7 +23,7 @@
     --mono: 'IBM Plex Mono', monospace;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; scroll-padding-top:82px;}
   body{
     background:var(--ink);
     color:var(--parchment);
@@ -103,6 +103,14 @@
 
   .hero-illus{ position:relative; height:min(72vh, 640px); display:flex; align-items:center; justify-content:center; }
   .hero-illus svg{ width:100%; height:100%; overflow:visible; }
+
+  /* ---------- tiêu đề tối giản ---------- */
+  .simple-hero{ min-height:100vh; background:var(--ink); }
+  .simple-hero .wrap{ display:flex; align-items:center; justify-content:center; width:100%; text-align:center; }
+  .simple-title{ max-width:900px; }
+  .simple-kicker{ font-family:var(--mono); font-size:13px; letter-spacing:.14em; color:var(--parchment-dim); margin-bottom:24px; }
+  .simple-title h1{ font-family:var(--sans); font-weight:700; font-size:clamp(2rem,4vw,3.8rem); line-height:1.15; color:var(--parchment); }
+  .simple-title p{ margin-top:22px; font-size:1.15rem; color:var(--parchment-dim); }
 
   .scrollcue{
     position:absolute; bottom:34px; left:50%; transform:translateX(-50%);
@@ -224,143 +232,188 @@
     position:absolute; right:8px; bottom:6px; font-family:var(--mono); font-size:8.5px; color:rgba(237,230,211,0.75);
     background:rgba(10,12,8,0.55); padding:2px 6px; border-radius:2px;
   }
+
+
+  /* ---------- top navigation ---------- */
+  .topnav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(20,23,15,.78); border-bottom:1px solid rgba(237,230,211,.10);
+    backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+    transition:transform .35s ease, background .35s ease;
+  }
+  .topnav-inner{ max-width:1280px; margin:0 auto; min-height:66px; padding:0 4vw; display:flex; align-items:center; gap:24px; }
+  .brand{ font-family:var(--mono); font-size:11px; letter-spacing:.05em; text-decoration:none; color:var(--parchment); white-space:nowrap; }
+  .brand span{ color:var(--brass); }
+  .main-menu{ margin-left:auto; display:flex; align-items:center; gap:4px; }
+  .main-menu a{
+    text-decoration:none; color:var(--parchment-dim); font-family:var(--mono); font-size:10.5px;
+    padding:9px 10px; border:1px solid transparent; border-radius:3px; transition:all .25s ease;
+  }
+  .main-menu a:hover,.main-menu a.active{ color:var(--parchment); border-color:rgba(184,147,90,.35); background:rgba(184,147,90,.08); }
+  .menu-toggle{ display:none; margin-left:auto; border:1px solid rgba(184,147,90,.35); background:rgba(184,147,90,.08); color:var(--parchment); padding:9px 12px; border-radius:3px; font-family:var(--mono); font-size:11px; cursor:pointer; }
+  .to-top{
+    position:fixed; right:24px; bottom:24px; z-index:90; width:44px; height:44px; border-radius:50%;
+    border:1px solid rgba(184,147,90,.5); background:rgba(30,42,24,.88); color:var(--parchment);
+    font-size:22px; line-height:1; cursor:pointer; opacity:0; transform:translateY(12px); pointer-events:none;
+    transition:opacity .3s ease, transform .3s ease, background .2s ease; backdrop-filter:blur(10px);
+  }
+  .to-top.show{ opacity:1; transform:translateY(0); pointer-events:auto; }
+  .to-top:hover{ background:var(--rust); }
+
+  /* ---------- lively photo gallery ---------- */
+  .photo-gallery{ display:grid; grid-template-columns:1.35fr .9fr .9fr; gap:14px; margin-top:5vh; }
+  .gallery-card{ position:relative; min-height:210px; overflow:hidden; border-radius:4px; background:#0A0C08; border:1px solid var(--line); }
+  .gallery-card:first-child{ min-height:310px; }
+  .gallery-card img{ width:100%; height:100%; min-height:inherit; object-fit:cover; display:block; filter:saturate(.95) contrast(1.04); transition:transform .8s cubic-bezier(.16,.8,.24,1), filter .4s ease; }
+  .gallery-card:hover img{ transform:scale(1.045); filter:saturate(1.08) contrast(1.05); }
+  .gallery-card::after{ content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(10,12,8,.84),rgba(10,12,8,0) 65%); pointer-events:none; }
+  .gallery-card .gc-cap{ position:absolute; z-index:2; left:16px; right:16px; bottom:13px; font-family:var(--mono); font-size:10px; color:var(--parchment); line-height:1.45; }
+  .gallery-card .gc-cap small{ display:block; color:var(--parchment-dim); margin-top:3px; font-size:8.5px; }
+  .photo-feature + .photo-gallery{ margin-top:18px; }
+  @media (max-width:900px){
+    .topnav-inner{ min-height:58px; }
+    .brand{ font-size:10px; }
+    .menu-toggle{ display:block; }
+    .main-menu{
+      position:absolute; left:0; right:0; top:58px; display:none; flex-direction:column; align-items:stretch;
+      padding:10px 4vw 14px; background:rgba(20,23,15,.97); border-bottom:1px solid var(--line);
+    }
+    .main-menu.open{ display:flex; }
+    .main-menu a{ padding:12px 10px; }
+    .photo-gallery{ grid-template-columns:1fr 1fr; }
+    .gallery-card:first-child{ grid-column:1 / -1; min-height:260px; }
+  }
+  @media (max-width:560px){
+    .brand span{ display:none; }
+    .photo-gallery{ grid-template-columns:1fr; }
+    .gallery-card,.gallery-card:first-child{ min-height:230px; grid-column:auto; }
+    .to-top{ right:16px; bottom:16px; width:42px; height:42px; }
+  }
+</style>
+<style>
+
+/* ================= INTERACTIVE PRESENTATION UI ================= */
+:root{ --accent2:#D8C9A3; }
+html{scroll-behavior:smooth; scroll-padding-top:86px;}
+body{scroll-snap-type:y proximity;}
+.stage,.hero{scroll-snap-align:start;}
+
+/* slide controls */
+.presentation-bar{
+  position:fixed; left:50%; bottom:18px; transform:translateX(-50%);
+  z-index:120; display:flex; align-items:center; gap:8px;
+  padding:8px 10px; border:1px solid rgba(237,230,211,.16);
+  background:rgba(12,14,10,.86); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  border-radius:999px; box-shadow:0 12px 36px rgba(0,0,0,.28);
+}
+.presentation-bar button{
+  border:1px solid rgba(237,230,211,.14); background:rgba(237,230,211,.055);
+  color:var(--parchment); min-width:34px; height:34px; border-radius:50%; cursor:pointer;
+  font-family:var(--mono); font-size:12px; transition:.2s ease;
+}
+.presentation-bar button:hover{background:rgba(184,147,90,.18);border-color:rgba(184,147,90,.5);transform:translateY(-1px)}
+.presentation-bar .play{width:auto;border-radius:18px;padding:0 14px;display:flex;align-items:center;gap:7px}
+.presentation-bar .progress{width:120px;height:3px;background:rgba(237,230,211,.14);border-radius:4px;overflow:hidden;margin:0 4px}
+.presentation-bar .progress i{display:block;height:100%;width:33%;background:var(--brass);transition:width .35s ease}
+.presentation-bar .counter{font-family:var(--mono);font-size:10px;color:var(--parchment-dim);min-width:34px;text-align:center}
+
+/* stage mini table of contents */
+.stage-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:-3vh 0 5vh;padding:10px 0;border-bottom:1px solid var(--line)}
+.stage-tools .tool-label{font-family:var(--mono);font-size:9px;color:var(--parchment-dim);letter-spacing:.06em;margin-right:4px}
+.stage-tools button{border:1px solid rgba(237,230,211,.12);background:transparent;color:var(--parchment-dim);padding:7px 10px;border-radius:3px;font-family:var(--mono);font-size:9.5px;cursor:pointer;transition:.2s ease}
+.stage-tools button:hover,.stage-tools button.active{color:var(--parchment);border-color:rgba(184,147,90,.45);background:rgba(184,147,90,.08)}
+
+/* interactive cards */
+.panel,.pupa-card,.type-row{transition:transform .25s ease,border-color .25s ease,background .25s ease;cursor:pointer}
+.panel:hover,.pupa-card:hover,.type-row:hover{transform:translateY(-3px);border-color:rgba(184,147,90,.42);background:rgba(184,147,90,.055)}
+.panel.is-focus{outline:2px solid rgba(184,147,90,.65);outline-offset:4px}
+
+/* image lightbox */
+.lightbox{position:fixed;inset:0;z-index:300;background:rgba(5,7,4,.94);display:none;align-items:center;justify-content:center;padding:5vh 5vw}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(1100px,92vw);max-height:82vh;object-fit:contain;border:1px solid rgba(237,230,211,.16);box-shadow:0 30px 90px rgba(0,0,0,.55)}
+.lightbox .lb-caption{position:absolute;left:5vw;right:5vw;bottom:25px;text-align:center;font-family:var(--mono);font-size:11px;color:var(--parchment-dim)}
+.lightbox .lb-close{position:absolute;right:24px;top:18px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(237,230,211,.18);background:rgba(237,230,211,.06);color:var(--parchment);font-size:22px;cursor:pointer}
+.photo-feature img,.photo-gallery img,.photo-thumb img{cursor:zoom-in}
+
+/* presentation/focus mode */
+body.presentation-mode .topnav{transform:translateY(-110%)}
+body.presentation-mode #rail{opacity:.2}
+body.presentation-mode .stage{min-height:100vh;padding-top:13vh}
+body.presentation-mode .stage.current-stage{outline:1px solid rgba(184,147,90,.18);outline-offset:-1px}
+body.presentation-mode .hero{min-height:100vh}
+body.presentation-mode .presentation-bar{bottom:24px}
+
+/* keyboard hint */
+.keyhint{position:fixed;right:18px;bottom:18px;z-index:110;font-family:var(--mono);font-size:9px;color:rgba(237,230,211,.45);pointer-events:none}
+
+@media(max-width:760px){
+  .presentation-bar{bottom:10px;max-width:calc(100vw - 20px);padding:6px 8px}
+  .presentation-bar .progress{width:70px}
+  .presentation-bar .play span{display:none}
+  .keyhint{display:none}
+  .stage-tools{margin-top:-2vh;overflow-x:auto;flex-wrap:nowrap;padding-bottom:12px}
+  .stage-tools button{white-space:nowrap}
+}
+
 </style>
 </head>
 <body>
 
+<!-- Thanh điều hướng chính -->
+<nav class="topnav" id="topnav" aria-label="Điều hướng bài trình bày">
+  <div class="topnav-inner">
+    <a class="brand" href="#hero" aria-label="Về trang đầu">CÔN TRÙNG HỌC <span>· NHÓM 3</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainMenu">☰ <span>Mục lục</span></button>
+    <div class="main-menu" id="mainMenu">
+      <a href="#larva">01 · Sâu non</a>
+      <a href="#pupa">02 · Nhộng</a>
+      <a href="#adult">03 · Trưởng thành</a>
+    </div>
+  </div>
+</nav>
+
 <nav id="rail"></nav>
 
-<!-- ============ HERO ============ -->
-<section class="hero" id="hero">
-  <div class="hero-grain"></div>
+<button class="to-top" id="toTop" aria-label="Lên đầu trang" title="Lên đầu trang">↑</button>
+
+<!-- Thanh điều khiển trình chiếu -->
+<div class="presentation-bar" id="presentationBar" aria-label="Điều khiển trình chiếu">
+  <button id="prevStage" title="Pha trước (←)">‹</button>
+  <button class="play" id="presentBtn" title="Bật/tắt chế độ trình chiếu (P)">▶ <span>Trình chiếu</span></button>
+  <div class="progress" aria-hidden="true"><i id="stageProgress"></i></div>
+  <div class="counter" id="stageCounter">1/4</div>
+  <button id="nextStage" title="Pha tiếp (→)">›</button>
+</div>
+<div class="keyhint">← → chuyển pha · P trình chiếu · Esc thoát</div>
+
+<!-- Phóng to hình ảnh -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Xem hình ảnh">
+  <button class="lb-close" id="lbClose" aria-label="Đóng">×</button>
+  <img id="lbImage" alt="">
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<!-- ============ TIÊU ĐỀ ============ -->
+<section class="hero simple-hero" id="hero">
   <div class="wrap">
-    <div>
-      <div class="hero-eyebrow tag"><span class="dot"></span>GHI CHÉP THỰC ĐỊA · CÔN TRÙNG HỌC</div>
-      <h1>Ba lần lột xác<br>của một <em>số phận</em></h1>
-      <p class="lede">Từ chiếc miệng gặm lá đầu tiên đến đôi cánh cuối cùng — hành trình hình thái và sinh lý của côn trùng qua ba pha: sâu non, nhộng, trưởng thành.</p>
-      <div class="meta">
-        <div><b>Nhóm 3</b>Bảo vệ thực vật</div>
-        <div><b>3 pha</b>Sâu non — Nhộng — Trưởng thành</div>
-        <div><b>Biến thái</b>Holometabola</div>
-      </div>
+    <div class="simple-title">
+      <div class="simple-kicker">CÔN TRÙNG HỌC</div>
+      <h1>Đặc điểm hình thái và sinh lý<br>ở 3 pha phát triển của côn trùng</h1>
+      <p>Sâu non — Nhộng — Trưởng thành</p>
     </div>
-    <div class="hero-illus" id="heroIllus">
-      <svg viewBox="0 0 520 560" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="haloG" cx="50%" cy="45%" r="60%">
-            <stop offset="0%" stop-color="#3A4A2C" stop-opacity="0.55"/>
-            <stop offset="100%" stop-color="#3A4A2C" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="wingTop" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#C98A4E"/>
-            <stop offset="55%" stop-color="#9C4A2E"/>
-            <stop offset="100%" stop-color="#6E2F1D"/>
-          </linearGradient>
-          <linearGradient id="wingBot" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#8A9B68"/>
-            <stop offset="100%" stop-color="#4A5D3A"/>
-          </linearGradient>
-          <linearGradient id="bodyG" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#3A2E1F"/>
-            <stop offset="100%" stop-color="#181410"/>
-          </linearGradient>
-        </defs>
-        <circle cx="260" cy="270" r="230" fill="url(#haloG)"/>
-
-        <!-- flight path dotted -->
-        <path d="M 40 470 Q 160 380 180 260 Q 195 170 260 120" fill="none" stroke="#B8935A" stroke-width="1.5" stroke-dasharray="1 9" stroke-linecap="round" opacity="0.55"/>
-
-        <g id="bfly" transform="translate(260,270)">
-          <!-- LEFT wings -->
-          <g id="wingL">
-            <path d="M -6 -20 C -90 -110 -210 -95 -235 -10 C -250 45 -195 78 -140 55 C -95 36 -55 5 -6 -8 Z" fill="url(#wingTop)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
-            <path d="M -8 4 C -70 40 -150 55 -175 105 C -192 140 -160 168 -120 152 C -78 135 -40 90 -8 34 Z" fill="url(#wingBot)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
-            <!-- veins -->
-            <g stroke="#EDE6D3" stroke-opacity="0.32" stroke-width="1.2" fill="none">
-              <path d="M -10 -18 C -70 -60 -160 -70 -220 -25"/>
-              <path d="M -10 -14 C -60 -30 -130 -20 -195 15"/>
-              <path d="M -10 0 C -60 20 -120 55 -155 95"/>
-            </g>
-            <circle cx="-155" cy="-38" r="9" fill="#EDE6D3" opacity="0.55"/>
-            <circle cx="-100" cy="-4" r="5.5" fill="#EDE6D3" opacity="0.4"/>
-            <circle cx="-120" cy="100" r="7" fill="#1E1712" opacity="0.4"/>
-          </g>
-          <!-- RIGHT wings (mirror) -->
-          <g id="wingR" transform="scale(-1,1)">
-            <path d="M -6 -20 C -90 -110 -210 -95 -235 -10 C -250 45 -195 78 -140 55 C -95 36 -55 5 -6 -8 Z" fill="url(#wingTop)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
-            <path d="M -8 4 C -70 40 -150 55 -175 105 C -192 140 -160 168 -120 152 C -78 135 -40 90 -8 34 Z" fill="url(#wingBot)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
-            <g stroke="#EDE6D3" stroke-opacity="0.32" stroke-width="1.2" fill="none">
-              <path d="M -10 -18 C -70 -60 -160 -70 -220 -25"/>
-              <path d="M -10 -14 C -60 -30 -130 -20 -195 15"/>
-              <path d="M -10 0 C -60 20 -120 55 -155 95"/>
-            </g>
-            <circle cx="-155" cy="-38" r="9" fill="#EDE6D3" opacity="0.55"/>
-            <circle cx="-100" cy="-4" r="5.5" fill="#EDE6D3" opacity="0.4"/>
-            <circle cx="-120" cy="100" r="7" fill="#1E1712" opacity="0.4"/>
-          </g>
-          <!-- body -->
-          <ellipse cx="0" cy="-32" rx="7.5" ry="9" fill="url(#bodyG)"/>
-          <path d="M -6 -26 C -13 -5 -13 60 0 108 C 13 60 13 -5 6 -26 Z" fill="url(#bodyG)"/>
-          <path d="M 0 -38 C -14 -52 -30 -54 -38 -46" fill="none" stroke="#181410" stroke-width="3" stroke-linecap="round"/>
-          <path d="M 0 -38 C 14 -52 30 -54 38 -46" fill="none" stroke="#181410" stroke-width="3" stroke-linecap="round"/>
-          <circle cx="-38" cy="-46" r="3.5" fill="#B8935A"/>
-          <circle cx="38" cy="-46" r="3.5" fill="#B8935A"/>
-        </g>
-      </svg>
-    </div>
-  </div>
-  <div class="scrollcue"><span>CUỘN ĐỂ XEM</span><span class="ln"></span></div>
-</section>
-
-<!-- ============ OVERVIEW: LIFE CYCLE ============ -->
-<section class="stage bg-ink" id="overview" data-rail="Tổng quan">
-  <div class="wrap">
-    <div class="stage-head reveal">
-      <div class="tag"><span class="dot"></span>ĐC.00 — TỔNG QUAN VÒNG ĐỜI</div>
-      <h2>Bốn điểm dừng, một hành trình khép kín</h2>
-      <p>Côn trùng biến thái hoàn toàn (Holometabola) đi qua bốn hình hài khác biệt tuyệt đối — mỗi pha giải một bài toán sinh tồn riêng, trước khi nhường chỗ cho pha kế tiếp.</p>
-    </div>
-
-    <div class="lifecycle reveal">
-      <div class="lc-row">
-        <div class="lc-node" style="--c:var(--parchment-dim)">
-          <div class="lc-dot"></div><div class="lc-label">Trứng</div><div class="lc-sub">Khởi đầu</div>
-        </div>
-        <div class="lc-link"></div>
-        <div class="lc-node" style="--c:var(--rust)">
-          <div class="lc-dot"></div><div class="lc-label">Sâu non</div><div class="lc-sub">Ăn — tích lũy</div>
-        </div>
-        <div class="lc-link"></div>
-        <div class="lc-node" style="--c:var(--brass)">
-          <div class="lc-dot"></div><div class="lc-label">Nhộng</div><div class="lc-sub">Tái tạo</div>
-        </div>
-        <div class="lc-link"></div>
-        <div class="lc-node" style="--c:var(--lichen)">
-          <div class="lc-dot"></div><div class="lc-label">Trưởng thành</div><div class="lc-sub">Sinh sản — phát tán</div>
-        </div>
-      </div>
-    </div>
-    <p class="note reveal">Ở nhóm biến thái không hoàn toàn (Hemimetabola), pha nhộng bị bỏ qua — ấu trùng chuyển trực tiếp thành trưởng thành, hình thái thay đổi dần qua mỗi lần lột xác.</p>
   </div>
 </section>
 
-<style>
-  .lifecycle{ margin-top:2vh; }
-  .lc-row{ display:flex; align-items:center; }
-  .lc-node{ display:flex; flex-direction:column; align-items:center; text-align:center; flex:0 0 auto; width:140px; }
-  .lc-dot{ width:20px; height:20px; border-radius:50%; background:var(--c); box-shadow:0 0 0 6px color-mix(in srgb, var(--c) 18%, transparent); margin-bottom:16px; }
-  .lc-label{ font-family:var(--serif); font-weight:600; font-size:1.05rem; }
-  .lc-sub{ font-family:var(--mono); font-size:10.5px; color:var(--parchment-dim); margin-top:5px; }
-  .lc-link{ flex:1 1 auto; height:1px; background:linear-gradient(90deg, var(--line), var(--parchment-dim), var(--line)); margin:0 6px 28px; min-width:20px; }
-  @media (max-width:760px){ .lc-row{ flex-direction:column; align-items:flex-start; gap:6px;} .lc-link{ width:1px; height:34px; margin:0 0 0 10px; } .lc-node{ flex-direction:row; width:auto; gap:14px; text-align:left;} .lc-dot{ margin-bottom:0;} }
-</style>
+
 
 <!-- ============ STAGE 01 — SÂU NON ============ -->
 <section class="stage bg-canopy" id="larva" data-rail="01 · Sâu non">
   <div class="wrap">
     <div class="stage-head reveal">
       <div class="tag"><span class="dot"></span>ĐC.01 — SÂU NON / ẤU TRÙNG</div>
-      <h2>Cỗ máy ăn không ngừng nghỉ</h2>
+    <div class="stage-tools" data-tools="larva"><span class="tool-label">ĐIỀU HƯỚNG PHA</span><button type="button">Hình thái ngoài</button><button type="button">Hệ cơ quan</button><button type="button">Lột xác & sinh trưởng</button></div>
+      <h2>Đặc điểm hình thái và sinh lý — sâu non</h2>
       <p>Toàn bộ cấu tạo của sâu non phục vụ một mục tiêu duy nhất: ăn, tích lũy dinh dưỡng và sinh trưởng khối lượng nhanh nhất có thể trước khi hóa nhộng.</p>
     </div>
 
@@ -371,6 +424,12 @@
         <div class="pf-title">Sâu non bướm chúa đang ăn lá bông tai (Asclepias)</div>
         <div class="pf-credit">Ảnh: Derek Ramsey (Ram-Man) · Wikimedia Commons</div>
       </div>
+    </div>
+
+    <div class="photo-gallery reveal" aria-label="Hình ảnh minh họa sâu non">
+      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Macro_of_caterpillar.jpg?width=1200" alt="Ảnh macro sâu non" loading="lazy"><figcaption class="gc-cap">Cận cảnh sâu non<small>Macro of caterpillar · Wikimedia Commons</small></figcaption></figure>
+      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=900" alt="Sâu non bướm chúa" loading="lazy"><figcaption class="gc-cap">Sâu non bướm chúa<small>Danaus plexippus · Wikimedia Commons</small></figcaption></figure>
+      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=900" alt="Sâu non trên lá" loading="lazy"><figcaption class="gc-cap">Pha ăn — tích lũy<small>Minh họa chức năng dinh dưỡng</small></figcaption></figure>
     </div>
 
     <!-- Morphology -->
@@ -548,6 +607,7 @@
   <div class="wrap">
     <div class="stage-head reveal">
       <div class="tag"><span class="dot"></span>ĐC.02 — NHỘNG (PUPA)</div>
+    <div class="stage-tools" data-tools="pupa"><span class="tool-label">ĐIỀU HƯỚNG PHA</span><button type="button">Đặc điểm hình thái</button><button type="button">Sinh lý & biến đổi</button><button type="button">Hormone & vũ hóa</button></div>
       <h2>Tĩnh lặng bên ngoài, cách mạng bên trong</h2>
       <p>Nhộng không di chuyển và không ăn — nhưng bên trong lớp vỏ bất động ấy là quá trình phá hủy và tái thiết triệt để nhất trong toàn bộ vòng đời côn trùng.</p>
     </div>
@@ -559,6 +619,12 @@
         <div class="pf-title">Khoảnh khắc trước vũ hóa — lớp vỏ nhộng trong suốt để lộ đôi cánh đã hoàn thiện bên trong</div>
         <div class="pf-credit">Ảnh: hamon jp · Wikimedia Commons</div>
       </div>
+    </div>
+
+    <div class="photo-gallery reveal" aria-label="Hình ảnh minh họa nhộng">
+      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Butterfly_chrysalis.jpg?width=1200" alt="Nhộng bướm" loading="lazy"><figcaption class="gc-cap">Nhộng bướm (chrysalis)<small>Wikimedia Commons</small></figcaption></figure>
+      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Butterfly_pupa_Euploea_core_(Cramer,_1780)_(49277108727).jpg?width=900" alt="Nhộng Euploea core" loading="lazy"><figcaption class="gc-cap">Nhộng Euploea core<small>Dinesh Valke · Wikimedia Commons</small></figcaption></figure>
+      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Common_Crow_Butterfly,_newly_emerged_from_its_chrysalis_or_pupa.jpg?width=900" alt="Bướm vừa vũ hóa" loading="lazy"><figcaption class="gc-cap">Khoảnh khắc vũ hóa<small>Common Crow · Wikimedia Commons</small></figcaption></figure>
     </div>
 
     <!-- Pupa types -->
@@ -647,7 +713,8 @@
   <div class="wrap">
     <div class="stage-head reveal">
       <div class="tag"><span class="dot"></span>ĐC.03 — TRƯỞNG THÀNH (ADULT / IMAGO)</div>
-      <h2>Hình hài cuối cùng, nhiệm vụ duy nhất</h2>
+    <div class="stage-tools" data-tools="adult"><span class="tool-label">ĐIỀU HƯỚNG PHA</span><button type="button">Hình thái ngoài</button><button type="button">Sinh sản</button><button type="button">Kiểu miệng · cánh · râu</button></div>
+      <h2>Đặc điểm hình thái và sinh lý — trưởng thành</h2>
       <p>Cơ thể đã ổn định kích thước, ngừng lột xác — mọi cấu tạo giờ đây tập trung toàn bộ vào việc tìm bạn tình, giao phối và duy trì nòi giống.</p>
     </div>
 
@@ -658,6 +725,12 @@
         <div class="pf-title">Hình hài hoàn thiện — đôi cánh vảy đầy đủ hoa văn của bướm phượng hổ</div>
         <div class="pf-credit">Ảnh: Brocken Inaglory · Wikimedia Commons</div>
       </div>
+    </div>
+
+    <div class="photo-gallery reveal" aria-label="Hình ảnh minh họa côn trùng trưởng thành">
+      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Swallowtail_butterfly_2.JPG?width=1200" alt="Bướm trưởng thành với cánh hoàn chỉnh" loading="lazy"><figcaption class="gc-cap">Trưởng thành — hình thái hoàn chỉnh<small>Wikimedia Commons</small></figcaption></figure>
+      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Beetle_macro.jpg?width=900" alt="Bọ cánh cứng cận cảnh" loading="lazy"><figcaption class="gc-cap">Côn trùng trưởng thành: chuyên hóa cao<small>Beetle macro · Wikimedia Commons</small></figcaption></figure>
+      <figure class="gallery-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/LeafAnt.jpg?width=900" alt="Kiến thợ" loading="lazy"><figcaption class="gc-cap">Nhiều hình xã hội<small>Kiến thợ · Wikimedia Commons</small></figcaption></figure>
     </div>
 
     <div class="block split reveal">
@@ -816,43 +889,8 @@
 </style>
 
 <!-- ============ COMPARISON TABLE ============ -->
-<section class="stage bg-ink" id="compare" data-rail="Tổng hợp">
-  <div class="wrap">
-    <div class="stage-head reveal">
-      <div class="tag"><span class="dot"></span>ĐC.04 — TỔNG HỢP</div>
-      <h2>Ba pha, nhìn cạnh nhau</h2>
-    </div>
-    <div class="ctable reveal">
-      <div class="ctable-row ctable-head">
-        <div>Tiêu chí</div><div>Sâu non</div><div>Nhộng</div><div>Trưởng thành</div>
-      </div>
-      <div class="ctable-row"><div>Chức năng cốt lõi</div><div>Ăn, tích lũy dinh dưỡng, sinh trưởng khối lượng</div><div>Biến đổi tổ chức mô (tiêu mô & sinh mô)</div><div>Sinh sản, duy trì & phát tán nòi giống</div></div>
-        <div class="ctable-row"><div>Vỏ cơ thể</div><div>Mềm, mỏng; lột xác nhiều lần</div><div>Hóa cứng tạo kén/màng bảo vệ, bất động</div><div>Hóa cứng hoàn chỉnh, ngừng lột xác</div></div>
-        <div class="ctable-row"><div>Cơ quan vận động</div><div>Chân ngực đơn giản, chưa có cánh</div><div>Mầm chân/cánh áp sát thân</div><div>3 đôi chân, 2 đôi cánh hoàn chỉnh</div></div>
-        <div class="ctable-row"><div>Chức năng sinh sản</div><div>Chưa có khả năng</div><div>Tuyến sinh dục đang hoàn thiện</div><div>Hoàn chỉnh: giao phối, đẻ trứng</div></div>
-        <div class="ctable-row"><div>Mức độ gây hại</div><div>Phá hại mùa màng nghiêm trọng nhất</div><div>Tĩnh, không gây hại trực tiếp</div><div>Gây hại gián tiếp / ăn bổ sung</div></div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ CONCLUSION ============ -->
-<section class="stage bg-canopy" id="conclusion" data-rail="Kết luận">
-  <div class="wrap">
-    <div class="stage-head reveal">
-      <div class="tag"><span class="dot"></span>KẾT LUẬN</div>
-      <h2>Ba pha — một vòng đời</h2>
-    </div>
-    <div class="grid-3 stagger" style="margin-bottom:6vh;">
-      <div class="panel reveal" style="--i:0"><span class="num" style="color:var(--rust)">SÂU NON</span><h4>"Ăn để lớn"</h4><p>Nền tảng năng lượng cho cả vòng đời.</p></div>
-      <div class="panel reveal" style="--i:1"><span class="num" style="color:var(--brass)">NHỘNG</span><h4>"Lột xác của số phận"</h4><p>Kiến tạo lại toàn bộ cơ thể.</p></div>
-      <div class="panel reveal" style="--i:2"><span class="num" style="color:var(--lichen)">TRƯỞNG THÀNH</span><h4>"Sống để truyền nòi"</h4><p>Hoàn thiện và phát tán.</p></div>
-    </div>
-    <p class="note reveal" style="font-size:1.2rem; max-width:70ch;">Nắm vững đặc điểm hình thái & chức năng sinh lý từng pha giúp xác định đúng tuổi sâu, dự báo thời điểm gây hại và lựa chọn biện pháp phòng trừ kịp thời, hiệu quả trong bảo vệ thực vật.</p>
-    <div class="reveal" style="margin-top:8vh; padding-top:26px; border-top:1px solid var(--line); font-family:var(--mono); font-size:11.5px; color:var(--parchment-dim);">
-      NHÓM 3 · BẢO VỆ THỰC VẬT — Triệu Đình Lộc (nhóm trưởng) · Lương Thái Khang · Phạm Thị Thu Hường · Triệu Thị Liên · Đồng Mạnh Huấn
-    </div>
-  </div>
-</section>
 
 <style>
   .ctable{ border-top:1px solid var(--line); margin-top:2vh; }
@@ -865,6 +903,40 @@
 </style>
 
 <script>
+  // Top menu: mobile toggle + smooth close after selecting a section
+  const menuToggle = document.getElementById('menuToggle');
+  const mainMenu = document.getElementById('mainMenu');
+  if (menuToggle && mainMenu) {
+    menuToggle.addEventListener('click', () => {
+      const open = mainMenu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    mainMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mainMenu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded','false');
+    }));
+  }
+
+  // Nút quay lại đầu trang
+  const toTop = document.getElementById('toTop');
+  const topnav = document.getElementById('topnav');
+  window.addEventListener('scroll', () => {
+    if (toTop) toTop.classList.toggle('show', window.scrollY > 500);
+  }, { passive:true });
+  if (toTop) toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'auto'}));
+
+  // Highlight mục đang xem trên menu đầu trang
+  const mainLinks = [...document.querySelectorAll('.main-menu a')];
+  const menuTargets = mainLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const menuObserver = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        mainLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
+      }
+    });
+  }, { rootMargin:'-40% 0px -50% 0px' });
+  menuTargets.forEach(t => menuObserver.observe(t));
+
   // Build the right-side rail from sections with data-rail
   const railEl = document.getElementById('rail');
   const railSections = [...document.querySelectorAll('[data-rail]')];
@@ -909,6 +981,96 @@
     const y = window.scrollY;
     if (heroIllus) heroIllus.style.transform = `translateY(${y * 0.18}px) scale(${1 + Math.min(y,600)*0.00012})`;
   }, { passive: true });
+
+
+  /* ================= INTERACTIVE PRESENTATION ================= */
+  const stageSections = [document.getElementById('hero'), document.getElementById('larva'), document.getElementById('pupa'), document.getElementById('adult')].filter(Boolean);
+  let currentStage = 0;
+  const progress = document.getElementById('stageProgress');
+  const counter = document.getElementById('stageCounter');
+  const presentBtn = document.getElementById('presentBtn');
+
+  function goStage(index, behavior='smooth'){
+    currentStage = Math.max(0, Math.min(stageSections.length-1,index));
+    stageSections[currentStage].scrollIntoView({behavior, block:'start'});
+    stageSections.forEach((s,i)=>s.classList.toggle('current-stage',i===currentStage));
+    if(progress) progress.style.width = ((currentStage+1)/stageSections.length*100)+'%';
+    if(counter) counter.textContent = (currentStage+1)+'/'+stageSections.length;
+  }
+  document.getElementById('prevStage')?.addEventListener('click',()=>goStage(currentStage-1));
+  document.getElementById('nextStage')?.addEventListener('click',()=>goStage(currentStage+1));
+
+  function nearestStage(){
+    const y=window.scrollY+window.innerHeight*.35;
+    let best=0,dist=Infinity;
+    stageSections.forEach((s,i)=>{const d=Math.abs(s.offsetTop-y);if(d<dist){dist=d;best=i;}});
+    if(best!==currentStage){ currentStage=best; }
+    stageSections.forEach((s,i)=>s.classList.toggle('current-stage',i===currentStage));
+    if(progress) progress.style.width=((currentStage+1)/stageSections.length*100)+'%';
+    if(counter) counter.textContent=(currentStage+1)+'/'+stageSections.length;
+  }
+  window.addEventListener('scroll',nearestStage,{passive:true});
+  goStage(0,'auto');
+
+  // Chế độ trình chiếu: vẫn giữ nội dung nhưng tập trung vào từng pha.
+  presentBtn?.addEventListener('click',()=>{
+    document.body.classList.toggle('presentation-mode');
+    const on=document.body.classList.contains('presentation-mode');
+    presentBtn.innerHTML=on?'■ <span>Thoát</span>':'▶ <span>Trình chiếu</span>';
+    if(on) goStage(currentStage);
+  });
+
+  document.addEventListener('keydown',(e)=>{
+    if(e.key==='Escape' && document.body.classList.contains('presentation-mode')){
+      document.body.classList.remove('presentation-mode');
+      if(presentBtn) presentBtn.innerHTML='▶ <span>Trình chiếu</span>';
+    }
+    if(['INPUT','TEXTAREA','BUTTON','A'].includes(document.activeElement?.tagName)) return;
+    if(e.key==='ArrowRight' || e.key==='PageDown') { e.preventDefault(); goStage(currentStage+1); }
+    if(e.key==='ArrowLeft' || e.key==='PageUp') { e.preventDefault(); goStage(currentStage-1); }
+    if(e.key.toLowerCase()==='p') presentBtn?.click();
+    if(e.key==='Home') goStage(0);
+    if(e.key==='End') goStage(stageSections.length-1);
+  });
+
+  // Mini TOC trong từng pha — liên kết tới các khối nội dung thực tế.
+  document.querySelectorAll('.stage-tools').forEach(tool=>{
+    const stage=tool.closest('.stage');
+    const blocks=[...stage.querySelectorAll('.block')];
+    const buttons=[...tool.querySelectorAll('button')];
+    buttons.forEach((btn,i)=>{
+      const target=blocks[i];
+      if(!target){btn.disabled=true;return;}
+      btn.addEventListener('click',()=>{
+        target.scrollIntoView({behavior:'smooth',block:'start'});
+        buttons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+      });
+    });
+  });
+
+  // Nhấp card để focus nhanh; Enter/Space cũng dùng được.
+  document.querySelectorAll('.panel').forEach(card=>{
+    card.setAttribute('tabindex','0');
+    const focus=()=>{document.querySelectorAll('.panel.is-focus').forEach(x=>x.classList.remove('is-focus'));card.classList.add('is-focus');};
+    card.addEventListener('click',focus);
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();focus();}});
+  });
+
+  // Lightbox cho toàn bộ ảnh trong bài.
+  const lightbox=document.getElementById('lightbox'),lbImage=document.getElementById('lbImage'),lbCaption=document.getElementById('lbCaption');
+  function openLightbox(img){
+    if(!img?.src) return;
+    lbImage.src=img.currentSrc||img.src; lbImage.alt=img.alt||'';
+    const fig=img.closest('figure,.photo-feature,.photo-thumb,.panel');
+    lbCaption.textContent=fig?.querySelector('figcaption,.pf-title,.pt-credit')?.textContent||img.alt||'';
+    lightbox.classList.add('open'); document.body.style.overflow='hidden';
+  }
+  document.querySelectorAll('.photo-feature img,.photo-gallery img,.photo-thumb img').forEach(img=>img.addEventListener('click',()=>openLightbox(img)));
+  function closeLightbox(){lightbox.classList.remove('open');document.body.style.overflow='';lbImage.src='';}
+  document.getElementById('lbClose')?.addEventListener('click',closeLightbox);
+  lightbox?.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape' && lightbox.classList.contains('open'))closeLightbox();});
+
 </script>
 </body>
 </html>
