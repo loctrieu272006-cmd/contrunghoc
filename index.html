@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biến thái — Ba pha đời sống côn trùng</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14170F;
+    --canopy:#1E2A18;
+    --canopy2:#243420;
+    --parchment:#EDE6D3;
+    --parchment-dim:#C9C2AC;
+    --brass:#B8935A;
+    --rust:#9C4A2E;
+    --lichen:#8A9B68;
+    --line: rgba(237,230,211,0.14);
+    --serif: 'Fraunces', serif;
+    --sans: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:var(--sans);
+    overflow-x:hidden;
+  }
+  ::selection{ background:var(--rust); color:var(--parchment); }
+
+  /* ---------- reduced motion ---------- */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+  }
+
+  /* ---------- utility ---------- */
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 6vw; }
+  a{ color:inherit; }
+
+  /* ---------- specimen tag (replaces generic eyebrow) ---------- */
+  .tag{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:var(--mono); font-size:12.5px; letter-spacing:0.02em;
+    color:var(--brass); border:1px solid rgba(184,147,90,0.4);
+    padding:5px 12px 5px 10px; border-radius:2px;
+    background:rgba(184,147,90,0.06);
+  }
+  .tag .dot{ width:6px; height:6px; border-radius:50%; background:var(--brass); }
+
+  /* ---------- scroll rail ---------- */
+  #rail{
+    position:fixed; right:26px; top:50%; transform:translateY(-50%);
+    z-index:50; display:flex; flex-direction:column; gap:22px;
+    align-items:center;
+  }
+  #rail .pt{
+    width:9px; height:9px; border-radius:50%; border:1.5px solid var(--parchment-dim);
+    background:transparent; transition: all .35s ease; cursor:pointer; position:relative;
+  }
+  #rail .pt.active{ background:var(--brass); border-color:var(--brass); transform:scale(1.35); }
+  #rail .pt .lbl{
+    position:absolute; right:20px; top:50%; transform:translateY(-50%);
+    font-family:var(--mono); font-size:10.5px; white-space:nowrap;
+    color:var(--parchment-dim); opacity:0; pointer-events:none; transition:opacity .25s ease;
+  }
+  #rail .pt:hover .lbl{ opacity:1; }
+  @media (max-width:900px){ #rail{ display:none; } }
+
+  /* ================= HERO ================= */
+  .hero{
+    min-height:100vh; position:relative; display:flex; align-items:center;
+    background:
+      radial-gradient(ellipse 90% 60% at 75% 15%, rgba(138,155,104,0.18), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 15% 90%, rgba(156,74,46,0.15), transparent 60%),
+      var(--ink);
+    overflow:hidden;
+  }
+  .hero-grain{ position:absolute; inset:0; opacity:0.05; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .hero .wrap{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:4vw; align-items:center; width:100%; }
+  @media (max-width:900px){ .hero .wrap{ grid-template-columns:1fr; } }
+
+  .hero-eyebrow{ margin-bottom:26px; }
+  .hero h1{
+    font-family:var(--serif); font-weight:600; font-size:clamp(2.6rem, 5vw, 4.4rem);
+    line-height:1.03; letter-spacing:-0.01em; color:var(--parchment);
+  }
+  .hero h1 em{ font-style:italic; font-weight:500; color:var(--brass); }
+  .hero p.lede{
+    margin-top:26px; font-size:1.15rem; line-height:1.6; color:var(--parchment-dim);
+    max-width:46ch;
+  }
+  .hero .meta{
+    margin-top:40px; display:flex; gap:28px; flex-wrap:wrap;
+    font-family:var(--mono); font-size:12px; color:var(--parchment-dim);
+  }
+  .hero .meta b{ display:block; color:var(--parchment); font-size:13px; margin-bottom:3px; font-family:var(--sans); font-weight:600;}
+
+  .hero-illus{ position:relative; height:min(72vh, 640px); display:flex; align-items:center; justify-content:center; }
+  .hero-illus svg{ width:100%; height:100%; overflow:visible; }
+
+  .scrollcue{
+    position:absolute; bottom:34px; left:50%; transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:10.5px; color:var(--parchment-dim); letter-spacing:.08em;
+  }
+  .scrollcue .ln{ width:1px; height:34px; background:linear-gradient(var(--parchment-dim), transparent);
+    animation:cue 1.8s ease-in-out infinite; }
+  @keyframes cue{ 0%{ transform:scaleY(0.3); opacity:.3; transform-origin:top;} 50%{ transform:scaleY(1); opacity:1; transform-origin:top;} 100%{ transform:scaleY(0.3); opacity:.3; transform-origin:top;} }
+
+  /* ================= SHARED SECTION SYSTEM ================= */
+  section.stage{ position:relative; padding:11vh 0; }
+  .bg-canopy{ background:linear-gradient(180deg,var(--canopy),var(--canopy2)); }
+  .bg-ink{ background:var(--ink); }
+
+  .stage-head{ margin-bottom:7vh; max-width:720px; }
+  .stage-head .tag{ margin-bottom:22px; }
+  .stage-head h2{
+    font-family:var(--serif); font-weight:600; font-size:clamp(2rem, 3.4vw, 3rem);
+    line-height:1.08; letter-spacing:-0.01em;
+  }
+  .stage-head p{ margin-top:18px; font-size:1.05rem; line-height:1.6; color:var(--parchment-dim); max-width:62ch; }
+
+  .block{ margin-top:9vh; }
+  .block-title{
+    font-family:var(--serif); font-size:1.5rem; font-weight:600; margin-bottom:26px;
+    display:flex; align-items:baseline; gap:12px;
+  }
+  .block-title .no{ font-family:var(--mono); font-size:0.8rem; color:var(--brass); }
+
+  .reveal{ opacity:0; transform:translateY(46px) scale(0.97); transition:opacity .9s cubic-bezier(.16,.8,.24,1), transform .9s cubic-bezier(.16,.8,.24,1); }
+  .reveal.in{ opacity:1; transform:translateY(0) scale(1); }
+  .reveal-l{ opacity:0; transform:translateX(-56px); transition:opacity .9s cubic-bezier(.16,.8,.24,1), transform .9s cubic-bezier(.16,.8,.24,1); }
+  .reveal-l.in{ opacity:1; transform:translateX(0); }
+  .reveal-r{ opacity:0; transform:translateX(56px); transition:opacity .9s cubic-bezier(.16,.8,.24,1), transform .9s cubic-bezier(.16,.8,.24,1); }
+  .reveal-r.in{ opacity:1; transform:translateX(0); }
+  .reveal-zoom{ opacity:0; transform:scale(0.72); transition:opacity 1s cubic-bezier(.16,.8,.24,1), transform 1.05s cubic-bezier(.16,.8,.24,1); }
+  .reveal-zoom.in{ opacity:1; transform:scale(1); }
+  .stagger > *{ transition-delay:calc(var(--i,0) * 90ms); }
+
+  /* two column layout */
+  .split{ display:grid; grid-template-columns:1fr 1fr; gap:6vw; align-items:center; }
+  .split.rev{ direction:rtl; } .split.rev > *{ direction:ltr; }
+  @media (max-width:900px){ .split, .split.rev{ grid-template-columns:1fr; direction:ltr; } }
+
+  /* panel / card */
+  .panel{
+    background:rgba(237,230,211,0.045); border:1px solid var(--line); border-radius:3px;
+    padding:26px 28px;
+  }
+  .panel h4{ font-family:var(--serif); font-size:1.15rem; font-weight:600; margin-bottom:10px; }
+  .panel p{ font-size:0.94rem; line-height:1.55; color:var(--parchment-dim); }
+  .panel .num{ font-family:var(--mono); font-size:11px; color:var(--brass); display:block; margin-bottom:8px; }
+
+  .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  @media (max-width:820px){ .grid-2,.grid-3{ grid-template-columns:1fr; } }
+
+  /* classification type-row (mirrors deck) */
+  .type-list{ display:flex; flex-direction:column; gap:1px; margin-top:8px; border-top:1px solid var(--line); }
+  .type-row{
+    display:grid; grid-template-columns:1fr 1.6fr auto; gap:22px; align-items:center;
+    padding:18px 4px; border-bottom:1px solid var(--line);
+  }
+  @media (max-width:760px){ .type-row{ grid-template-columns:1fr; gap:8px; } }
+  .type-row .tname{ font-family:var(--serif); font-weight:600; font-size:1.02rem; }
+  .type-row .tdesc{ font-size:0.9rem; color:var(--parchment-dim); line-height:1.5; }
+  .type-row .tspecies{
+    font-family:var(--mono); font-size:11.5px; color:var(--ink);
+    background:var(--brass); padding:7px 12px; border-radius:2px; white-space:nowrap; justify-self:end;
+  }
+  @media (max-width:760px){ .type-row .tspecies{ justify-self:start; } }
+
+  /* species chip variant colors */
+  .c-rust .tspecies{ background:var(--rust); color:var(--parchment); }
+  .c-lichen .tspecies{ background:var(--lichen); color:var(--ink); }
+  .c-brass .tspecies{ background:var(--brass); color:var(--ink); }
+
+  .illus-frame{
+    position:relative; border-radius:4px; overflow:visible;
+    display:flex; align-items:center; justify-content:center; min-height:340px;
+  }
+  .illus-frame svg{ max-width:100%; height:auto; }
+  .cap{ margin-top:14px; font-family:var(--mono); font-size:11px; color:var(--parchment-dim); text-align:center; }
+
+  .note{
+    font-family:var(--serif); font-style:italic; font-size:1.05rem; color:var(--brass);
+    border-left:2px solid var(--brass); padding-left:18px; margin-top:8px; line-height:1.5;
+  }
+</style>
+</head>
+<body>
+
+<nav id="rail"></nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-grain"></div>
+  <div class="wrap">
+    <div>
+      <div class="hero-eyebrow tag"><span class="dot"></span>GHI CHÉP THỰC ĐỊA · CÔN TRÙNG HỌC</div>
+      <h1>Ba lần lột xác<br>của một <em>số phận</em></h1>
+      <p class="lede">Từ chiếc miệng gặm lá đầu tiên đến đôi cánh cuối cùng — hành trình hình thái và sinh lý của côn trùng qua ba pha: sâu non, nhộng, trưởng thành.</p>
+      <div class="meta">
+        <div><b>Nhóm 3</b>Bảo vệ thực vật</div>
+        <div><b>3 pha</b>Sâu non — Nhộng — Trưởng thành</div>
+        <div><b>Biến thái</b>Holometabola</div>
+      </div>
+    </div>
+    <div class="hero-illus" id="heroIllus">
+      <svg viewBox="0 0 520 560" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="haloG" cx="50%" cy="45%" r="60%">
+            <stop offset="0%" stop-color="#3A4A2C" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#3A4A2C" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="wingTop" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#C98A4E"/>
+            <stop offset="55%" stop-color="#9C4A2E"/>
+            <stop offset="100%" stop-color="#6E2F1D"/>
+          </linearGradient>
+          <linearGradient id="wingBot" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#8A9B68"/>
+            <stop offset="100%" stop-color="#4A5D3A"/>
+          </linearGradient>
+          <linearGradient id="bodyG" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#3A2E1F"/>
+            <stop offset="100%" stop-color="#181410"/>
+          </linearGradient>
+        </defs>
+        <circle cx="260" cy="270" r="230" fill="url(#haloG)"/>
+
+        <!-- flight path dotted -->
+        <path d="M 40 470 Q 160 380 180 260 Q 195 170 260 120" fill="none" stroke="#B8935A" stroke-width="1.5" stroke-dasharray="1 9" stroke-linecap="round" opacity="0.55"/>
+
+        <g id="bfly" transform="translate(260,270)">
+          <!-- LEFT wings -->
+          <g id="wingL">
+            <path d="M -6 -20 C -90 -110 -210 -95 -235 -10 C -250 45 -195 78 -140 55 C -95 36 -55 5 -6 -8 Z" fill="url(#wingTop)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
+            <path d="M -8 4 C -70 40 -150 55 -175 105 C -192 140 -160 168 -120 152 C -78 135 -40 90 -8 34 Z" fill="url(#wingBot)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
+            <!-- veins -->
+            <g stroke="#EDE6D3" stroke-opacity="0.32" stroke-width="1.2" fill="none">
+              <path d="M -10 -18 C -70 -60 -160 -70 -220 -25"/>
+              <path d="M -10 -14 C -60 -30 -130 -20 -195 15"/>
+              <path d="M -10 0 C -60 20 -120 55 -155 95"/>
+            </g>
+            <circle cx="-155" cy="-38" r="9" fill="#EDE6D3" opacity="0.55"/>
+            <circle cx="-100" cy="-4" r="5.5" fill="#EDE6D3" opacity="0.4"/>
+            <circle cx="-120" cy="100" r="7" fill="#1E1712" opacity="0.4"/>
+          </g>
+          <!-- RIGHT wings (mirror) -->
+          <g id="wingR" transform="scale(-1,1)">
+            <path d="M -6 -20 C -90 -110 -210 -95 -235 -10 C -250 45 -195 78 -140 55 C -95 36 -55 5 -6 -8 Z" fill="url(#wingTop)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
+            <path d="M -8 4 C -70 40 -150 55 -175 105 C -192 140 -160 168 -120 152 C -78 135 -40 90 -8 34 Z" fill="url(#wingBot)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
+            <g stroke="#EDE6D3" stroke-opacity="0.32" stroke-width="1.2" fill="none">
+              <path d="M -10 -18 C -70 -60 -160 -70 -220 -25"/>
+              <path d="M -10 -14 C -60 -30 -130 -20 -195 15"/>
+              <path d="M -10 0 C -60 20 -120 55 -155 95"/>
+            </g>
+            <circle cx="-155" cy="-38" r="9" fill="#EDE6D3" opacity="0.55"/>
+            <circle cx="-100" cy="-4" r="5.5" fill="#EDE6D3" opacity="0.4"/>
+            <circle cx="-120" cy="100" r="7" fill="#1E1712" opacity="0.4"/>
+          </g>
+          <!-- body -->
+          <ellipse cx="0" cy="-32" rx="7.5" ry="9" fill="url(#bodyG)"/>
+          <path d="M -6 -26 C -13 -5 -13 60 0 108 C 13 60 13 -5 6 -26 Z" fill="url(#bodyG)"/>
+          <path d="M 0 -38 C -14 -52 -30 -54 -38 -46" fill="none" stroke="#181410" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 0 -38 C 14 -52 30 -54 38 -46" fill="none" stroke="#181410" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="-38" cy="-46" r="3.5" fill="#B8935A"/>
+          <circle cx="38" cy="-46" r="3.5" fill="#B8935A"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="scrollcue"><span>CUỘN ĐỂ XEM</span><span class="ln"></span></div>
+</section>
+
+<!-- ============ OVERVIEW: LIFE CYCLE ============ -->
+<section class="stage bg-ink" id="overview" data-rail="Tổng quan">
+  <div class="wrap">
+    <div class="stage-head reveal">
+      <div class="tag"><span class="dot"></span>ĐC.00 — TỔNG QUAN VÒNG ĐỜI</div>
+      <h2>Bốn điểm dừng, một hành trình khép kín</h2>
+      <p>Côn trùng biến thái hoàn toàn (Holometabola) đi qua bốn hình hài khác biệt tuyệt đối — mỗi pha giải một bài toán sinh tồn riêng, trước khi nhường chỗ cho pha kế tiếp.</p>
+    </div>
+
+    <div class="lifecycle reveal">
+      <div class="lc-row">
+        <div class="lc-node" style="--c:var(--parchment-dim)">
+          <div class="lc-dot"></div><div class="lc-label">Trứng</div><div class="lc-sub">Khởi đầu</div>
+        </div>
+        <div class="lc-link"></div>
+        <div class="lc-node" style="--c:var(--rust)">
+          <div class="lc-dot"></div><div class="lc-label">Sâu non</div><div class="lc-sub">Ăn — tích lũy</div>
+        </div>
+        <div class="lc-link"></div>
+        <div class="lc-node" style="--c:var(--brass)">
+          <div class="lc-dot"></div><div class="lc-label">Nhộng</div><div class="lc-sub">Tái tạo</div>
+        </div>
+        <div class="lc-link"></div>
+        <div class="lc-node" style="--c:var(--lichen)">
+          <div class="lc-dot"></div><div class="lc-label">Trưởng thành</div><div class="lc-sub">Sinh sản — phát tán</div>
+        </div>
+      </div>
+    </div>
+    <p class="note reveal">Ở nhóm biến thái không hoàn toàn (Hemimetabola), pha nhộng bị bỏ qua — ấu trùng chuyển trực tiếp thành trưởng thành, hình thái thay đổi dần qua mỗi lần lột xác.</p>
+  </div>
+</section>
+
+<style>
+  .lifecycle{ margin-top:2vh; }
+  .lc-row{ display:flex; align-items:center; }
+  .lc-node{ display:flex; flex-direction:column; align-items:center; text-align:center; flex:0 0 auto; width:140px; }
+  .lc-dot{ width:20px; height:20px; border-radius:50%; background:var(--c); box-shadow:0 0 0 6px color-mix(in srgb, var(--c) 18%, transparent); margin-bottom:16px; }
+  .lc-label{ font-family:var(--serif); font-weight:600; font-size:1.05rem; }
+  .lc-sub{ font-family:var(--mono); font-size:10.5px; color:var(--parchment-dim); margin-top:5px; }
+  .lc-link{ flex:1 1 auto; height:1px; background:linear-gradient(90deg, var(--line), var(--parchment-dim), var(--line)); margin:0 6px 28px; min-width:20px; }
+  @media (max-width:760px){ .lc-row{ flex-direction:column; align-items:flex-start; gap:6px;} .lc-link{ width:1px; height:34px; margin:0 0 0 10px; } .lc-node{ flex-direction:row; width:auto; gap:14px; text-align:left;} .lc-dot{ margin-bottom:0;} }
+</style>
+
+<!-- ============ STAGE 01 — SÂU NON ============ -->
+<section class="stage bg-canopy" id="larva" data-rail="01 · Sâu non">
+  <div class="wrap">
+    <div class="stage-head reveal">
+      <div class="tag"><span class="dot"></span>ĐC.01 — SÂU NON / ẤU TRÙNG</div>
+      <h2>Cỗ máy ăn không ngừng nghỉ</h2>
+      <p>Toàn bộ cấu tạo của sâu non phục vụ một mục tiêu duy nhất: ăn, tích lũy dinh dưỡng và sinh trưởng khối lượng nhanh nhất có thể trước khi hóa nhộng.</p>
+    </div>
+
+    <!-- Morphology -->
+    <div class="block split">
+      <div class="illus-frame reveal-l" id="larvaIllus">
+        <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="segG" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#A8B67F"/>
+              <stop offset="100%" stop-color="#6E7F4C"/>
+            </linearGradient>
+            <linearGradient id="headG" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#9C4A2E"/>
+              <stop offset="100%" stop-color="#6E2F1D"/>
+            </linearGradient>
+          </defs>
+          <!-- twig -->
+          <path d="M 10 260 Q 280 300 550 250" stroke="#4A3A28" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.6"/>
+
+          <!-- body segments (abdomen, drawn back to front) -->
+          <g>
+            <ellipse cx="470" cy="205" rx="34" ry="30" fill="url(#segG)"/>
+            <ellipse cx="418" cy="200" rx="38" ry="33" fill="url(#segG)"/>
+            <ellipse cx="364" cy="197" rx="40" ry="35" fill="url(#segG)"/>
+            <ellipse cx="308" cy="196" rx="41" ry="36" fill="url(#segG)"/>
+            <ellipse cx="252" cy="197" rx="40" ry="35" fill="url(#segG)"/>
+            <ellipse cx="198" cy="200" rx="37" ry="32" fill="url(#segG)"/>
+            <!-- thorax (3 segs, slightly darker) -->
+            <ellipse cx="150" cy="203" rx="30" ry="27" fill="#8A9B68"/>
+            <ellipse cx="108" cy="203" rx="27" ry="24" fill="#8A9B68"/>
+            <ellipse cx="72" cy="200" rx="24" ry="22" fill="#8A9B68"/>
+          </g>
+
+          <!-- spiracles -->
+          <g fill="#2A2A1E" opacity="0.55">
+            <circle cx="470" cy="192" r="3"/><circle cx="418" cy="186" r="3"/><circle cx="364" cy="182" r="3"/>
+            <circle cx="308" cy="181" r="3"/><circle cx="252" cy="182" r="3"/><circle cx="198" cy="186" r="3"/>
+          </g>
+
+          <!-- prolegs (abdomen) -->
+          <g fill="#5C6B3E">
+            <path d="M 460 232 q -4 20 -14 26 q 14 4 22 -6 q 8 -12 2 -22 Z"/>
+            <path d="M 404 228 q -4 20 -14 26 q 14 4 22 -6 q 8 -12 2 -22 Z"/>
+            <path d="M 350 226 q -4 20 -14 26 q 14 4 22 -6 q 8 -12 2 -22 Z"/>
+            <path d="M 294 226 q -4 20 -14 26 q 14 4 22 -6 q 8 -12 2 -22 Z"/>
+          </g>
+          <!-- true legs (thorax) -->
+          <g stroke="#3A2E1F" stroke-width="4" stroke-linecap="round">
+            <path d="M 122 222 L 112 244"/>
+            <path d="M 96 222 L 88 244"/>
+            <path d="M 68 218 L 62 240"/>
+          </g>
+
+          <!-- head -->
+          <circle cx="34" cy="196" r="26" fill="url(#headG)"/>
+          <circle cx="26" cy="188" r="3.4" fill="#EDE6D3"/>
+          <circle cx="26" cy="200" r="2.6" fill="#EDE6D3" opacity="0.7"/>
+          <circle cx="22" cy="209" r="2" fill="#EDE6D3" opacity="0.5"/>
+          <path d="M 20 176 q -14 -10 -26 -4" stroke="#3A2E1F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+          <!-- fine texture lines on body -->
+          <g stroke="#3A4A2C" stroke-width="1" opacity="0.3" fill="none">
+            <path d="M 470 175 v 60"/><path d="M 418 167 v 66"/><path d="M 364 162 v 70"/>
+            <path d="M 308 160 v 72"/><path d="M 252 162 v 70"/><path d="M 198 168 v 64"/>
+          </g>
+        </svg>
+      </div>
+      <div class="reveal-r">
+        <div class="block-title"><span class="no">01</span> Cấu tạo hình thái ngoài</div>
+        <div class="grid-2">
+          <div class="panel"><span class="num">ĐẦU</span><h4>Không mắt kép</h4><p>Chỉ có mắt đơn (mắt bên) 1–7 đôi hai bên đầu. Râu tiêu giảm, ngắn.</p></div>
+          <div class="panel"><span class="num">NGỰC</span><h4>3 đốt, chân đơn giản</h4><p>3 đôi chân ngực ngắn. Chưa có cánh hoàn chỉnh, chỉ có mầm cánh.</p></div>
+          <div class="panel"><span class="num">BỤNG</span><h4>Nhiều đốt, lỗ thở</h4><p>Một số nhóm có chân bụng (pedes spurii) với móc bám chắc giá thể.</p></div>
+          <div class="panel"><span class="num">VỎ</span><h4>Mềm, đàn hồi</h4><p>Chitin mỏng — ranh giới đầu/ngực/bụng chưa rõ rệt, thân 13 đốt.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Internal organs -->
+    <div class="block reveal">
+      <div class="block-title"><span class="no">02</span> Các hệ cơ quan bên trong</div>
+      <div class="grid-3 stagger">
+        <div class="panel reveal" style="--i:0"><span class="num">TIÊU HÓA</span><h4>Ống 3 phần</h4><p>Ruột trước–giữa–sau; ruột giữa hấp thu dinh dưỡng chính, hoạt động mạnh do ăn liên tục.</p></div>
+        <div class="panel reveal" style="--i:1"><span class="num">BÀI TIẾT</span><h4>Ống Malpighi</h4><p>Lọc axit uric từ máu, đổ vào ranh giới ruột giữa – ruột sau.</p></div>
+        <div class="panel reveal" style="--i:2"><span class="num">TUẦN HOÀN</span><h4>Hệ hở</h4><p>Mạch lưng bơm huyết tương mang dinh dưỡng & hormon, không mang oxy.</p></div>
+        <div class="panel reveal" style="--i:3"><span class="num">HÔ HẤP</span><h4>Ống khí quản</h4><p>Phân nhánh tới tận mô; thông ngoài qua lỗ thở hai bên đốt.</p></div>
+        <div class="panel reveal" style="--i:4"><span class="num">THẦN KINH</span><h4>Chuỗi hạch</h4><p>Não — dưới hầu — ngực/bụng, điều khiển vận động & phối hợp nội tiết.</p></div>
+        <div class="panel reveal" style="--i:5; background:rgba(156,74,46,0.14); border-color:rgba(156,74,46,0.4);"><span class="num" style="color:var(--rust)">VAI TRÒ CHUNG</span><h4>Ăn — tích lũy — sinh trưởng</h4><p>Mọi hệ cơ quan phục vụ một mục tiêu cốt lõi duy nhất.</p></div>
+      </div>
+    </div>
+
+    <!-- Molting / instar -->
+    <div class="block reveal">
+      <div class="block-title"><span class="no">03</span> Sinh trưởng nhảy vọt: cơ chế lột xác</div>
+      <p style="color:var(--parchment-dim); max-width:70ch; margin-bottom:36px;">Vỏ chitin cứng giới hạn thể tích cơ thể → côn trùng bắt buộc lột xác nhiều lần để lớn lên. Sau mỗi lần lột xác, kích thước cơ thể tăng đột ngột.</p>
+      <div class="instar-row stagger">
+        <div class="instar reveal-zoom" style="--i:0"><div class="idot" style="width:34px;height:34px;">T1</div><div class="ilabel">Mới nở</div></div>
+        <div class="iarrow reveal" style="--i:1">lột xác</div>
+        <div class="instar reveal-zoom" style="--i:2"><div class="idot" style="width:42px;height:42px;">T2</div></div>
+        <div class="iarrow reveal" style="--i:3">lột xác</div>
+        <div class="instar reveal-zoom" style="--i:4"><div class="idot" style="width:50px;height:50px;">T3</div></div>
+        <div class="iarrow reveal" style="--i:5">lột xác</div>
+        <div class="instar reveal-zoom" style="--i:6"><div class="idot" style="width:58px;height:58px;">T4</div></div>
+        <div class="iarrow reveal" style="--i:7">lột xác</div>
+        <div class="instar reveal-zoom" style="--i:8"><div class="idot rust" style="width:66px;height:66px;">T5</div><div class="ilabel">Hóa nhộng</div></div>
+      </div>
+      <div class="split" style="margin-top:48px; align-items:start;">
+        <div class="panel reveal-l">
+          <span class="num">CÔNG THỨC</span>
+          <h4 style="font-size:1.4rem;">Tuổi sâu = Số lần lột xác + 1</h4>
+          <p style="margin-top:10px;">Khoảng thời gian giữa hai lần lột xác gọi là một tuổi. Sâu mới nở ra từ trứng là tuổi 1.</p>
+        </div>
+        <div class="panel reveal-r"><span class="num">Ý NGHĨA</span><h4>Thời điểm mẫn cảm</h4><p>Sâu tuổi nhỏ (1–2) sức đề kháng yếu, ăn ít. Ngay sau lột xác, da còn mềm — dễ tiêu diệt nhất bằng biện pháp hóa học/sinh học.</p></div>
+      </div>
+    </div>
+
+    <!-- Hormone -->
+    <div class="block reveal">
+      <div class="block-title"><span class="no">04</span> Điều hòa hormone quá trình lột xác</div>
+      <div class="hormone-flow stagger">
+        <div class="hnode reveal" style="--i:0"><div class="hno">01</div><h4>Tế bào thần kinh (não)</h4><p>Tổng hợp hormon hoạt hóa PTTH</p></div>
+        <div class="harrow reveal" style="--i:1">→</div>
+        <div class="hnode reveal" style="--i:2"><div class="hno">02</div><h4>Tuyến tim <span style="opacity:.6; font-weight:400;">(Corpora cardiaca)</span></h4><p>Vận chuyển & phóng thích PTTH</p></div>
+        <div class="harrow reveal" style="--i:3">→</div>
+        <div class="hnode reveal" style="--i:4"><div class="hno">03</div><h4>Tuyến ngực trước</h4><p>Tiết Ecdyson → gây lột xác</p></div>
+        <div class="harrow reveal" style="--i:5">→</div>
+        <div class="hnode reveal" style="--i:6"><div class="hno">04</div><h4>Thể allata <span style="opacity:.6; font-weight:400;">(Corpora allata)</span></h4><p>Tiết hormon trẻ (JH), ức chế hóa nhộng</p></div>
+      </div>
+      <p class="note reveal">Nội bì tiết dịch men vào khe Exuviae, tiêu hóa và tái hấp thu ~90% lớp biểu bì trong. Áp lực máu và hô hấp tăng làm vỏ ngoài nứt theo đường chữ Y sau gáy để sâu chui ra.</p>
+    </div>
+
+    <!-- Classification: mouth & prolegs -->
+    <div class="block reveal">
+      <div class="block-title"><span class="no">05</span> Phân loại kiểu miệng và chân bụng</div>
+      <p style="color:var(--brass); font-family:var(--mono); font-size:12px; margin-bottom:6px;">KIỂU MIỆNG</p>
+      <div class="type-list c-rust">
+        <div class="type-row"><div class="tname">Gặm nhai <span style="opacity:.55; font-weight:400;">(phổ biến nhất)</span></div><div class="tdesc">Cắn xé mô lá — kiểu miệng của đa số sâu non bộ Cánh vẩy, Cánh cứng.</div><div class="tspecies">Helicoverpa armigera</div></div>
+        <div class="type-row"><div class="tname">Chích hút</div><div class="tdesc">Thiếu trùng biến thái không hoàn toàn — cùng kiểu miệng với trưởng thành.</div><div class="tspecies">Nilaparvata lugens</div></div>
+      </div>
+      <p style="color:var(--brass); font-family:var(--mono); font-size:12px; margin:28px 0 6px;">KIỂU CHÂN BỤNG (PEDES SPURII)</p>
+      <div class="type-list c-lichen">
+        <div class="type-row"><div class="tname">Đầy đủ 5 đôi</div><div class="tdesc">Điển hình bộ Cánh vẩy — di chuyển bò thông thường.</div><div class="tspecies">Spodoptera litura</div></div>
+        <div class="type-row"><div class="tname">Thiếu, chỉ 2 đôi cuối</div><div class="tdesc">Họ Sâu đo (Geometridae) — di chuyển kiểu "đo" đặc trưng.</div><div class="tspecies">Hyposidra talaca</div></div>
+        <div class="type-row"><div class="tname">Không có (dạng dòi)</div><div class="tdesc">Không chân bụng, cơ thể hình trụ trơn.</div><div class="tspecies">Bactrocera dorsalis</div></div>
+      </div>
+    </div>
+
+    <!-- Classification: hairs/spines -->
+    <div class="block reveal">
+      <div class="block-title"><span class="no">06</span> Phân loại lông, gai trên cơ thể</div>
+      <div class="grid-2 stagger">
+        <div class="panel reveal" style="--i:0"><span class="num">TRƠN</span><h4>Không lông</h4><p>Cơ thể nhẵn, không có lông hay gai đáng kể.</p><p class="sp">Spodoptera exigua</p></div>
+        <div class="panel reveal" style="--i:1"><span class="num">LÔNG TƠ</span><h4>Mềm, rải rác</h4><p>Lông mảnh, không độc, mọc thưa quanh cơ thể.</p><p class="sp">Họ Noctuidae</p></div>
+        <div class="panel reveal" style="--i:2"><span class="num">LÔNG ĐỘC</span><h4>Gai độc</h4><p>Lông cứng chứa độc tố, gây ngứa rát khi tiếp xúc.</p><p class="sp">Dendrolimus punctatus</p></div>
+        <div class="panel reveal" style="--i:3"><span class="num">GAI / SỪNG</span><h4>U lồi đuôi</h4><p>Gai hoặc sừng nhô ở đốt cuối bụng — đặc trưng phân loại họ.</p><p class="sp">Manduca sexta</p></div>
+      </div>
+    </div>
+
+    <!-- BVTV significance -->
+    <div class="block reveal">
+      <div class="block-title"><span class="no">07</span> Ý nghĩa trong bảo vệ thực vật</div>
+      <div class="grid-2 stagger">
+        <div class="panel reveal" style="--i:0"><h4>Lượng ăn tăng theo tuổi</h4><p>Sâu tuổi nhỏ (1–2) sức đề kháng yếu, ăn ít, gây hại chưa đáng kể.</p></div>
+        <div class="panel reveal" style="--i:1"><h4>Tuổi lớn phá hại mạnh</h4><p>Càng về cuối tuổi, sức ăn càng lớn — giai đoạn gây thiệt hại mùa màng chủ yếu.</p></div>
+        <div class="panel reveal" style="--i:2"><h4>Thời điểm "mẫn cảm" nhất</h4><p>Ngay sau lột xác, da còn mềm — dễ tiêu diệt nhất bằng biện pháp hóa học & sinh học.</p></div>
+        <div class="panel reveal" style="--i:3"><h4>Ứng dụng phòng trừ</h4><p>Theo dõi tuổi sâu để chọn đúng thời điểm và biện pháp phòng trừ hiệu quả.</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ STAGE 02 — NHỘNG ============ -->
+<section class="stage bg-ink" id="pupa" data-rail="02 · Nhộng">
+  <div class="wrap">
+    <div class="stage-head reveal">
+      <div class="tag"><span class="dot"></span>ĐC.02 — NHỘNG (PUPA)</div>
+      <h2>Tĩnh lặng bên ngoài, cách mạng bên trong</h2>
+      <p>Nhộng không di chuyển và không ăn — nhưng bên trong lớp vỏ bất động ấy là quá trình phá hủy và tái thiết triệt để nhất trong toàn bộ vòng đời côn trùng.</p>
+    </div>
+
+    <!-- Pupa types -->
+    <div class="block">
+      <div class="block-title reveal"><span class="no">01</span> Phân loại các kiểu nhộng</div>
+      <div class="grid-3 stagger">
+        <div class="pupa-card reveal-zoom" style="--i:0">
+          <div class="illus-frame" style="min-height:180px;">
+            <svg viewBox="0 0 160 200" width="120"><ellipse cx="80" cy="100" rx="46" ry="70" fill="none" stroke="#8A9B68" stroke-width="2.5"/><path d="M 50 60 L 42 45 M 110 60 L 118 45" stroke="#8A9B68" stroke-width="2" stroke-linecap="round"/><line x1="80" y1="45" x2="80" y2="155" stroke="#8A9B68" stroke-width="1" opacity="0.4" stroke-dasharray="3 4"/></svg>
+          </div>
+          <span class="num">PUPA DECTICA</span><h4>Nhộng có hàm trên</h4>
+          <p>Hàm trên hoàn chỉnh, cắn rách kén tơ. Mầm chân, cánh tự do.</p>
+          <p class="sp">Chrysoperla sp. · Trichoptera</p>
+        </div>
+        <div class="pupa-card reveal-zoom" style="--i:1">
+          <div class="illus-frame" style="min-height:180px;">
+            <svg viewBox="0 0 160 200" width="120"><ellipse cx="80" cy="100" rx="44" ry="72" fill="#B8935A" opacity="0.14" stroke="#B8935A" stroke-width="2.5"/><path d="M 45 70 Q 30 100 45 135 M 115 70 Q 130 100 115 135" stroke="#B8935A" stroke-width="1.6" fill="none" opacity="0.7"/></svg>
+          </div>
+          <span class="num">PUPA EXARATA</span><h4>Nhộng trần</h4>
+          <p>Mầm cánh, chân, râu tự do bên ngoài, không dính sát thân.</p>
+          <p class="sp">Coccinella transversalis · Apis mellifera</p>
+        </div>
+        <div class="pupa-card reveal-zoom" style="--i:2">
+          <div class="illus-frame" style="min-height:180px;">
+            <svg viewBox="0 0 160 200" width="120"><path d="M 80 30 C 40 30 34 90 40 130 C 46 168 114 168 120 130 C 126 90 120 30 80 30 Z" fill="#9C4A2E" opacity="0.16" stroke="#9C4A2E" stroke-width="2.5"/><circle cx="60" cy="70" r="3" fill="#B8935A"/><circle cx="100" cy="90" r="3" fill="#B8935A"/><circle cx="70" cy="120" r="3" fill="#B8935A"/></svg>
+          </div>
+          <span class="num">PUPA OBTECTA</span><h4>Nhộng màng</h4>
+          <p>Lớp màng keo dính chặt mầm cánh & chân vào thân.</p>
+          <p class="sp">Pieris rapae · Bombyx mori</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Histolysis / histogenesis -->
+    <div class="block split reveal">
+      <div class="panel" style="background:rgba(156,74,46,0.12); border-color:rgba(156,74,46,0.35);">
+        <span class="num" style="color:var(--rust)">HISTOLYSIS</span>
+        <h4 style="font-size:1.3rem;">Tiêu mô</h4>
+        <p style="margin:12px 0;">Phân giải hóa học & thực bào tiêu hủy các cơ quan tạm thời không còn phù hợp: hệ cơ sâu non, ống tiêu hóa cũ, thể mỡ, khí quản…</p>
+        <p style="font-style:italic; color:var(--parchment-dim); border-top:1px solid var(--line); padding-top:12px; margin-top:12px;">→ Các cơ quan hóa lỏng, tạo chất dịch dinh dưỡng đậm đặc.</p>
+      </div>
+      <div class="panel" style="background:rgba(184,147,90,0.1); border-color:rgba(184,147,90,0.35);">
+        <span class="num">HISTOGENESIS</span>
+        <h4 style="font-size:1.3rem;">Sinh mô</h4>
+        <p style="margin:12px 0;">Sử dụng chất dịch tiêu mô cùng các đĩa mầm trưởng thành (Imaginal discs) chưa phân hóa để kiến tạo cơ quan chuyên hóa mới.</p>
+        <p style="font-style:italic; color:var(--parchment-dim); border-top:1px solid var(--line); padding-top:12px; margin-top:12px;">→ Hình thành cánh, mắt kép, râu đầu, cơ quan sinh dục hoàn chỉnh.</p>
+      </div>
+    </div>
+
+    <!-- Respiration / diapause -->
+    <div class="block reveal">
+      <div class="block-title"><span class="no">02</span> Hô hấp, đình dục và lớp vỏ bảo vệ</div>
+      <div class="grid-3 stagger">
+        <div class="panel reveal" style="--i:0"><h4>Hô hấp trong trạng thái tĩnh</h4><p>Dù bất động, nhộng vẫn hô hấp liên tục qua lỗ thở; cường độ trao đổi khí giảm giữa giai đoạn rồi tăng dần khi gần vũ hóa.</p></div>
+        <div class="panel reveal" style="--i:1"><h4>Hiện tượng đình dục</h4><p>Tạm ngừng phát triển để vượt điều kiện bất lợi (đông lạnh, mùa khô) do PTTH giảm tiết; quang chu kỳ & nhiệt độ là yếu tố cảm ứng chính.</p></div>
+        <div class="panel reveal" style="--i:2"><h4>Kén tơ và kén giả</h4><p>Kén tơ: do tuyến tơ nhả dệt, bao ngoài nhộng. Kén giả (puparium): chính da sâu non tuổi cuối hóa cứng lại.</p></div>
+      </div>
+    </div>
+
+    <!-- Puparium detail -->
+    <div class="block split rev reveal">
+      <div>
+        <div class="block-title"><span class="no">03</span> Nhộng bọc — Kén giả (Puparium)</div>
+        <p style="color:var(--parchment-dim); margin-bottom:24px;">Ở bộ Hai cánh (Diptera), da sâu non tuổi cuối KHÔNG lột bỏ mà co ngắn, cứng hóa, sẫm màu — tạo vỏ bọc riêng bao bọc nhộng thật bên trong.</p>
+        <div class="type-list c-brass">
+          <div class="type-row"><div class="tname">Ruồi nhà</div><div class="tdesc">Sâu non không chân (dòi), sống trong chất hữu cơ phân hủy.</div><div class="tspecies">Musca domestica</div></div>
+          <div class="type-row"><div class="tname">Ruồi đục quả</div><div class="tdesc">Gây hại nghiêm trọng trên nhiều loại cây ăn quả.</div><div class="tspecies">Bactrocera dorsalis</div></div>
+          <div class="type-row"><div class="tname">Ruồi đục lá</div><div class="tdesc">Sâu non đục hầm bên trong mô lá.</div><div class="tspecies">Liriomyza sativae</div></div>
+        </div>
+      </div>
+      <div class="illus-frame">
+        <svg viewBox="0 0 300 220" width="280">
+          <ellipse cx="150" cy="110" rx="120" ry="72" fill="#D8C9A3" opacity="0.18" stroke="#B8935A" stroke-width="2.5"/>
+          <ellipse cx="150" cy="110" rx="66" ry="42" fill="#8A9B68" opacity="0.35" stroke="#8A9B68" stroke-width="1.5" stroke-dasharray="4 5"/>
+          <text x="150" y="40" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#B8935A">VỎ PUPARIUM</text>
+          <text x="150" y="112" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#8A9B68">NHỘNG THẬT</text>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ STAGE 03 — TRƯỞNG THÀNH ============ -->
+<section class="stage bg-canopy" id="adult" data-rail="03 · Trưởng thành">
+  <div class="wrap">
+    <div class="stage-head reveal">
+      <div class="tag"><span class="dot"></span>ĐC.03 — TRƯỞNG THÀNH (ADULT / IMAGO)</div>
+      <h2>Hình hài cuối cùng, nhiệm vụ duy nhất</h2>
+      <p>Cơ thể đã ổn định kích thước, ngừng lột xác — mọi cấu tạo giờ đây tập trung toàn bộ vào việc tìm bạn tình, giao phối và duy trì nòi giống.</p>
+    </div>
+
+    <div class="block split reveal">
+      <div class="illus-frame" id="adultIllus">
+        <svg viewBox="0 0 400 380" width="320">
+          <defs>
+            <linearGradient id="wingTop2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#C98A4E"/><stop offset="55%" stop-color="#9C4A2E"/><stop offset="100%" stop-color="#6E2F1D"/>
+            </linearGradient>
+            <linearGradient id="wingBot2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8A9B68"/><stop offset="100%" stop-color="#4A5D3A"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(200,190)">
+            <g>
+              <path d="M -6 -20 C -90 -110 -210 -95 -235 -10 C -250 45 -195 78 -140 55 C -95 36 -55 5 -6 -8 Z" fill="url(#wingTop2)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
+              <path d="M -8 4 C -70 40 -150 55 -175 105 C -192 140 -160 168 -120 152 C -78 135 -40 90 -8 34 Z" fill="url(#wingBot2)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
+              <circle cx="-155" cy="-38" r="9" fill="#EDE6D3" opacity="0.55"/><circle cx="-100" cy="-4" r="5.5" fill="#EDE6D3" opacity="0.4"/><circle cx="-120" cy="100" r="7" fill="#1E1712" opacity="0.4"/>
+            </g>
+            <g transform="scale(-1,1)">
+              <path d="M -6 -20 C -90 -110 -210 -95 -235 -10 C -250 45 -195 78 -140 55 C -95 36 -55 5 -6 -8 Z" fill="url(#wingTop2)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
+              <path d="M -8 4 C -70 40 -150 55 -175 105 C -192 140 -160 168 -120 152 C -78 135 -40 90 -8 34 Z" fill="url(#wingBot2)" stroke="#EDE6D3" stroke-opacity="0.25" stroke-width="1.5"/>
+              <circle cx="-155" cy="-38" r="9" fill="#EDE6D3" opacity="0.55"/><circle cx="-100" cy="-4" r="5.5" fill="#EDE6D3" opacity="0.4"/><circle cx="-120" cy="100" r="7" fill="#1E1712" opacity="0.4"/>
+            </g>
+            <ellipse cx="0" cy="-32" rx="7.5" ry="9" fill="#181410"/>
+            <path d="M -6 -26 C -13 -5 -13 60 0 108 C 13 60 13 -5 6 -26 Z" fill="#181410"/>
+            <path d="M 0 -38 C -14 -52 -30 -54 -38 -46" fill="none" stroke="#181410" stroke-width="3" stroke-linecap="round"/>
+            <path d="M 0 -38 C 14 -52 30 -54 38 -46" fill="none" stroke="#181410" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="-38" cy="-46" r="3.5" fill="#B8935A"/><circle cx="38" cy="-46" r="3.5" fill="#B8935A"/>
+          </g>
+        </svg>
+      </div>
+      <div>
+        <div class="block-title"><span class="no">01</span> So với pha sâu non</div>
+        <div class="cmp-list">
+          <div class="cmp-row"><div class="cmp-k">Vỏ cơ thể</div><div class="cmp-a">Mềm, đàn hồi</div><div class="cmp-b">Chitin hóa cứng + melanin</div></div>
+          <div class="cmp-row"><div class="cmp-k">Mắt</div><div class="cmp-a">Chưa có mắt kép</div><div class="cmp-b">Mắt kép lớn, hoàn chỉnh</div></div>
+          <div class="cmp-row"><div class="cmp-k">Cánh</div><div class="cmp-a">Chưa có / mầm cánh</div><div class="cmp-b">2 đôi cánh phát triển</div></div>
+          <div class="cmp-row"><div class="cmp-k">Lột xác</div><div class="cmp-a">Nhiều lần để lớn lên</div><div class="cmp-b">Ngừng hẳn (trừ vài nhóm)</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Polymorphism -->
+    <div class="block reveal">
+      <div class="block-title"><span class="no">02</span> Hiện tượng nhiều hình (Polymorphism)</div>
+      <div class="grid-3 stagger">
+        <div class="panel reveal" style="--i:0"><span class="num">SEXUAL DIMORPHISM</span><h4>Nhị hình giới tính</h4><p>Cái: bụng to chứa trứng. Đực: cơ quan nhận pheromone, gạc/sừng lớn, móc bám giao phối.</p></div>
+        <div class="panel reveal" style="--i:1"><span class="num">SEASONAL DIMORPHISM</span><h4>Nhị hình theo mùa</h4><p>Cùng loài, thế hệ sinh vào mùa khác nhau có màu sắc/kích thước khác do nhiệt độ & quang chu kỳ.</p></div>
+        <div class="panel reveal" style="--i:2"><span class="num">SOCIAL POLYMORPHISM</span><h4>Nhiều hình xã hội</h4><p>Côn trùng tập đoàn (ong, kiến, mối) phân hóa đẳng cấp: chúa, đực, thợ, lính.</p></div>
+      </div>
+    </div>
+
+    <!-- Emergence / reproduction -->
+    <div class="block reveal">
+      <div class="block-title"><span class="no">03</span> Vũ hóa, sinh sản và ăn bổ sung</div>
+      <div class="grid-2 stagger">
+        <div class="panel reveal" style="--i:0"><h4>Vũ hóa (Emergence)</h4><p>Lột bỏ vỏ nhộng cuối cùng. Bơm khí quản & máu vào cánh để giang cánh, tăng hô hấp làm cứng biểu bì.</p></div>
+        <div class="panel reveal" style="--i:1"><h4>Sinh sản & bảo tồn nòi giống</h4><p>Chức năng quan trọng nhất: tìm bạn tình qua âm thanh, ánh sáng, pheromone; giao phối, đẻ trứng.</p></div>
+        <div class="panel reveal" style="--i:2"><h4>Ăn bổ sung (ăn thêm)</h4><p>Đa số cần ăn thêm (mật hoa, dịch quả…) để tuyến sinh dục chín muồi. Một số (ruồi) không cần ăn.</p></div>
+        <div class="panel reveal" style="--i:3"><h4>Chăm sóc thế hệ sau</h4><p>Tìm nơi đẻ trứng an toàn, làm kén bảo vệ, tích trữ thức ăn nuôi ấu trùng non.</p></div>
+      </div>
+    </div>
+
+    <!-- Mouth types -->
+    <div class="block reveal">
+      <div class="block-title"><span class="no">04</span> Phân loại kiểu miệng</div>
+      <div class="type-list c-rust">
+        <div class="type-row"><div class="tname">Gặm nhai <span style="opacity:.55;font-weight:400;">(Mandibulate)</span></div><div class="tdesc">Hàm khỏe, cắn xé thức ăn rắn — kiểu miệng nguyên thủy nhất.</div><div class="tspecies">Oxya chinensis</div></div>
+        <div class="type-row"><div class="tname">Chích hút <span style="opacity:.55;font-weight:400;">(Piercing–sucking)</span></div><div class="tdesc">Vòi cứng nhọn đâm xuyên mô để hút dịch cây/máu.</div><div class="tspecies">Aedes aegypti</div></div>
+        <div class="type-row"><div class="tname">Chích hút</div><div class="tdesc">Cùng nhóm chích hút, gây hại trực tiếp trên cây trồng.</div><div class="tspecies">Nezara viridula</div></div>
+        <div class="type-row"><div class="tname">Hút vòi cuộn <span style="opacity:.55;font-weight:400;">(Siphoning)</span></div><div class="tdesc">Vòi dài cuộn tròn khi nghỉ, duỗi ra hút mật hoa.</div><div class="tspecies">Papilio polytes</div></div>
+        <div class="type-row"><div class="tname">Liếm hút <span style="opacity:.55;font-weight:400;">(Sponging)</span></div><div class="tdesc">Đầu vòi dạng đệm xốp, thấm hút thức ăn lỏng.</div><div class="tspecies">Musca domestica</div></div>
+        <div class="type-row"><div class="tname">Nghiền – liếm <span style="opacity:.55;font-weight:400;">(Chewing–lapping)</span></div><div class="tdesc">Kết hợp hàm nghiền phấn hoa và lưỡi liếm mật.</div><div class="tspecies">Apis mellifera</div></div>
+      </div>
+    </div>
+
+    <!-- Leg types -->
+    <div class="block reveal">
+      <div class="block-title"><span class="no">05</span> Phân loại kiểu chân</div>
+      <div class="type-list c-lichen">
+        <div class="type-row"><div class="tname">Chân bò <span style="opacity:.55;font-weight:400;">(Walking)</span></div><div class="tdesc">Cấu tạo đơn giản, cân đối — kiểu chân phổ biến nhất.</div><div class="tspecies">Coccinella transversalis</div></div>
+        <div class="type-row"><div class="tname">Chân nhảy <span style="opacity:.55;font-weight:400;">(Jumping)</span></div><div class="tdesc">Đùi đốt sau rất phát triển, to khỏe để bật nhảy.</div><div class="tspecies">Oxya chinensis</div></div>
+        <div class="type-row"><div class="tname">Chân đào bới <span style="opacity:.55;font-weight:400;">(Digging)</span></div><div class="tdesc">Đốt trước dẹt, rộng bản, mép có răng cưa để đào đất.</div><div class="tspecies">Gryllotalpa orientalis</div></div>
+        <div class="type-row"><div class="tname">Chân bơi <span style="opacity:.55;font-weight:400;">(Swimming)</span></div><div class="tdesc">Dẹt, có lông tơ dày dọc hai bên như mái chèo.</div><div class="tspecies">Cybister sp.</div></div>
+        <div class="type-row"><div class="tname">Chân bắt mồi <span style="opacity:.55;font-weight:400;">(Raptorial)</span></div><div class="tdesc">Đốt đùi có gai nhọn, gấp khúc như lưỡi kéo.</div><div class="tspecies">Tenodera sinensis</div></div>
+        <div class="type-row"><div class="tname">Chân thu phấn hoa</div><div class="tdesc">Có "giỏ phấn" và lông tơ dày để gom phấn hoa.</div><div class="tspecies">Apis mellifera</div></div>
+      </div>
+    </div>
+
+    <!-- Wing types -->
+    <div class="block reveal">
+      <div class="block-title"><span class="no">06</span> Phân loại kiểu cánh</div>
+      <div class="type-list c-brass">
+        <div class="type-row"><div class="tname">Cánh màng <span style="opacity:.55;font-weight:400;">(Membranous)</span></div><div class="tdesc">Mỏng, trong suốt, gân rõ — cả 2 đôi đều dùng để bay.</div><div class="tspecies">Apis mellifera</div></div>
+        <div class="type-row"><div class="tname">Cánh màng</div><div class="tdesc">Bay lượn linh hoạt, 2 đôi cánh gần bằng nhau.</div><div class="tspecies">Orthetrum sabina</div></div>
+        <div class="type-row"><div class="tname">Cánh cứng <span style="opacity:.55;font-weight:400;">(Elytra)</span></div><div class="tdesc">Đôi cánh trước hóa cứng, bảo vệ cánh màng bên dưới.</div><div class="tspecies">Scarabaeidae</div></div>
+        <div class="type-row"><div class="tname">Cánh vẩy <span style="opacity:.55;font-weight:400;">(Scaled)</span></div><div class="tdesc">Phủ đầy vảy nhỏ li ti tạo màu sắc, hoa văn đặc trưng.</div><div class="tspecies">Papilio polytes</div></div>
+        <div class="type-row"><div class="tname">Cánh nửa <span style="opacity:.55;font-weight:400;">(Hemelytra)</span></div><div class="tdesc">Nửa gốc cứng dai, nửa ngọn mỏng như màng.</div><div class="tspecies">Nezara viridula</div></div>
+        <div class="type-row"><div class="tname">Cánh da <span style="opacity:.55;font-weight:400;">(Tegmina)</span></div><div class="tdesc">Dai, gân dày, che phủ và bảo vệ cánh sau mỏng.</div><div class="tspecies">Orthoptera</div></div>
+      </div>
+    </div>
+
+    <!-- Antennae types -->
+    <div class="block reveal">
+      <div class="block-title"><span class="no">07</span> Phân loại kiểu râu đầu (Antennae)</div>
+      <div class="type-list c-rust">
+        <div class="type-row"><div class="tname">Hình sợi chỉ <span style="opacity:.55;font-weight:400;">(Filiform)</span></div><div class="tdesc">Các đốt đều nhau về kích thước từ gốc đến ngọn.</div><div class="tspecies">Periplaneta americana</div></div>
+        <div class="type-row"><div class="tname">Hình lông chim <span style="opacity:.55;font-weight:400;">(Plumose)</span></div><div class="tdesc">Phân nhánh mảnh — thường ở con đực để bắt pheromone.</div><div class="tspecies">Bombyx mori (đực)</div></div>
+        <div class="type-row"><div class="tname">Hình dùi trống <span style="opacity:.55;font-weight:400;">(Clavate)</span></div><div class="tdesc">Thon dài rồi phình to đột ngột ở đầu mút.</div><div class="tspecies">Pieris rapae</div></div>
+        <div class="type-row"><div class="tname">Hình đầu gối <span style="opacity:.55;font-weight:400;">(Geniculate)</span></div><div class="tdesc">Gấp khúc rõ rệt tại một khớp giữa.</div><div class="tspecies">Formicidae</div></div>
+        <div class="type-row"><div class="tname">Hình lá lợp <span style="opacity:.55;font-weight:400;">(Lamellate)</span></div><div class="tdesc">Các đốt cuối xòe rộng, xếp chồng như lá.</div><div class="tspecies">Oryctes rhinoceros</div></div>
+      </div>
+      <p class="note">Kiểu râu là một trong những chỉ tiêu hình thái quan trọng nhất để phân loại bộ, họ côn trùng.</p>
+    </div>
+
+    <!-- Lifespan -->
+    <div class="block reveal">
+      <div class="block-title"><span class="no">08</span> Tuổi thọ và số thế hệ trong năm</div>
+      <div class="grid-3 stagger">
+        <div class="panel reveal" style="--i:0"><h4>Vài giờ – vài ngày</h4><p>Phù du (Ephemeroptera), một số muỗi — chỉ sống để giao phối và đẻ trứng.</p></div>
+        <div class="panel reveal" style="--i:1"><h4>Vài tuần – vài tháng</h4><p>Đa số bướm ngày, ruồi, bọ cánh cứng nhỏ — đủ thời gian sinh sản nhiều lứa.</p></div>
+        <div class="panel reveal" style="--i:2"><h4>Qua đông / nhiều tháng</h4><p>Một số bọ cánh cứng, bướm đêm đình dục qua mùa lạnh rồi sinh sản vào xuân.</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .cmp-list{ margin-top:10px; }
+  .cmp-row{ display:grid; grid-template-columns:0.9fr 1fr 1.1fr; gap:14px; padding:14px 0; border-bottom:1px solid var(--line); align-items:center; }
+  .cmp-k{ font-family:var(--mono); font-size:11px; color:var(--lichen); }
+  .cmp-a{ font-size:0.88rem; color:var(--parchment-dim); }
+  .cmp-b{ font-size:0.92rem; font-weight:600; color:var(--parchment); }
+  @media (max-width:760px){ .cmp-row{ grid-template-columns:1fr; gap:4px; padding:16px 0;} }
+</style>
+
+<style>
+  .pupa-card{ background:rgba(237,230,211,0.045); border:1px solid var(--line); border-radius:3px; padding:24px; text-align:center; }
+  .pupa-card p{ font-size:0.9rem; color:var(--parchment-dim); margin-top:6px; }
+  .sp{ font-family:var(--mono) !important; font-size:11px !important; color:var(--brass) !important; margin-top:10px !important; }
+  .instar-row{ display:flex; align-items:flex-end; gap:10px; flex-wrap:wrap; }
+  .instar{ display:flex; flex-direction:column; align-items:center; gap:10px; }
+  .idot{ border-radius:50%; background:var(--lichen); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:11px; color:var(--ink); font-weight:600; }
+  .idot.rust{ background:var(--rust); color:var(--parchment); }
+  .ilabel{ font-family:var(--mono); font-size:10px; color:var(--parchment-dim); }
+  .iarrow{ font-family:var(--mono); font-size:10px; color:var(--brass); padding-bottom:20px; }
+  .hormone-flow{ display:flex; align-items:stretch; gap:14px; flex-wrap:wrap; margin-bottom:30px; }
+  .hnode{ flex:1 1 200px; background:rgba(237,230,211,0.045); border:1px solid var(--line); padding:20px; border-radius:3px; }
+  .hno{ font-family:var(--mono); font-size:11px; color:var(--brass); margin-bottom:10px; }
+  .hnode h4{ font-family:var(--serif); font-size:1rem; font-weight:600; margin-bottom:6px; }
+  .hnode p{ font-size:0.85rem; color:var(--parchment-dim); }
+  .harrow{ display:flex; align-items:center; font-size:1.3rem; color:var(--brass); opacity:0.6; }
+  @media (max-width:900px){ .hormone-flow{ flex-direction:column; } .harrow{ transform:rotate(90deg); align-self:center; } }
+</style>
+
+<!-- ============ COMPARISON TABLE ============ -->
+<section class="stage bg-ink" id="compare" data-rail="Tổng hợp">
+  <div class="wrap">
+    <div class="stage-head reveal">
+      <div class="tag"><span class="dot"></span>ĐC.04 — TỔNG HỢP</div>
+      <h2>Ba pha, nhìn cạnh nhau</h2>
+    </div>
+    <div class="ctable reveal">
+      <div class="ctable-row ctable-head">
+        <div>Tiêu chí</div><div>Sâu non</div><div>Nhộng</div><div>Trưởng thành</div>
+      </div>
+      <div class="ctable-row"><div>Chức năng cốt lõi</div><div>Ăn, tích lũy dinh dưỡng, sinh trưởng khối lượng</div><div>Biến đổi tổ chức mô (tiêu mô & sinh mô)</div><div>Sinh sản, duy trì & phát tán nòi giống</div></div>
+        <div class="ctable-row"><div>Vỏ cơ thể</div><div>Mềm, mỏng; lột xác nhiều lần</div><div>Hóa cứng tạo kén/màng bảo vệ, bất động</div><div>Hóa cứng hoàn chỉnh, ngừng lột xác</div></div>
+        <div class="ctable-row"><div>Cơ quan vận động</div><div>Chân ngực đơn giản, chưa có cánh</div><div>Mầm chân/cánh áp sát thân</div><div>3 đôi chân, 2 đôi cánh hoàn chỉnh</div></div>
+        <div class="ctable-row"><div>Chức năng sinh sản</div><div>Chưa có khả năng</div><div>Tuyến sinh dục đang hoàn thiện</div><div>Hoàn chỉnh: giao phối, đẻ trứng</div></div>
+        <div class="ctable-row"><div>Mức độ gây hại</div><div>Phá hại mùa màng nghiêm trọng nhất</div><div>Tĩnh, không gây hại trực tiếp</div><div>Gây hại gián tiếp / ăn bổ sung</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONCLUSION ============ -->
+<section class="stage bg-canopy" id="conclusion" data-rail="Kết luận">
+  <div class="wrap">
+    <div class="stage-head reveal">
+      <div class="tag"><span class="dot"></span>KẾT LUẬN</div>
+      <h2>Ba pha — một vòng đời</h2>
+    </div>
+    <div class="grid-3 stagger" style="margin-bottom:6vh;">
+      <div class="panel reveal" style="--i:0"><span class="num" style="color:var(--rust)">SÂU NON</span><h4>"Ăn để lớn"</h4><p>Nền tảng năng lượng cho cả vòng đời.</p></div>
+      <div class="panel reveal" style="--i:1"><span class="num" style="color:var(--brass)">NHỘNG</span><h4>"Lột xác của số phận"</h4><p>Kiến tạo lại toàn bộ cơ thể.</p></div>
+      <div class="panel reveal" style="--i:2"><span class="num" style="color:var(--lichen)">TRƯỞNG THÀNH</span><h4>"Sống để truyền nòi"</h4><p>Hoàn thiện và phát tán.</p></div>
+    </div>
+    <p class="note reveal" style="font-size:1.2rem; max-width:70ch;">Nắm vững đặc điểm hình thái & chức năng sinh lý từng pha giúp xác định đúng tuổi sâu, dự báo thời điểm gây hại và lựa chọn biện pháp phòng trừ kịp thời, hiệu quả trong bảo vệ thực vật.</p>
+    <div class="reveal" style="margin-top:8vh; padding-top:26px; border-top:1px solid var(--line); font-family:var(--mono); font-size:11.5px; color:var(--parchment-dim);">
+      NHÓM 3 · BẢO VỆ THỰC VẬT — Triệu Đình Lộc (nhóm trưởng) · Lương Thái Khang · Phạm Thị Thu Hường · Triệu Thị Liên · Đồng Mạnh Huấn
+    </div>
+  </div>
+</section>
+
+<style>
+  .ctable{ border-top:1px solid var(--line); margin-top:2vh; }
+  .ctable-row{ display:grid; grid-template-columns:1fr 1.3fr 1.3fr 1.3fr; gap:20px; padding:18px 0; border-bottom:1px solid var(--line); font-size:0.88rem; }
+  .ctable-row > div:first-child{ font-family:var(--serif); font-weight:600; color:var(--brass); }
+  .ctable-row > div{ color:var(--parchment-dim); line-height:1.4; }
+  .ctable-head{ font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--parchment); padding-bottom:14px; }
+  .ctable-head > div:first-child{ color:var(--parchment); }
+  @media (max-width:820px){ .ctable-row{ grid-template-columns:1fr; gap:4px; } .ctable-head{ display:none; } .ctable-row{ padding:20px 0; } .ctable-row > div:first-child{ margin-bottom:4px; } }
+</style>
+
+<script>
+  // Build the right-side rail from sections with data-rail
+  const railEl = document.getElementById('rail');
+  const railSections = [...document.querySelectorAll('[data-rail]')];
+  railSections.forEach((sec, i) => {
+    const pt = document.createElement('div');
+    pt.className = 'pt';
+    pt.innerHTML = '<span class="lbl">' + sec.dataset.rail + '</span>';
+    pt.addEventListener('click', () => sec.scrollIntoView({behavior:'smooth'}));
+    railEl.appendChild(pt);
+    sec._railPt = pt;
+  });
+
+  const railObserver = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        railSections.forEach(s => s._railPt.classList.remove('active'));
+        en.target._railPt.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  railSections.forEach(s => railObserver.observe(s));
+
+  // Reveal-on-scroll for .reveal / .reveal-l / .reveal-r / .reveal-zoom
+  const revealEls = document.querySelectorAll('.reveal, .reveal-l, .reveal-r, .reveal-zoom');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        en.target.classList.add('in');
+      }
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Staggered children: assign --i index within .stagger containers
+  document.querySelectorAll('.stagger').forEach(container => {
+    [...container.children].forEach((child, i) => { child.style.setProperty('--i', i); });
+  });
+
+  // Subtle parallax on hero illustration
+  const heroIllus = document.getElementById('heroIllus');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (heroIllus) heroIllus.style.transform = `translateY(${y * 0.18}px) scale(${1 + Math.min(y,600)*0.00012})`;
+  }, { passive: true });
+</script>
+</body>
+</html>
