@@ -295,6 +295,20 @@
     .gallery-card,.gallery-card:first-child{ min-height:230px; grid-column:auto; }
     .to-top{ right:16px; bottom:16px; width:42px; height:42px; }
   }
+
+/* FINAL ACADEMIC AUDIT — readability and scientific hierarchy */
+.scope-note{background:#EEF8F5!important;border-left:4px solid #168F82;padding:12px 14px!important;color:#24445B!important;border-radius:8px}
+.hormone-corrected{grid-template-columns:1.35fr .45fr 1.35fr .45fr 1.35fr .45fr 1.55fr!important;align-items:stretch}
+.hormone-corrected .hnode{background:#FFFFFF!important;border:1px solid rgba(23,50,77,.14)!important;color:#17324D!important;box-shadow:0 8px 20px rgba(23,50,77,.06)}
+.hormone-corrected .hnode p{color:#294F66!important}
+.hormone-corrected .harrow{color:#168F82!important;font-weight:900}
+.academic-sources .panel{min-height:150px}
+.academic-sources .panel p{color:#294F66!important}
+.anatomy-label-card{background:#FFFFFF!important;color:#17324D!important;border-color:rgba(23,50,77,.12)!important}
+.anatomy-legend span{color:#24445B!important}
+.type-row .tdesc{color:#294F66!important}
+.pupa-photo-card figcaption p{color:#294F66!important}
+@media(max-width:900px){.hormone-corrected{grid-template-columns:1fr!important}.hormone-corrected .harrow{transform:rotate(90deg)}}
 </style>
 <style>
 
@@ -497,6 +511,34 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 .menu-toggle{color:#24445B!important;background:#EAF6F2!important;border-color:#8DD2C7!important;}
 @media(max-width:760px){.main-menu a{font-weight:650!important;}}
 </style>
+<style>
+/* ===== Chú thích giải phẫu & độ tương phản ảnh ===== */
+.science-image-caption{background:#FFFFFF!important;color:#17324D!important;border-top:1px solid rgba(23,50,77,.08);}
+.science-image-caption strong{color:#123A57!important;font-weight:800!important}
+.science-image-caption p{color:#294F66!important}
+.science-image-caption small{color:#587181!important}
+.science-species{color:#087F73!important;font-weight:700!important}
+.anatomy-label-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 30px;}
+.anatomy-label-card{background:#F7FBFC;border:1px solid #B9D6DE;border-radius:12px;padding:16px 18px;box-shadow:0 8px 22px rgba(23,50,77,.06);}
+.anatomy-label-card h4{color:#123A57!important;font-family:var(--serif);font-size:1rem;margin:0 0 10px;}
+.anatomy-legend{display:flex;flex-wrap:wrap;gap:8px;}
+.anatomy-legend span{display:inline-block;background:#E5F5F1;border:1px solid #8DD2C7;color:#174A58;padding:7px 9px;border-radius:7px;font-size:10px;line-height:1.35;font-weight:650;}
+.anatomy-legend span b{color:#087F73}
+.leg-type-strip{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin:18px 0 24px;}
+.leg-type-strip>div{background:#FFF8E9;border:1px solid #E6C982;border-radius:9px;padding:10px 8px;text-align:center;}
+.leg-type-strip b{display:block;color:#8A5A08;font-family:var(--serif);font-size:12px}
+.leg-type-strip span{display:block;color:#355C6C;font-family:var(--mono);font-size:8px;margin-top:3px}
+.anatomy-two .science-image-card{margin:0}
+.anatomy-two .science-image-card img{height:270px}
+.mouth-label-grid{margin-top:8px}
+.gc-cap{background:rgba(9,35,50,.93)!important;color:#FFFFFF!important;border:1px solid rgba(255,255,255,.18);}
+.gallery-card .gc-cap .gc-species{color:#8EEFE2!important}
+.gallery-card .gc-cap .gc-desc{color:#FFFFFF!important}
+.gallery-card .gc-cap small{color:#D9F4F1!important}
+.pf-credit{color:#E8F4F5!important}
+@media(max-width:900px){.leg-type-strip{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:760px){.anatomy-label-grid{grid-template-columns:1fr}.leg-type-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.anatomy-two .science-image-card img{height:220px}}
+</style>
 </head>
 <body>
 <!-- Thanh điều hướng chính -->
@@ -545,7 +587,7 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="stage-head reveal">
 <div class="tag"><span class="dot"></span>ĐC.00 — TỔNG QUAN VÒNG ĐỜI</div>
 <h2>Bốn giai đoạn của biến thái hoàn toàn</h2>
-<p>Ở côn trùng biến thái hoàn toàn (Holometabola), vòng đời gồm trứng → sâu non (ấu trùng) → nhộng → trưởng thành. Ba pha trọng tâm của bài là sâu non, nhộng và trưởng thành.</p>
+<p>Ở côn trùng biến thái hoàn toàn (Holometabola), vòng đời gồm trứng → sâu non (ấu trùng) → nhộng → trưởng thành. Ba pha trọng tâm của bài là sâu non, nhộng và trưởng thành.</p><p class="note scope-note"><b>Phạm vi trình bày:</b> trọng tâm là biến thái hoàn toàn và các ví dụ hình thái chủ yếu ở Lepidoptera; các đặc điểm được diễn đạt theo hướng “điển hình/ở nhiều nhóm” để tránh khái quát hóa cho toàn bộ Insecta.</p>
 </div>
 <div class="lifecycle reveal">
 <div class="lc-row"><button class="lc-node" data-jump="#overview" style="--c:#718096" type="button"><span class="lc-num">01</span><span class="lc-dot"></span><span class="lc-label">Trứng</span><span class="lc-sub">Khởi đầu</span></button><div class="lc-link"><span>→</span></div><button class="lc-node" data-jump="#larva" style="--c:#E65F3F" type="button"><span class="lc-num">02</span><span class="lc-dot"></span><span class="lc-label">Sâu non</span><span class="lc-sub">Ăn · tích lũy · lớn</span></button><div class="lc-link"><span>→</span></div><button class="lc-node" data-jump="#pupa" style="--c:#E39A22" type="button"><span class="lc-num">03</span><span class="lc-dot"></span><span class="lc-label">Nhộng</span><span class="lc-sub">Tái tổ chức cơ thể</span></button><div class="lc-link"><span>→</span></div><button class="lc-node" data-jump="#adult" style="--c:#169C8D" type="button"><span class="lc-num">04</span><span class="lc-dot"></span><span class="lc-label">Trưởng thành</span><span class="lc-sub">Sinh sản · phát tán</span></button></div>
@@ -569,7 +611,7 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="tag"><span class="dot"></span>ĐC.01 — SÂU NON / ẤU TRÙNG</div>
 <div class="stage-tools" data-tools="larva"><span class="tool-label">ĐIỀU HƯỚNG PHA</span><button type="button">Hình thái ngoài</button><button type="button">Hệ cơ quan</button><button type="button">Lột xác &amp; sinh trưởng</button></div>
 <h2>Đặc điểm hình thái và sinh lý — sâu non</h2>
-<p>Toàn bộ cấu tạo của sâu non phục vụ một mục tiêu duy nhất: ăn, tích lũy dinh dưỡng và sinh trưởng khối lượng nhanh nhất có thể trước khi hóa nhộng.</p>
+<p>Cấu tạo của sâu non nhìn chung được chuyên hóa mạnh cho ăn, tích lũy dinh dưỡng và sinh trưởng; đồng thời vẫn phải duy trì hô hấp, bài tiết, cảm giác, vận động và đáp ứng với môi trường.</p>
 </div>
 <div class="photo-feature reveal-zoom">
 <img alt="Sâu non bướm chúa (Danaus plexippus) đang ăn lá" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=1600"/>
@@ -647,7 +689,7 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="reveal-r">
 <div class="block-title"><span class="no">01</span> Cấu tạo hình thái ngoài</div>
 <div class="grid-2">
-<div class="panel"><span class="num">ĐẦU</span><h4>Mắt đơn là chủ yếu</h4><p>Ở sâu bướm (Lepidoptera), mắt kép không phát triển; hai bên đầu có các stemmata. Râu thường ngắn.</p></div>
+<div class="panel"><span class="num">ĐẦU</span><h4>Mắt kép không phát triển ở sâu bướm; mắt đơn dạng stemmata</h4><p>Ở sâu bướm (Lepidoptera), mắt kép không phát triển; hai bên đầu có các stemmata. Râu thường ngắn. Ở các nhóm ấu trùng khác, cấu tạo cơ quan cảm giác có thể khác.</p></div>
 <div class="panel"><span class="num">NGỰC</span><h4>3 đốt, chân đơn giản</h4><p>Có 3 đôi chân ngực; ở sâu bướm còn có các chân bụng. Cánh chưa phát triển thành cánh chức năng.</p></div>
 <div class="panel"><span class="num">BỤNG</span><h4>Nhiều đốt, lỗ thở</h4><p>Một số nhóm có chân bụng (pedes spurii) với móc bám chắc giá thể.</p></div>
 <div class="panel"><span class="num">VỎ</span><h4>Mềm, đàn hồi</h4><p>Vỏ mềm và có khả năng giãn; cơ thể phân đốt, gồm đầu, ngực và bụng.</p></div>
@@ -659,17 +701,34 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="block-title"><span class="no">02</span> Các hệ cơ quan bên trong</div>
 <div class="grid-3 stagger">
 <div class="panel reveal" style="--i:0"><span class="num">TIÊU HÓA</span><h4>Ống 3 phần</h4><p>Ruột trước–giữa–sau; ruột giữa hấp thu dinh dưỡng chính, hoạt động mạnh do ăn liên tục.</p></div>
-<div class="panel reveal" style="--i:1"><span class="num">BÀI TIẾT</span><h4>Ống Malpighi</h4><p>Lọc axit uric từ máu, đổ vào ranh giới ruột giữa – ruột sau.</p></div>
-<div class="panel reveal" style="--i:2"><span class="num">TUẦN HOÀN</span><h4>Hệ hở</h4><p>Mạch lưng bơm huyết tương mang dinh dưỡng &amp; hormon, không mang oxy.</p></div>
+<div class="panel reveal" style="--i:1"><span class="num">BÀI TIẾT</span><h4>Ống Malpighi</h4><p>Bài tiết sản phẩm chuyển hóa, đặc biệt acid uric; dịch bài tiết đổ vào vùng nối ruột giữa – ruột sau và đồng thời tham gia điều hòa ion, nước.</p></div>
+<div class="panel reveal" style="--i:2"><span class="num">TUẦN HOÀN</span><h4>Hệ hở</h4><p>Mạch lưng bơm hemolymph, vận chuyển chất dinh dưỡng, tín hiệu nội tiết và chất thải; hemolymph nhìn chung không đảm nhiệm vận chuyển O₂ chính.</p></div>
 <div class="panel reveal" style="--i:3"><span class="num">HÔ HẤP</span><h4>Ống khí quản</h4><p>Phân nhánh tới tận mô; thông ngoài qua lỗ thở hai bên đốt.</p></div>
-<div class="panel reveal" style="--i:4"><span class="num">THẦN KINH</span><h4>Chuỗi hạch</h4><p>Não — dưới hầu — ngực/bụng, điều khiển vận động &amp; phối hợp nội tiết.</p></div>
-<div class="panel reveal" style="--i:5; background:rgba(156,74,46,0.14); border-color:rgba(156,74,46,0.4);"><span class="num" style="color:var(--rust)">VAI TRÒ CHUNG</span><h4>Ăn — tích lũy — sinh trưởng</h4><p>Mọi hệ cơ quan phục vụ một mục tiêu cốt lõi duy nhất.</p></div>
+<div class="panel reveal" style="--i:4"><span class="num">THẦN KINH</span><h4>Chuỗi hạch</h4><p>Não – hạch dưới hầu – các hạch ngực/bụng, điều khiển phối hợp vận động, cảm giác và nhiều đáp ứng sinh lý.</p></div>
+<div class="panel reveal" style="--i:5; background:rgba(156,74,46,0.14); border-color:rgba(156,74,46,0.4);"><span class="num" style="color:var(--rust)">VAI TRÒ CHUNG</span><h4>Ăn — tích lũy — sinh trưởng</h4><p>Các hệ cơ quan phối hợp để bảo đảm ăn, tiêu hóa, trao đổi chất, tăng trưởng và đáp ứng với môi trường.</p></div>
 </div>
 </div><div class="science-image-row"><figure class="science-image-card reveal"><img alt="Sơ đồ hệ tiêu hóa của côn trùng" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Insect_digestive_system_diagram.jpg?width=1200"/><figcaption class="science-image-caption"><strong>Hệ tiêu hóa: ruột trước – ruột giữa – ruột sau</strong><span class="science-species"><em>Insecta · sơ đồ giải phẫu</em></span><p>Sơ đồ giúp chỉ rõ sự phân hóa của ống tiêu hóa; ruột giữa là vùng tiêu hóa và hấp thu quan trọng, đặc biệt phù hợp để minh họa chức năng của pha sâu non.</p><small>Wikimedia Commons</small></figcaption></figure><figure class="science-image-card reveal"><img alt="Sơ đồ hệ thống khí quản của côn trùng" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Generalized_Insect_Traceal_System.jpg?width=1200"/><figcaption class="science-image-caption"><strong>Hệ khí quản và trao đổi khí</strong><span class="science-species"><em>Insecta · tracheal system</em></span><p>Không khí đi qua lỗ thở vào mạng khí quản phân nhánh, đưa oxy trực tiếp đến các mô; đây là hệ hô hấp đặc trưng của côn trùng.</p><small>Wikimedia Commons</small></figcaption></figure></div>
+<div class="anatomy-label-grid">
+  <div class="anatomy-label-card">
+    <h4>Chú thích sơ đồ hệ tiêu hóa</h4>
+    <div class="anatomy-legend">
+      <span>① Tuyến nước bọt</span><span>② Ruột trước / thực quản</span><span>③ Diều (crop)</span>
+      <span>④ Ruột giữa</span><span>⑤ Manh tràng ruột giữa</span><span>⑥ Ống Malpighi</span>
+      <span>⑦ Ruột sau</span><span>⑧ Trực tràng</span>
+    </div>
+  </div>
+  <div class="anatomy-label-card">
+    <h4>Chú thích sơ đồ hệ khí quản</h4>
+    <div class="anatomy-legend">
+      <span>① Lỗ thở (spiracle)</span><span>② Khí quản chính (trachea)</span><span>③ Khí quản nhánh</span>
+      <span>④ Ống khí quản nhỏ (tracheole)</span><span>⑤ Không khí / O₂ đi vào</span>
+    </div>
+  </div>
+</div>
 <!-- Molting / instar -->
 <div class="block reveal">
 <div class="block-title"><span class="no">03</span> Sinh trưởng nhảy vọt: cơ chế lột xác</div>
-<p style="color:var(--parchment-dim); max-width:70ch; margin-bottom:36px;">Vỏ chitin cứng giới hạn thể tích cơ thể → côn trùng bắt buộc lột xác nhiều lần để lớn lên. Sau mỗi lần lột xác, kích thước cơ thể tăng đột ngột.</p>
+<p style="color:var(--parchment-dim); max-width:70ch; margin-bottom:36px;">Cuticle tạo bộ xương ngoài nhưng hạn chế sự giãn nở liên tục → côn trùng phải lột xác để tăng trưởng. Sau lột xác, cơ thể có thể tăng kích thước khi cuticle mới mở rộng và hóa cứng.</p>
 <div class="instar-row stagger">
 <div class="instar reveal-zoom" style="--i:0"><div class="idot" style="width:34px;height:34px;">T1</div><div class="ilabel">Mới nở</div></div>
 <div class="iarrow reveal" style="--i:1">lột xác</div>
@@ -687,22 +746,22 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <h4 style="font-size:1.4rem;">Tuổi sâu = Số lần lột xác + 1</h4>
 <p style="margin-top:10px;">Khoảng thời gian giữa hai lần lột xác gọi là một tuổi. Sâu mới nở ra từ trứng là tuổi 1.</p>
 </div>
-<div class="panel reveal-r"><span class="num">Ý NGHĨA</span><h4>Thời điểm mẫn cảm</h4><p>Sâu tuổi nhỏ (1–2) sức đề kháng yếu, ăn ít. Ngay sau lột xác, da còn mềm — dễ tiêu diệt nhất bằng biện pháp hóa học/sinh học.</p></div>
+<div class="panel reveal-r"><span class="num">Ý NGHĨA</span><h4>Thời điểm mẫn cảm</h4><p>Sâu tuổi nhỏ thường ăn ít hơn tuổi cuối. Ngay sau lột xác, cuticle còn mềm; độ mẫn cảm với tác nhân phòng trừ có thể tăng, nhưng hiệu quả còn phụ thuộc loài, hoạt chất và phương thức tác động.</p></div>
 </div>
 </div>
 <!-- Hormone -->
 <div class="block reveal">
 <div class="block-title"><span class="no">04</span> Điều hòa hormone quá trình lột xác</div>
-<div class="hormone-flow stagger">
-<div class="hnode reveal" style="--i:0"><div class="hno">01</div><h4>Tế bào thần kinh (não)</h4><p>Tổng hợp hormon hoạt hóa PTTH</p></div>
+<div class="hormone-flow stagger hormone-corrected">
+<div class="hnode reveal" style="--i:0"><div class="hno">01</div><h4>Tế bào thần kinh (não)</h4><p>Phóng thích PTTH → kích thích tuyến ngực trước</p></div>
 <div class="harrow reveal" style="--i:1">→</div>
-<div class="hnode reveal" style="--i:2"><div class="hno">02</div><h4>Tuyến tim <span style="opacity:.6; font-weight:400;">(Corpora cardiaca)</span></h4><p>Vận chuyển &amp; phóng thích PTTH</p></div>
+<div class="hnode reveal" style="--i:2"><div class="hno">02</div><h4>Tuyến ngực trước <span style="opacity:.6; font-weight:400;">(Prothoracic gland)</span></h4><p>Nhận tín hiệu PTTH và tạo ecdysone → 20E</p></div>
 <div class="harrow reveal" style="--i:3">→</div>
-<div class="hnode reveal" style="--i:4"><div class="hno">03</div><h4>Tuyến ngực trước</h4><p>Tiết Ecdyson → gây lột xác</p></div>
-<div class="harrow reveal" style="--i:5">→</div>
-<div class="hnode reveal" style="--i:6"><div class="hno">04</div><h4>Thể allata <span style="opacity:.6; font-weight:400;">(Corpora allata)</span></h4><p>Tiết hormon trẻ (JH), ức chế hóa nhộng</p></div>
+<div class="hnode reveal" style="--i:4"><div class="hno">03</div><h4>20-hydroxyecdysone <span style="opacity:.6; font-weight:400;">(20E)</span></h4><p>Điều phối quá trình lột xác và biến thái</p></div>
+<div class="harrow reveal" style="--i:5">↔</div>
+<div class="hnode reveal" style="--i:6"><div class="hno">JH</div><h4>Thể allata <span style="opacity:.6; font-weight:400;">(Corpora allata)</span></h4><p>Tiết juvenile hormone; mức JH quyết định trạng thái phát triển khi phối hợp với 20E</p></div>
 </div>
-<p class="note reveal">Nội bì tiết dịch men vào khe Exuviae, tiêu hóa và tái hấp thu ~90% lớp biểu bì trong. Áp lực máu và hô hấp tăng làm vỏ ngoài nứt theo đường chữ Y sau gáy để sâu chui ra.</p>
+<p class="note reveal">Tế bào biểu bì tiết enzyme vào vùng giữa cuticle cũ và lớp biểu bì mới; một phần vật chất của cuticle cũ được phân giải và tái hấp thu. Khi lột xác, áp lực dịch cơ thể và hoạt động cơ giúp cuticle cũ nứt ra, cho phép sâu chui khỏi exuviae.</p>
 </div>
 <!-- Classification: mouth & prolegs -->
 <div class="block reveal">
@@ -723,7 +782,7 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="block reveal">
 <div class="block-title"><span class="no">06</span> Phân loại lông, gai trên cơ thể</div>
 <div class="grid-2 stagger">
-<div class="panel reveal" style="--i:0"><span class="num">TRƠN</span><h4>Không lông</h4><p>Cơ thể nhẵn, không có lông hay gai đáng kể.</p><p class="sp">Spodoptera exigua</p></div>
+<div class="panel reveal" style="--i:0"><span class="num">TRƠN</span><h4>Bề mặt tương đối trơn</h4><p>Bề mặt nhìn tương đối nhẵn, không có lông hoặc gai nổi bật trong ảnh; không nên hiểu là hoàn toàn không có setae ở cấp vi thể.</p><p class="sp">Spodoptera exigua</p></div>
 <div class="panel reveal" style="--i:1"><span class="num">LÔNG / SETAE</span><h4>Mảnh, mềm hoặc cứng</h4><p>Setae là các cấu trúc dạng lông trên biểu bì; mật độ, chiều dài và hình dạng thay đổi theo loài.</p><p class="sp">Saturniidae · Noctuidae</p></div>
 <div class="panel reveal" style="--i:2"><span class="num">LÔNG GÂY KÍCH ỨNG</span><h4>Urticating setae / spines</h4><p>Một số sâu non có lông hoặc gai gây kích ứng khi tiếp xúc; không phải mọi setae đều có độc tố.</p><p class="sp">Dendrolimus punctatus</p></div>
 <div class="panel reveal" style="--i:3"><span class="num">GAI / SỪNG</span><h4>Cấu trúc nhô cứng</h4><p>Gai hoặc sừng là cấu trúc nhô rõ trên cơ thể, có thể có vai trò phòng vệ hoặc nhận diện hình thái.</p><p class="sp">Sâu non Lepidoptera</p></div>
@@ -754,7 +813,7 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="tag"><span class="dot"></span>ĐC.02 — NHỘNG (PUPA)</div>
 <div class="stage-tools" data-tools="pupa"><span class="tool-label">ĐIỀU HƯỚNG PHA</span><button type="button">Đặc điểm hình thái</button><button type="button">Sinh lý &amp; biến đổi</button><button type="button">Hormone &amp; vũ hóa</button></div>
 <h2>Tĩnh lặng bên ngoài, cách mạng bên trong</h2>
-<p>Nhộng không di chuyển và không ăn — nhưng bên trong lớp vỏ bất động ấy là quá trình phá hủy và tái thiết triệt để nhất trong toàn bộ vòng đời côn trùng.</p>
+<p>Nhộng thường ít vận động và không ăn; bên trong là quá trình tái tổ chức mô mạnh để hình thành cơ thể trưởng thành.</p>
 </div>
 <div class="photo-feature reveal-zoom">
 <img alt="Nhộng trong suốt của bướm phượng, lộ rõ màu cánh bên trong ngay trước khi vũ hóa" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Papilio_machaon_chrysalis_01.jpg?width=1600"/>
@@ -786,14 +845,14 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <img alt="Nhộng ong mật Apis mellifera" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/202208_European_honey_bee_pupa.svg?width=1400"/>
 <span class="zoom-badge">＋ Zoom</span>
 </button>
-<figcaption><span class="num">ADECTICOUS · KHÔNG HÀM KHỚP</span><strong>Apis mellifera</strong><em>Apidae · Hymenoptera</em><p>Nhộng không có hàm trên có khớp để sử dụng ở pha nhộng; đây là nhộng exarate, các phần phụ nhìn thấy tương đối tự do.</p></figcaption>
+<figcaption><span class="num">ADECTICOUS · KHÔNG HÀM KHỚP</span><strong>Apis mellifera</strong><em>Apidae · Hymenoptera</em><p>Nhộng adecticous không có hàm trên có khớp/chức năng ở pha nhộng; mẫu này có dạng exarate, với các phần phụ nhìn thấy tương đối tự do.</p></figcaption>
 </figure>
 <figure class="pupa-photo-card reveal-zoom">
 <button aria-label="Phóng to nhộng bọ rùa Coccinella septempunctata" class="pupa-photo-btn" type="button">
 <img alt="Nhộng bọ rùa bảy chấm Coccinella septempunctata" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coccinella_septempunctata_emerging_from_pupa.jpg?width=1400"/>
 <span class="zoom-badge">＋ Zoom</span>
 </button>
-<figcaption><span class="num">ADECTICOUS · OBTECT</span><strong>Coccinella septempunctata</strong><em>Coccinellidae · Coleoptera</em><p>Nhộng không có hàm trên có khớp; phần phụ trưởng thành áp sát cơ thể. Ảnh ghi lại quá trình bọ rùa bảy chấm vũ hóa.</p></figcaption>
+<figcaption><span class="num">ADECTICOUS · OBTECT</span><strong>Coccinella septempunctata</strong><em>Coccinellidae · Coleoptera</em><p>Nhộng adecticous; phần phụ trưởng thành áp sát cơ thể, phù hợp với dạng obtect điển hình của nhiều Coleoptera.</p></figcaption>
 </figure>
 <figure class="pupa-photo-card reveal-zoom">
 <button aria-label="Phóng to puparium Calliphora" class="pupa-photo-btn" type="button">
@@ -813,14 +872,14 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="panel" style="background:rgba(156,74,46,0.12); border-color:rgba(156,74,46,0.35);">
 <span class="num" style="color:var(--rust)">HISTOLYSIS</span>
 <h4 style="font-size:1.3rem;">Tiêu mô</h4>
-<p style="margin:12px 0;">Phân giải hóa học &amp; thực bào tiêu hủy các cơ quan tạm thời không còn phù hợp: hệ cơ sâu non, ống tiêu hóa cũ, thể mỡ, khí quản…</p>
-<p style="font-style:italic; color:var(--parchment-dim); border-top:1px solid var(--line); padding-top:12px; margin-top:12px;">→ Các cơ quan hóa lỏng, tạo chất dịch dinh dưỡng đậm đặc.</p>
+<p style="margin:12px 0;">Phân giải và tái tổ chức một phần mô ấu trùng; mức độ thay đổi của từng mô khác nhau theo loài và cơ quan.</p>
+<p style="font-style:italic; color:var(--parchment-dim); border-top:1px solid var(--line); padding-top:12px; margin-top:12px;">→ Sản phẩm phân giải được tái sử dụng cùng với các mô đang phát triển để xây dựng cơ thể trưởng thành.</p>
 </div>
 <div class="panel" style="background:rgba(184,147,90,0.1); border-color:rgba(184,147,90,0.35);">
 <span class="num">HISTOGENESIS</span>
 <h4 style="font-size:1.3rem;">Sinh mô</h4>
-<p style="margin:12px 0;">Sử dụng chất dịch tiêu mô cùng các đĩa mầm trưởng thành (Imaginal discs) chưa phân hóa để kiến tạo cơ quan chuyên hóa mới.</p>
-<p style="font-style:italic; color:var(--parchment-dim); border-top:1px solid var(--line); padding-top:12px; margin-top:12px;">→ Hình thành cánh, mắt kép, râu đầu, cơ quan sinh dục hoàn chỉnh.</p>
+<p style="margin:12px 0;">Các mô mầm trưởng thành — bao gồm imaginal discs ở nhiều côn trùng biến thái hoàn toàn — phát triển và tái tổ chức thành các cấu trúc trưởng thành.</p>
+<p style="font-style:italic; color:var(--parchment-dim); border-top:1px solid var(--line); padding-top:12px; margin-top:12px;">→ Hình thành và hoàn thiện cánh, mắt, râu, cơ quan sinh dục và các cấu trúc trưởng thành khác.</p>
 </div>
 </div>
 <!-- Respiration / diapause -->
@@ -828,8 +887,8 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="block-title"><span class="no">02</span> Hô hấp, đình dục và lớp vỏ bảo vệ</div>
 <div class="grid-3 stagger">
 <div class="panel reveal" style="--i:0"><h4>Hô hấp trong trạng thái tĩnh</h4><p>Dù bất động, nhộng vẫn hô hấp liên tục qua lỗ thở; cường độ trao đổi khí giảm giữa giai đoạn rồi tăng dần khi gần vũ hóa.</p></div>
-<div class="panel reveal" style="--i:1"><h4>Hiện tượng đình dục</h4><p>Tạm ngừng phát triển để vượt điều kiện bất lợi (đông lạnh, mùa khô) do PTTH giảm tiết; quang chu kỳ &amp; nhiệt độ là yếu tố cảm ứng chính.</p></div>
-<div class="panel reveal" style="--i:2"><h4>Kén tơ và kén giả</h4><p>Kén tơ: do tuyến tơ nhả dệt, bao ngoài nhộng. Kén giả (puparium): chính da sâu non tuổi cuối hóa cứng lại.</p></div>
+<div class="panel reveal" style="--i:1"><h4>Hiện tượng đình dục</h4><p>Trạng thái tạm ngừng hoặc giảm mạnh phát triển, giúp vượt điều kiện bất lợi; cơ chế phụ thuộc loài và có thể được cảm ứng bởi quang chu kỳ, nhiệt độ, dinh dưỡng cùng các tín hiệu nội tiết.</p></div>
+<div class="panel reveal" style="--i:2"><h4>Kén tơ và kén giả</h4><p>Kén tơ: lớp tơ do ấu trùng tiết ra, tạo vỏ bảo vệ quanh nhộng ở một số nhóm. Kén giả (puparium): lớp cuticle của ấu trùng tuổi cuối co lại và hóa cứng, bao quanh nhộng thật.</p></div>
 </div>
 </div>
 <!-- Puparium detail -->
@@ -861,7 +920,7 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="tag"><span class="dot"></span>ĐC.03 — TRƯỞNG THÀNH (ADULT / IMAGO)</div>
 <div class="stage-tools" data-tools="adult"><span class="tool-label">ĐIỀU HƯỚNG PHA</span><button type="button">Hình thái ngoài</button><button type="button">Sinh sản</button><button type="button">Kiểu miệng · cánh · râu</button></div>
 <h2>Đặc điểm hình thái và sinh lý — trưởng thành</h2>
-<p>Cơ thể đã ổn định kích thước, ngừng lột xác — mọi cấu tạo giờ đây tập trung toàn bộ vào việc tìm bạn tình, giao phối và duy trì nòi giống.</p>
+<p>Cơ thể đạt hình thái trưởng thành và nhìn chung ngừng lột xác; nhiều cấu trúc được chuyên hóa cho vận động, cảm nhận, kiếm ăn và sinh sản.</p>
 </div>
 <div class="photo-feature reveal-zoom">
 <img alt="Bướm phượng hổ (Papilio rutulus) trưởng thành với đôi cánh hoàn chỉnh" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Swallowtail_butterfly_2.JPG?width=1600"/>
@@ -909,9 +968,9 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div>
 <div class="block-title"><span class="no">01</span> So với pha sâu non</div>
 <div class="cmp-list">
-<div class="cmp-row"><div class="cmp-k">Bao cơ thể</div><div class="cmp-a">Mềm, đàn hồi</div><div class="cmp-b">Chitin hóa cứng + melanin</div></div>
+<div class="cmp-row"><div class="cmp-k">Bao cơ thể</div><div class="cmp-a">Mềm, đàn hồi</div><div class="cmp-b">Biểu bì chitin hóa và hóa cứng (sclerotization)</div></div>
 <div class="cmp-row"><div class="cmp-k">Mắt</div><div class="cmp-a">Chưa có mắt kép</div><div class="cmp-b">Mắt kép lớn, hoàn chỉnh</div></div>
-<div class="cmp-row"><div class="cmp-k">Cánh</div><div class="cmp-a">Chưa có / mầm cánh</div><div class="cmp-b">2 đôi cánh phát triển</div></div>
+<div class="cmp-row"><div class="cmp-k">Cánh</div><div class="cmp-a">Chưa có / mầm cánh</div><div class="cmp-b">Cánh phát triển ở nhóm có cánh; thường có 2 đôi nhưng có ngoại lệ</div></div>
 <div class="cmp-row"><div class="cmp-k">Lột xác</div><div class="cmp-a">Nhiều lần để lớn lên</div><div class="cmp-b">Ngừng hẳn (trừ vài nhóm)</div></div>
 </div>
 </div>
@@ -920,7 +979,7 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="block reveal">
 <div class="block-title"><span class="no">02</span> Hiện tượng nhiều hình (Polymorphism)</div>
 <div class="grid-3 stagger">
-<div class="panel reveal" style="--i:0"><div class="photo-thumb"><img alt="Bọ sừng hươu đực với hàm to đặc trưng" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Stag_beetle_(Lucanus_servus)_-_geograph.org.uk_-_1340474.jpg?width=700"/><span class="pt-credit">Kevin Hale · Wikimedia Commons</span></div><span class="num">SEXUAL DIMORPHISM</span><h4>Nhị hình giới tính</h4><p>Cái: bụng to chứa trứng. Đực: cơ quan nhận pheromone, gạc/sừng lớn, móc bám giao phối.</p></div>
+<div class="panel reveal" style="--i:0"><div class="photo-thumb"><img alt="Bọ sừng hươu đực với hàm to đặc trưng" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Stag_beetle_(Lucanus_servus)_-_geograph.org.uk_-_1340474.jpg?width=700"/><span class="pt-credit">Kevin Hale · Wikimedia Commons</span></div><span class="num">SEXUAL DIMORPHISM</span><h4>Nhị hình giới tính</h4><p>Đực và cái có thể khác nhau về kích thước, màu sắc, hình dạng phần phụ hoặc cấu tạo cơ quan sinh sản; ở một số loài đực có râu chuyên hóa, sừng/gạc hoặc cấu trúc hỗ trợ giao phối.</p></div>
 <div class="panel reveal" style="--i:1"><span class="num">SEASONAL DIMORPHISM</span><h4>Nhị hình theo mùa</h4><p>Cùng loài, thế hệ sinh vào mùa khác nhau có màu sắc/kích thước khác do nhiệt độ &amp; quang chu kỳ.</p></div>
 <div class="panel reveal" style="--i:2"><div class="photo-thumb"><img alt="Kiến thợ tha lá về tổ" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/LeafAnt.jpg?width=700"/><span class="pt-credit">Adrian Pingstone · Public Domain</span></div><span class="num">SOCIAL POLYMORPHISM</span><h4>Nhiều hình xã hội</h4><p>Côn trùng tập đoàn (ong, kiến, mối) phân hóa đẳng cấp: chúa, đực, thợ, lính.</p></div>
 </div>
@@ -929,9 +988,9 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="block reveal">
 <div class="block-title"><span class="no">03</span> Vũ hóa, sinh sản và ăn bổ sung</div>
 <div class="grid-2 stagger">
-<div class="panel reveal" style="--i:0"><h4>Vũ hóa (Emergence)</h4><p>Lột bỏ vỏ nhộng cuối cùng. Bơm khí quản &amp; máu vào cánh để giang cánh, tăng hô hấp làm cứng biểu bì.</p></div>
+<div class="panel reveal" style="--i:0"><h4>Vũ hóa (Emergence)</h4><p>Thoát khỏi vỏ nhộng/puparium. Hemolymph được đưa vào cánh để tạo áp lực thủy lực giúp cánh mở rộng; sau đó cánh và cuticle tiếp tục ổn định, hóa cứng.</p></div>
 <div class="panel reveal" style="--i:1"><h4>Sinh sản &amp; bảo tồn nòi giống</h4><p>Chức năng quan trọng nhất: tìm bạn tình qua âm thanh, ánh sáng, pheromone; giao phối, đẻ trứng.</p></div>
-<div class="panel reveal" style="--i:2"><h4>Ăn bổ sung (ăn thêm)</h4><p>Đa số cần ăn thêm (mật hoa, dịch quả…) để tuyến sinh dục chín muồi. Một số (ruồi) không cần ăn.</p></div>
+<div class="panel reveal" style="--i:2"><h4>Ăn bổ sung (ăn thêm)</h4><p>Nhu cầu dinh dưỡng thay đổi mạnh theo loài và giới tính: nhiều loài ăn thêm để duy trì hoạt động hoặc hỗ trợ sinh sản, trong khi một số trưởng thành ăn rất ít hoặc không ăn.</p></div>
 <div class="panel reveal" style="--i:3"><h4>Chăm sóc thế hệ sau</h4><p>Tìm nơi đẻ trứng an toàn, làm kén bảo vệ, tích trữ thức ăn nuôi ấu trùng non.</p></div>
 </div>
 </div>
@@ -939,7 +998,7 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="block reveal">
 <p class="note class-visual-note">Hình ảnh bên trái là mẫu đại diện cho từng kiểu; dùng để nhận diện nhanh hình thái, không thay thế hình vẽ cấu tạo chi tiết.</p><div class="block-title"><span class="no">04</span> Phân loại kiểu miệng</div>
 <div class="type-list c-rust">
-<div class="type-row"><img alt="Minh họa Scarabaeidae" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dung_Beetle_(Scarabaeidae)_(12882848315).jpg?width=700" title="Bấm để phóng to — Scarabaeidae"/><div class="tname">Gặm nhai <span style="opacity:.55;font-weight:400;">(Mandibulate)</span></div><div class="tdesc">Hàm trên phát triển, dùng để cắn và nghiền thức ăn rắn; điển hình ở nhiều loài ăn thực vật hoặc động vật.</div><div class="tspecies">Oxya chinensis</div></div>
+<div class="type-row"><img alt="Minh họa Oxya chinensis" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Chinese_rice_grasshopper_(Oxya_chinensis).jpg?width=500" title="Bấm để phóng to — Oxya chinensis"/><div class="tname">Gặm nhai <span style="opacity:.55;font-weight:400;">(Mandibulate)</span></div><div class="tdesc">Hàm trên phát triển, dùng để cắn và nghiền thức ăn rắn; điển hình ở nhiều loài ăn thực vật hoặc động vật.</div><div class="tspecies">Oxya chinensis · Orthoptera</div></div>
 <div class="type-row"><img alt="Minh họa Aedes aegypti" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Aedes_aegypti.jpg?width=500" title="Bấm để phóng to — Aedes aegypti"/><div class="tname">Chích hút <span style="opacity:.55;font-weight:400;">(Piercing–sucking)</span></div><div class="tdesc">Vòi cứng nhọn đâm xuyên mô để hút dịch cây/máu.</div><div class="tspecies">Aedes aegypti</div></div>
 <div class="type-row"><img alt="Minh họa Nezara viridula" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Nezara_viridula_(Southern_green_stink_bug).jpg?width=500" title="Bấm để phóng to — Nezara viridula"/><div class="tname">Chích hút</div><div class="tdesc">Cùng nhóm chích hút, gây hại trực tiếp trên cây trồng.</div><div class="tspecies">Nezara viridula</div></div>
 <div class="type-row"><img alt="Minh họa Papilio polytes" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Papilio_polytes_(flying)_(6036517495).jpg?width=500" title="Bấm để phóng to — Papilio polytes"/><div class="tname">Hút vòi cuộn <span style="opacity:.55;font-weight:400;">(Siphoning)</span></div><div class="tdesc">Vòi dài cuộn tròn khi nghỉ, duỗi ra hút mật hoa.</div><div class="tspecies">Papilio polytes</div></div>
@@ -948,7 +1007,26 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 </div>
 </div>
 <!-- Leg types -->
-<div class="science-image-row mouth-visuals"><figure class="science-image-card reveal"><img alt="So sánh các kiểu miệng côn trùng" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Evolution_insect_mouthparts_coloured_derivate.png?width=1400"/><figcaption class="science-image-caption"><strong>So sánh các kiểu miệng chuyên hóa</strong><span class="science-species"><em>Grasshopper · honey bee · butterfly · mosquito</em></span><p>Sơ đồ tổng hợp cho thấy sự biến đổi của các phần phụ miệng từ gặm nhai đến liếm–hút, hút vòi và chích hút.</p><small>Wikimedia Commons</small></figcaption></figure><figure class="science-image-card reveal"><img alt="Bộ phận miệng của ruồi nhà" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Housefly_mouth_parts.jpg?width=1000"/><figcaption class="science-image-caption"><strong>Bộ phận miệng liếm – hút của ruồi</strong><span class="science-species"><em>Musca domestica · Diptera</em></span><p>Đầu vòi dạng đệm xốp (labella) giúp thấm và hút thức ăn lỏng; đây là ví dụ thực tế để phân biệt với vòi hút cuộn của bướm.</p><small>Wikimedia Commons · Housefly mouth parts</small></figcaption></figure></div><div class="block reveal">
+<div class="science-image-row mouth-visuals"><figure class="science-image-card reveal"><img alt="So sánh các kiểu miệng côn trùng" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Evolution_insect_mouthparts_coloured_derivate.png?width=1400"/><figcaption class="science-image-caption"><strong>So sánh các kiểu miệng chuyên hóa</strong><span class="science-species"><em>Grasshopper · honey bee · butterfly · mosquito</em></span><p>Sơ đồ tổng hợp cho thấy sự biến đổi của các phần phụ miệng từ gặm nhai đến liếm–hút, hút vòi và chích hút.</p><small>Wikimedia Commons</small></figcaption></figure><figure class="science-image-card reveal"><img alt="Bộ phận miệng của ruồi nhà" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Housefly_mouth_parts.jpg?width=1000"/><figcaption class="science-image-caption"><strong>Bộ phận miệng liếm – hút của ruồi</strong><span class="science-species"><em>Musca domestica · Diptera</em></span><p>Đầu vòi dạng đệm xốp (labella) giúp thấm và hút thức ăn lỏng; đây là ví dụ thực tế để phân biệt với vòi hút cuộn của bướm.</p><small>Wikimedia Commons · Housefly mouth parts</small></figcaption></figure></div><div class="anatomy-label-grid mouth-label-grid">
+  <div class="anatomy-label-card">
+    <h4>Chú thích bộ phận miệng — đọc theo tên, không theo số</h4>
+    <div class="anatomy-legend">
+      <span>Labrum — môi trên</span><span>Mandible — hàm trên</span><span>Maxilla — hàm dưới</span>
+      <span>Maxillary palp — xúc biện hàm</span><span>Labium — môi dưới</span><span>Labial palp — xúc biện môi</span>
+      <span>Hypopharynx — hạ hầu</span><span>Proboscis / vòi — ở nhóm chích hút hoặc hút dịch</span>
+    </div>
+  </div>
+  <div class="anatomy-label-card">
+    <h4>Kiểu miệng cần nhận diện</h4>
+    <div class="anatomy-legend">
+      <span><b>Gặm nhai</b> — châu chấu, bọ cánh cứng</span>
+      <span><b>Chích hút</b> — rệp, muỗi</span>
+      <span><b>Hút bằng vòi</b> — bướm</span>
+      <span><b>Liếm / hút</b> — ong</span>
+      <span><b>Thấm hút</b> — ruồi nhà</span>
+    </div>
+  </div>
+</div><div class="block reveal">
 <div class="block-title"><span class="no">05</span> Phân loại kiểu chân</div>
 <div class="type-list c-lichen">
 <div class="type-row"><img alt="Minh họa Coccinella transversalis" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coccinella_transversalis.jpg?width=500" title="Bấm để phóng to — Coccinella transversalis"/><div class="tname">Chân bò <span style="opacity:.55;font-weight:400;">(Walking)</span></div><div class="tdesc">Cấu tạo đơn giản, cân đối — kiểu chân phổ biến nhất.</div><div class="tspecies">Coccinella transversalis</div></div>
@@ -966,7 +1044,7 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="type-row"><img alt="Minh họa Apis mellifera" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bee_wing,_apis_mellifera.jpg?width=700" title="Bấm để phóng to — Apis mellifera · cánh"/><div class="tname">Cánh màng <span style="opacity:.55;font-weight:400;">(Membranous)</span></div><div class="tdesc">Mỏng, có gân; ở ong, hai đôi cánh phối hợp khi bay.</div><div class="tspecies">Apis mellifera</div></div>
 <div class="type-row"><img alt="Minh họa Orthetrum sabina" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Orthetrum_Sabina.jpg?width=500" title="Bấm để phóng to — Orthetrum sabina"/><div class="tname">Cánh màng</div><div class="tdesc">Hai đôi cánh đều phát triển, có hệ gân rõ và thường gần tương đương về hình dạng.</div><div class="tspecies">Orthetrum sabina</div></div>
 <div class="type-row"><img alt="Minh họa Scarabaeidae" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dung_Beetle_(Scarabaeidae)_(12882848315).jpg?width=500" title="Bấm để phóng to — Scarabaeidae"/><div class="tname">Cánh cứng <span style="opacity:.55;font-weight:400;">(Elytra)</span></div><div class="tdesc">Đôi cánh trước hóa cứng, bảo vệ cánh màng bên dưới.</div><div class="tspecies">Scarabaeidae</div></div>
-<div class="type-row"><img alt="Minh họa Papilio polytes" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Papilio_demoleus_wing.jpg?width=700" title="Bấm để phóng to — Papilio demoleus · cánh vảy"/><div class="tname">Cánh vẩy <span style="opacity:.55;font-weight:400;">(Scaled)</span></div><div class="tdesc">Phủ đầy vảy nhỏ li ti tạo màu sắc, hoa văn đặc trưng.</div><div class="tspecies">Papilio polytes</div></div>
+<div class="type-row"><img alt="Minh họa Papilio demoleus" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Papilio_demoleus_wing.jpg?width=700" title="Bấm để phóng to — Papilio demoleus · cánh vảy"/><div class="tname">Cánh vẩy <span style="opacity:.55;font-weight:400;">(Scaled)</span></div><div class="tdesc">Phủ đầy vảy nhỏ li ti tạo màu sắc, hoa văn đặc trưng.</div><div class="tspecies">Papilio demoleus</div></div>
 <div class="type-row"><img alt="Minh họa Alydidae, cánh nửa" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Alydidae_at_Mechode_Padur.jpg?width=700" title="Bấm để phóng to — Alydidae · hemelytra"/><div class="tname">Cánh nửa <span style="opacity:.55;font-weight:400;">(Hemelytra)</span></div><div class="tdesc">Cánh trước dạng hemelytra: phần gốc dày/cứng hơn, phần ngọn dạng màng; điển hình ở nhiều Hemiptera.</div><div class="tspecies">Alydidae</div></div>
 <div class="type-row"><img alt="Tegmina của châu chấu cỏ" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/ITWAMOL_-_Fig_18.png?width=700" title="Bấm để phóng to — Orchelimum laticauda · tegmina"/><div class="tname">Cánh da <span style="opacity:.55;font-weight:400;">(Tegmina)</span></div><div class="tdesc">Đôi cánh trước dày hơn (tegmina), bảo vệ cánh sau; ở katydid còn liên quan đến cơ quan phát âm.</div><div class="tspecies">Orchelimum laticauda</div></div>
 </div>
@@ -981,15 +1059,83 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="type-row"><img alt="Minh họa Formicidae" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ant_Formica_sp.jpg?width=500" title="Bấm để phóng to — Formicidae"/><div class="tname">Hình đầu gối <span style="opacity:.55;font-weight:400;">(Geniculate)</span></div><div class="tdesc">Gấp khúc rõ rệt tại một khớp giữa.</div><div class="tspecies">Formicidae</div></div>
 <div class="type-row"><img alt="Minh họa Oryctes rhinoceros" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Oryctes_rhinoceros_(13476409405).jpg?width=500" title="Bấm để phóng to — Oryctes rhinoceros"/><div class="tname">Hình lá lợp <span style="opacity:.55;font-weight:400;">(Lamellate)</span></div><div class="tdesc">Các đốt cuối xòe rộng, xếp chồng như lá.</div><div class="tspecies">Oryctes rhinoceros</div></div>
 </div>
-<p class="note">Kiểu râu là một trong những chỉ tiêu hình thái quan trọng nhất để phân loại bộ, họ côn trùng.</p>
+<p class="note">Kiểu râu là một đặc điểm hình thái quan trọng trong nhận diện và phân loại nhiều nhóm côn trùng; cần kết hợp với các đặc điểm khác.</p>
 </div>
 <!-- Lifespan -->
-<div class="science-image-row"><figure class="science-image-card reveal"><img alt="Sơ đồ giải phẫu tổng quát của côn trùng trưởng thành" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Insect_Anatomy_(PSF).png?width=1400"/><figcaption class="science-image-caption"><strong>Cấu tạo ngoài của côn trùng trưởng thành</strong><span class="science-species"><em>Insecta · external body plan</em></span><p>Các bộ phận chính được ghi bằng chữ ngay trên hình, phù hợp để chỉ trực tiếp khi thuyết trình: đầu, ngực, bụng, râu, mắt, miệng, chân và cánh.</p><small>Wikimedia Commons · Insect Anatomy (PSF) · Public domain</small></figcaption></figure><figure class="science-image-card reveal"><img alt="Cấu trúc gân cánh" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dragonfly_wing_structure_edited.png?width=1200"/><figcaption class="science-image-caption"><strong>Cấu trúc gân cánh</strong><span class="science-species"><em>Odonata · Gomphidae</em></span><p>Mạng gân tạo các ô cánh và là đặc điểm hình thái quan trọng; đồng thời liên quan đến cơ học bay.</p><small>Wikimedia Commons · Dragonfly wing structure</small></figcaption></figure><figure class="science-image-card reveal"><img alt="Vòi hút của bướm" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Proboscis_of_butterfly_(9610068050).jpg?width=1000"/><figcaption class="science-image-caption"><strong>Vòi hút của bướm</strong><span class="science-species"><em>Lepidoptera · proboscis</em></span><p>Các galea của hàm dưới ghép lại thành vòi hút, thích nghi với thức ăn dạng lỏng.</p><small>Wikimedia Commons · Proboscis of butterfly</small></figcaption></figure></div><div class="block reveal">
-<div class="block-title"><span class="no">08</span> Tuổi thọ và số thế hệ trong năm</div>
+<div class="science-image-row"><figure class="science-image-card reveal"><img alt="Sơ đồ giải phẫu tổng quát của côn trùng trưởng thành" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Insect_Anatomy_(PSF).png?width=1400"/><figcaption class="science-image-caption"><strong>Cấu tạo ngoài của côn trùng trưởng thành</strong><span class="science-species"><em>Insecta · external body plan</em></span><p>Các bộ phận chính được ghi bằng chữ ngay trên hình, phù hợp để chỉ trực tiếp khi thuyết trình: đầu, ngực, bụng, râu, mắt, miệng, chân và cánh.</p><small>Wikimedia Commons · Insect Anatomy (PSF) · Public domain</small></figcaption></figure><figure class="science-image-card reveal"><img alt="Cấu trúc gân cánh" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dragonfly_wing_structure_edited.png?width=1200"/><figcaption class="science-image-caption"><strong>Cấu trúc gân cánh</strong><span class="science-species"><em>Odonata · Gomphidae</em></span><p>Mạng gân tạo các ô cánh và là đặc điểm hình thái quan trọng; đồng thời liên quan đến cơ học bay.</p><small>Wikimedia Commons · Dragonfly wing structure</small></figcaption></figure><figure class="science-image-card reveal"><img alt="Vòi hút của bướm" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Proboscis_of_butterfly_(9610068050).jpg?width=1000"/><figcaption class="science-image-caption"><strong>Vòi hút của bướm</strong><span class="science-species"><em>Lepidoptera · proboscis</em></span><p>Các galea của hàm dưới ghép lại thành vòi hút, thích nghi với thức ăn dạng lỏng.</p><small>Wikimedia Commons · Proboscis of butterfly</small></figcaption></figure></div><div class="anatomy-label-grid">
+  <div class="anatomy-label-card">
+    <h4>Chú thích giải phẫu ngoài — 3 vùng cơ thể</h4>
+    <div class="anatomy-legend">
+      <span><b>Đầu (head)</b> — râu, mắt kép, mắt đơn, bộ phận miệng</span>
+      <span><b>Ngực (thorax)</b> — prothorax, mesothorax, metathorax; mang 3 đôi chân và thường mang cánh</span>
+      <span><b>Bụng (abdomen)</b> — phần lớn cơ quan tiêu hóa, bài tiết, sinh sản và các lỗ thở</span>
+      <span><b>Mắt kép</b> — cơ quan thị giác chính ở nhiều côn trùng trưởng thành</span>
+      <span><b>Râu</b> — cảm nhận hóa học, cơ học và môi trường</span>
+      <span><b>Bộ phận miệng</b> — biến đổi theo nguồn thức ăn và phương thức lấy thức ăn</span>
+    </div>
+  </div>
+  <div class="anatomy-label-card">
+    <h4>Chú thích giải phẫu trong</h4>
+    <div class="anatomy-legend">
+      <span>Ống tiêu hóa: ruột trước → ruột giữa → ruột sau</span>
+      <span>Mạch lưng / tim: vận chuyển hemolymph</span>
+      <span>Ống Malpighi: bài tiết và điều hòa ion/nước</span>
+      <span>Chuỗi thần kinh bụng: các hạch và dây thần kinh dọc cơ thể</span>
+      <span>Khí quản: mạng ống dẫn O₂ trực tiếp tới mô</span>
+    </div>
+  </div>
+</div>
+<div class="block reveal">
+<div class="block-title"><span class="no">08</span> Cấu tạo chân và các dạng chân chuyên hóa</div>
+<div class="science-image-row anatomy-two">
+  <figure class="science-image-card reveal">
+    <img alt="Sơ đồ các đốt của chân côn trùng" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/ITWAMOL_-_Fig_64.png?width=1100"/>
+    <figcaption class="science-image-caption">
+      <strong>Chân côn trùng: các đốt từ gốc đến ngọn</strong>
+      <span class="science-species"><em>Coxa → trochanter → femur → tibia → tarsus → claws</em></span>
+      <p>Hình minh họa cho thấy các đốt chính của chân; tên đầy đủ được đặt ngay dưới hình để người xem có thể nhận diện theo cấu trúc, không cần tra cứu ký hiệu.</p>
+      <div class="anatomy-legend">
+        <span><b>Coxa</b> — đốt háng</span><span><b>Trochanter</b> — đốt chuyển</span><span><b>Femur</b> — đùi</span>
+        <span><b>Tibia</b> — ống chân</span><span><b>Tarsus</b> — bàn chân, gồm các tarsomere</span><span><b>Pretarsus</b> — vùng tận cùng, gồm móng và cấu trúc bám</span>
+      </div>
+      <small>Wikimedia Commons · ITWAMOL Fig. 64</small>
+    </figcaption>
+  </figure>
+  <figure class="science-image-card reveal">
+    <img alt="Chân sau kiểu nhảy" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/PSM_V39_D697_Grasshopper_leg.jpg?width=1000"/>
+    <figcaption class="science-image-caption">
+      <strong>Chân sau kiểu nhảy</strong>
+      <span class="science-species"><em>Orthoptera · saltatorial leg</em></span>
+      <p>Đùi và ống chân sau phát triển mạnh, là ví dụ điển hình cho sự chuyên hóa hình thái phục vụ bật nhảy.</p>
+      <small>Wikimedia Commons · Grasshopper leg</small>
+    </figcaption>
+  </figure>
+</div>
+<div class="leg-type-strip">
+  <div><b>Đi</b><span>Ambulatorial / gressorial</span></div>
+  <div><b>Chạy</b><span>Cursorial</span></div>
+  <div><b>Nhảy</b><span>Saltatorial</span></div>
+  <div><b>Bắt mồi</b><span>Raptorial</span></div>
+  <div><b>Đào</b><span>Fossorial</span></div>
+  <div><b>Bơi</b><span>Natatorial</span></div>
+  <div><b>Thu phấn</b><span>Foragial</span></div>
+</div>
+<p class="note">Côn trùng trưởng thành có 3 đôi chân, mỗi đôi gắn với một đốt ngực. Năm đốt chính của chân là coxa, trochanter, femur, tibia và tarsus; các cấu trúc tận cùng thuộc vùng pretarsus có thể gồm móng và đệm bám.</p>
+</div>
+<div class="block reveal">
+<div class="block-title"><span class="no">09</span> Tuổi thọ trưởng thành</div>
 <div class="grid-3 stagger">
-<div class="panel reveal" style="--i:0"><h4>Vài giờ – vài ngày</h4><p>Phù du (Ephemeroptera), một số muỗi — chỉ sống để giao phối và đẻ trứng.</p></div>
-<div class="panel reveal" style="--i:1"><h4>Vài tuần – vài tháng</h4><p>Đa số bướm ngày, ruồi, bọ cánh cứng nhỏ — đủ thời gian sinh sản nhiều lứa.</p></div>
-<div class="panel reveal" style="--i:2"><h4>Qua đông / nhiều tháng</h4><p>Một số bọ cánh cứng, bướm đêm đình dục qua mùa lạnh rồi sinh sản vào xuân.</p></div>
+<div class="panel reveal" style="--i:0"><h4>Vài giờ – vài ngày</h4><p>Một số côn trùng trưởng thành có tuổi thọ rất ngắn; ví dụ một số Ephemeroptera trưởng thành chủ yếu dành thời gian cho giao phối và sinh sản.</p></div>
+<div class="panel reveal" style="--i:1"><h4>Vài tuần – vài tháng</h4><p>Tuổi thọ thay đổi lớn giữa các loài; không nên suy rộng một khoảng thời gian cố định cho cả bướm, ruồi hay bọ cánh cứng.</p></div>
+<div class="panel reveal" style="--i:2"><h4>Qua đông / nhiều tháng</h4><p>Một số loài trưởng thành có thể sống qua mùa bất lợi hoặc bước vào trạng thái sinh lý đặc biệt; thời gian sống phụ thuộc loài và điều kiện môi trường.</p></div>
+</div>
+</div>
+<div class="block reveal academic-sources">
+<div class="block-title"><span class="no">10</span> Tài liệu nền tảng</div>
+<div class="grid-3">
+<div class="panel"><h4>Hình thái ngoài</h4><p>NC State University · ENT 425: head, thorax, abdomen; legs, wings, antennae và mouthparts.</p><small>genent.cals.ncsu.edu</small></div>
+<div class="panel"><h4>Biến thái &amp; hormone</h4><p>NCBI Bookshelf: PTTH kích thích tuyến ngực trước; ecdysteroids phối hợp với juvenile hormone trong lột xác và biến thái.</p><small>ncbi.nlm.nih.gov/books/NBK9986/</small></div>
+<div class="panel"><h4>Hình ảnh</h4><p>Wikimedia Commons: sơ đồ và ảnh mẫu vật được ghi nguồn/giấy phép ngay dưới từng hình.</p><small>commons.wikimedia.org</small></div>
 </div>
 </div>
 </div>
@@ -1000,13 +1146,13 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="tag"><span class="dot"></span>ĐC.04 — TỔNG HỢP</div>
 <h2>Ba pha, nhìn cạnh nhau</h2>
 </div>
-<figure class="science-image-card reveal"><img alt="Chân sau kiểu nhảy" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/PSM_V39_D697_Grasshopper_leg.jpg?width=1000"/><figcaption class="science-image-caption"><strong>Chân sau kiểu nhảy</strong><span class="science-species"><em>Châu chấu · Orthoptera</em></span><p>Đùi chân sau phát triển mạnh, cho thấy sự chuyên hóa của chân theo chức năng vận động.</p><small>Wikimedia Commons · Grasshopper leg</small></figcaption></figure><div class="ctable reveal">
+<div class="ctable reveal">
 <div class="ctable-row ctable-head">
 <div>Tiêu chí</div><div>Sâu non</div><div>Nhộng</div><div>Trưởng thành</div>
 </div>
 <div class="ctable-row"><div>Chức năng cốt lõi</div><div>Ăn, tích lũy dinh dưỡng, sinh trưởng khối lượng</div><div>Biến đổi tổ chức mô (tiêu mô &amp; sinh mô)</div><div>Sinh sản, duy trì &amp; phát tán nòi giống</div></div>
 <div class="ctable-row"><div>Bao cơ thể</div><div>Mềm, mỏng; lột xác nhiều lần</div><div>Vỏ nhộng bảo vệ cơ thể; mức độ bất động tùy kiểu nhộng</div><div>Hóa cứng hoàn chỉnh, ngừng lột xác</div></div>
-<div class="ctable-row"><div>Cơ quan vận động</div><div>Chân ngực đơn giản, chưa có cánh</div><div>Các phần phụ trưởng thành có thể tự do (exarate) hoặc áp sát (obtect), tùy nhóm</div><div>3 đôi chân, Cánh phát triển ở nhóm có cánh (một số bộ chỉ còn 1 đôi hoặc không có cánh)</div></div>
+<div class="ctable-row"><div>Cơ quan vận động</div><div>Chân ngực đơn giản, chưa có cánh</div><div>Các phần phụ trưởng thành có thể tự do (exarate) hoặc áp sát (obtect), tùy nhóm</div><div>3 đôi chân; cánh phát triển ở nhóm có cánh, thường 2 đôi nhưng có thể tiêu giảm, biến đổi hoặc chỉ còn 1 đôi chức năng ở một số nhóm</div></div>
 <div class="ctable-row"><div>Chức năng sinh sản</div><div>Chưa có khả năng</div><div>Cơ quan sinh dục tiếp tục biệt hóa; chưa thực hiện chức năng sinh sản</div><div>Hoàn chỉnh: giao phối, đẻ trứng</div></div>
 <div class="ctable-row"><div>Mức độ gây hại</div><div>Mức độ gây hại phụ thuộc loài và kiểu dinh dưỡng</div><div>Thường không ăn; tác động trực tiếp thường thấp, nhưng không phải tuyệt đối</div><div>Có thể ăn, hút hoặc không ăn tùy loài; chức năng chính là sinh sản và phát tán</div></div>
 </div>
