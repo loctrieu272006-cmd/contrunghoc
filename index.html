@@ -482,7 +482,22 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 .presentation-bar{background:rgba(255,255,255,.95);border-color:rgba(23,50,77,.1);box-shadow:0 12px 36px rgba(23,50,77,.14)}.presentation-bar button{background:#F4F8FA;color:var(--ink);border-color:rgba(23,50,77,.1)}.presentation-bar button:hover{background:#E7F4F1;border-color:rgba(42,157,143,.35)}.presentation-bar .progress{background:rgba(23,50,77,.1)}.presentation-bar .progress i{background:var(--lichen)}.to-top{background:rgba(255,255,255,.94);color:var(--ink);border-color:rgba(42,157,143,.35);box-shadow:0 8px 22px rgba(23,50,77,.12)}.to-top:hover{background:var(--lichen);color:#fff}.lightbox{background:rgba(14,31,45,.94)}.illus-frame{background:rgba(255,255,255,.55);border:1px solid rgba(23,50,77,.08);border-radius:14px}.note{border-left-color:var(--lichen);color:#356477}
 .science-image-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:30px 0}.science-image-card{margin:30px 0;background:#fff;border:1px solid rgba(23,50,77,.1);border-radius:14px;overflow:hidden;box-shadow:0 10px 28px rgba(23,50,77,.07);cursor:zoom-in}.science-image-row .science-image-card{margin:0}.science-image-card img{display:block;width:100%;height:240px;object-fit:contain;background:#F0F5F7;padding:14px}.science-image-caption{padding:15px 18px 17px}.science-image-caption strong{display:block;font-family:var(--serif);font-size:1.08rem;color:var(--ink)}.science-species{display:block;margin-top:4px;font-family:var(--mono);font-size:10px;color:var(--lichen)}.science-image-caption p{margin-top:8px;font-size:.9rem;line-height:1.5;color:var(--parchment-dim)}.science-image-caption small{display:block;margin-top:8px;font-family:var(--mono);font-size:8.5px;color:#7A8D9C}.stage{scroll-margin-top:78px}.block{scroll-margin-top:90px}.ctable{background:#fff;border:1px solid rgba(23,50,77,.1);border-radius:14px;padding:4px 18px;box-shadow:0 10px 28px rgba(23,50,77,.06)}.ctable-row{border-bottom-color:rgba(23,50,77,.09)}.ctable-row:last-child{border-bottom:0}
 @media(max-width:760px){.science-image-row{grid-template-columns:1fr}.science-image-card img{height:210px}}
-</style><style>.hero-subnote{margin-top:14px!important;font-family:var(--mono)!important;font-size:10px!important;letter-spacing:.04em;color:#6B8091!important}</style></head>
+</style><style>.hero-subnote{margin-top:14px!important;font-family:var(--mono)!important;font-size:10px!important;letter-spacing:.04em;color:#6B8091!important}</style>
+<style>
+/* ===== Điều chỉnh mục lục: sáng, rõ, nổi bật ===== */
+.topnav{background:rgba(255,255,255,.98)!important;backdrop-filter:blur(12px);}
+.main-menu{gap:6px!important}
+.main-menu a{color:#24445B!important;font-weight:650!important;border:1px solid transparent;padding:9px 10px!important;border-radius:8px;transition:.2s ease;}
+.main-menu a:hover{color:#087F73!important;background:#E5F5F1!important;border-color:#8DD2C7!important;}
+.main-menu a.active{color:#fff!important;background:#168F82!important;border-color:#168F82!important;box-shadow:0 4px 12px rgba(22,143,130,.22);}
+.brand{font-weight:700!important;}
+#rail .pt{border-color:#3B657C!important;background:#fff!important;box-shadow:0 0 0 3px rgba(59,101,124,.08);}
+#rail .pt.active{background:#168F82!important;border-color:#168F82!important;box-shadow:0 0 0 4px rgba(22,143,130,.14);}
+#rail .pt .lbl{color:#24445B!important;background:#fff;border:1px solid rgba(36,68,91,.12);padding:5px 8px;border-radius:6px;box-shadow:0 5px 16px rgba(23,50,77,.10);}
+.menu-toggle{color:#24445B!important;background:#EAF6F2!important;border-color:#8DD2C7!important;}
+@media(max-width:760px){.main-menu a{font-weight:650!important;}}
+</style>
+</head>
 <body>
 <!-- Thanh điều hướng chính -->
 <nav aria-label="Điều hướng bài trình bày" class="topnav" id="topnav">
