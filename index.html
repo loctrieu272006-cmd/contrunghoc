@@ -541,7 +541,13 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 @media(max-width:900px){.leg-type-strip{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:760px){.anatomy-label-grid{grid-template-columns:1fr}.leg-type-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.anatomy-two .science-image-card img{height:220px}}
 </style>
-</head>
+<style>
+/* Vietnamese species captions */
+.vn-species{display:block;margin-top:3px;font-size:.84em;font-family:var(--serif);font-weight:700;color:#176A62;line-height:1.35;}
+.tspecies .vn-species{font-size:.82em;font-family:var(--serif);font-weight:700;color:#176A62;margin-top:3px;}
+.gc-species .vn-species,.science-species .vn-species{font-family:var(--serif);font-size:11px;}
+.pf-tag .vn-species{color:#DDF7F2;font-family:var(--serif);font-size:11px;}
+</style></head>
 <body>
 <!-- Thanh điều hướng chính -->
 <nav aria-label="Điều hướng bài trình bày" class="topnav" id="topnav">
@@ -595,13 +601,13 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="lc-row"><button class="lc-node" data-jump="#overview" style="--c:#718096" type="button"><span class="lc-num">01</span><span class="lc-dot"></span><span class="lc-label">Trứng</span><span class="lc-sub">Khởi đầu</span></button><div class="lc-link"><span>→</span></div><button class="lc-node" data-jump="#larva" style="--c:#E65F3F" type="button"><span class="lc-num">02</span><span class="lc-dot"></span><span class="lc-label">Sâu non</span><span class="lc-sub">Ăn · tích lũy · lớn</span></button><div class="lc-link"><span>→</span></div><button class="lc-node" data-jump="#pupa" style="--c:#E39A22" type="button"><span class="lc-num">03</span><span class="lc-dot"></span><span class="lc-label">Nhộng</span><span class="lc-sub">Tái tổ chức cơ thể</span></button><div class="lc-link"><span>→</span></div><button class="lc-node" data-jump="#adult" style="--c:#169C8D" type="button"><span class="lc-num">04</span><span class="lc-dot"></span><span class="lc-label">Trưởng thành</span><span class="lc-sub">Sinh sản · phát tán</span></button></div>
 <div class="lc-hint">Bấm vào từng pha để đi thẳng đến phần phân tích chi tiết</div></div><figure class="science-image-card reveal"><img alt="Sơ đồ cấu tạo chung của côn trùng" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Insect_Anatomy_(PSF).png?width=1400"/><figcaption class="science-image-caption"><strong>Sơ đồ cấu tạo ngoài — chú thích trực tiếp trên hình</strong><span class="science-species"><em>Insecta · external anatomy</em></span><p>Hình sơ đồ dùng chữ để chỉ trực tiếp các phần chính như đầu, ngực, bụng, mắt, râu, miệng, chân và cánh; không cần đối chiếu bảng số 1, 2, 3…</p><small>Wikimedia Commons · Insect Anatomy (PSF) · Public domain</small></figcaption></figure>
 <div class="anatomy-legend reveal">
-  <div class="anatomy-legend-head"><span class="no">CHÚ THÍCH</span><strong>Các bộ phận cần nhận diện khi thuyết trình</strong></div>
-  <div class="anatomy-legend-grid">
-    <div><b>Đầu (Head)</b><span>râu · mắt kép · mắt đơn (ocelli) · bộ phận miệng · não</span></div>
-    <div><b>Ngực (Thorax)</b><span>ngực trước · ngực giữa · ngực sau · 3 đôi chân · cánh (nếu có)</span></div>
-    <div><b>Bụng (Abdomen)</b><span>các đốt bụng · lỗ thở · cơ quan tiêu hóa · cơ quan sinh sản</span></div>
-    <div><b>Cơ quan bên trong</b><span>ống tiêu hóa · tim/mạch lưng · hệ khí quản · ống Malpighi · chuỗi thần kinh bụng</span></div>
-  </div>
+<div class="anatomy-legend-head"><span class="no">CHÚ THÍCH</span><strong>Các bộ phận cần nhận diện khi thuyết trình</strong></div>
+<div class="anatomy-legend-grid">
+<div><b>Đầu (Head)</b><span>râu · mắt kép · mắt đơn (ocelli) · bộ phận miệng · não</span></div>
+<div><b>Ngực (Thorax)</b><span>ngực trước · ngực giữa · ngực sau · 3 đôi chân · cánh (nếu có)</span></div>
+<div><b>Bụng (Abdomen)</b><span>các đốt bụng · lỗ thở · cơ quan tiêu hóa · cơ quan sinh sản</span></div>
+<div><b>Cơ quan bên trong</b><span>ống tiêu hóa · tim/mạch lưng · hệ khí quản · ống Malpighi · chuỗi thần kinh bụng</span></div>
+</div>
 </div>
 <p class="note reveal">Lưu ý: pha nhộng chỉ có ở biến thái hoàn toàn (Holometabola). Ở biến thái không hoàn toàn (Hemimetabola), không có pha nhộng; con non (nymph) phát triển dần thành trưởng thành qua các lần lột xác.</p>
 </div>
@@ -618,16 +624,16 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="photo-feature reveal-zoom">
 <img alt="Sâu non bướm chúa (Danaus plexippus) đang ăn lá" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=1600"/>
 <div class="pf-cap">
-<div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · DANAUS PLEXIPPUS</div>
+<div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · DANAUS PLEXIPPUS<span class="vn-species">Tiếng Việt: Bướm vua</span></div>
 <div class="pf-title">Sâu non bướm chúa đang ăn lá bông tai (Asclepias)</div>
 <div class="pf-credit">Ảnh: Derek Ramsey (Ram-Man) · Wikimedia Commons</div>
 </div>
 </div>
 <div aria-label="Hình ảnh minh họa sâu non" class="photo-gallery reveal">
 <figure class="gallery-card"><img alt="Ảnh macro sâu non" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Macro_of_caterpillar.jpg?width=1200"/><figcaption class="gc-cap">Cận cảnh sâu non<span class="gc-species"><em>Ấu trùng Lepidoptera</em></span><small>Macro of caterpillar · Wikimedia Commons</small><span class="gc-desc">Cơ thể phân đốt, đầu phát triển và bộ máy miệng gặm nhai thích nghi với ăn lá.</span></figcaption></figure>
-<figure class="gallery-card"><img alt="Sâu non bướm chúa" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=900"/><figcaption class="gc-cap">Sâu non bướm chúa<span class="gc-species"><em>Danaus plexippus</em></span><small>Nymphalidae · Lepidoptera</small><span class="gc-desc">Sâu non ăn lá bông tai, tích lũy vật chất và năng lượng cho quá trình biến thái.</span></figcaption></figure>
-<figure class="gallery-card"><img alt="Sâu non Morpho peleides" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Morpho_peleides_caterpillar.jpg?width=900"/><figcaption class="gc-cap">Pha ăn — tích lũy<span class="gc-species"><em>Morpho peleides</em></span><small>Morphidae · Lepidoptera</small><span class="gc-desc">Một ví dụ khác về sâu non Lepidoptera, giúp so sánh hình thái và giảm trùng lặp hình ảnh.</span></figcaption></figure>
-</div><figure class="science-image-card reveal"><img alt="Sơ đồ hình thái sâu bướm" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_morphology.svg?width=1200"/><figcaption class="science-image-caption"><strong>Sơ đồ hình thái sâu bướm</strong><span class="science-species"><em>Macroglossum stellatarum · Lepidoptera</em></span><p>Chỉ rõ đầu, ngực, bụng, chân ngực, chân bụng, lỗ thở và hàm trên; dùng để đối chiếu với ảnh mẫu.</p><small>Wikimedia Commons · Caterpillar morphology.svg</small></figcaption></figure>
+<figure class="gallery-card"><img alt="Sâu non bướm chúa" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Danaus_plexippus_Vertical_Caterpillar_2000px.jpg?width=900"/><figcaption class="gc-cap">Sâu non bướm chúa<span class="gc-species"><em>Danaus plexippus</em><span class="vn-species">Tiếng Việt: Bướm vua</span></span><small>Nymphalidae · Lepidoptera</small><span class="gc-desc">Sâu non ăn lá bông tai, tích lũy vật chất và năng lượng cho quá trình biến thái.</span></figcaption></figure>
+<figure class="gallery-card"><img alt="Sâu non Morpho peleides" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Morpho_peleides_caterpillar.jpg?width=900"/><figcaption class="gc-cap">Pha ăn — tích lũy<span class="gc-species"><em>Morpho peleides</em><span class="vn-species">Tiếng Việt: Bướm Morpho xanh</span></span><small>Morphidae · Lepidoptera</small><span class="gc-desc">Một ví dụ khác về sâu non Lepidoptera, giúp so sánh hình thái và giảm trùng lặp hình ảnh.</span></figcaption></figure>
+</div><figure class="science-image-card reveal"><img alt="Sơ đồ hình thái sâu bướm" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_morphology.svg?width=1200"/><figcaption class="science-image-caption"><strong>Sơ đồ hình thái sâu bướm</strong><span class="science-species"><em>Macroglossum stellatarum · Lepidoptera</em><span class="vn-species">Tiếng Việt: Ngài chim ruồi</span></span><p>Chỉ rõ đầu, ngực, bụng, chân ngực, chân bụng, lỗ thở và hàm trên; dùng để đối chiếu với ảnh mẫu.</p><small>Wikimedia Commons · Caterpillar morphology.svg</small></figcaption></figure>
 <!-- Morphology -->
 <div class="block split">
 <div class="illus-frame reveal-l" id="larvaIllus">
@@ -710,8 +716,7 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="panel reveal" style="--i:5; background:rgba(156,74,46,0.14); border-color:rgba(156,74,46,0.4);"><span class="num" style="color:var(--rust)">VAI TRÒ CHUNG</span><h4>Ăn — tích lũy — sinh trưởng</h4><p>Các hệ cơ quan phối hợp để bảo đảm ăn, tiêu hóa, trao đổi chất, tăng trưởng và đáp ứng với môi trường.</p></div>
 </div>
 </div><div class="science-image-row larva-anatomy-focus"><figure class="science-image-card reveal"><img alt="Giải phẫu trong của sâu non dạng sâu bướm" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/ITWAMOL_-_Fig_154.png?width=1600"/><figcaption class="science-image-caption"><strong>Giải phẫu trong của sâu non</strong><span class="science-species"><em>Caterpillar larva · sơ đồ cắt dọc</em></span><p>Sơ đồ tập trung vào các cơ quan bên trong của sâu non: ống tiêu hóa, ống Malpighi, tuyến tơ, tim, não và chuỗi thần kinh bụng. Đây là hình minh họa trực tiếp cho phần sinh lý của pha sâu non, thay cho sơ đồ côn trùng trưởng thành trước đó.</p><small>ITWAMOL · Wikimedia Commons</small></figcaption></figure></div>
-<div class="larva-physiology-note"><div><b>Hô hấp</b><span>Không khí vào qua lỗ thở → khí quản → ống khí quản nhỏ, cung cấp O₂ trực tiếp cho mô.</span></div><div><b>Bài tiết & cân bằng nước</b><span>Ống Malpighi loại bỏ sản phẩm chuyển hóa và tham gia điều hòa ion, nước.</span></div></div>
-
+<div class="larva-physiology-note"><div><b>Hô hấp</b><span>Không khí vào qua lỗ thở → khí quản → ống khí quản nhỏ, cung cấp O₂ trực tiếp cho mô.</span></div><div><b>Bài tiết &amp; cân bằng nước</b><span>Ống Malpighi loại bỏ sản phẩm chuyển hóa và tham gia điều hòa ion, nước.</span></div></div>
 <style>
   .larva-anatomy-focus{grid-template-columns:minmax(0,1fr); margin-top:22px;}
   .larva-anatomy-focus .science-image-card{max-width:920px; margin:0 auto;}
@@ -765,30 +770,30 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="block-title"><span class="no">05</span> Phân loại kiểu miệng và chân bụng</div>
 <p style="color:var(--brass); font-family:var(--mono); font-size:12px; margin-bottom:6px;">KIỂU MIỆNG</p>
 <div class="type-list c-rust">
-<div class="type-row"><div class="tname">Gặm nhai <span style="opacity:.55; font-weight:400;">(phổ biến nhất)</span></div><div class="tdesc">Cắn xé mô lá — kiểu miệng của đa số sâu non bộ Cánh vẩy, Cánh cứng.</div><div class="tspecies">Helicoverpa armigera</div></div>
-<div class="type-row"><div class="tname">Chích hút</div><div class="tdesc">Thiếu trùng biến thái không hoàn toàn — cùng kiểu miệng với trưởng thành.</div><div class="tspecies">Nilaparvata lugens</div></div>
+<div class="type-row"><div class="tname">Gặm nhai <span style="opacity:.55; font-weight:400;">(phổ biến nhất)</span></div><div class="tdesc">Cắn xé mô lá — kiểu miệng của đa số sâu non bộ Cánh vẩy, Cánh cứng.</div><div class="tspecies">Helicoverpa armigera<span class="vn-species">Tiếng Việt: Sâu xanh Helicoverpa</span></div></div>
+<div class="type-row"><div class="tname">Chích hút</div><div class="tdesc">Thiếu trùng biến thái không hoàn toàn — cùng kiểu miệng với trưởng thành.</div><div class="tspecies">Nilaparvata lugens<span class="vn-species">Tiếng Việt: Rầy nâu</span></div></div>
 </div>
 <p style="color:var(--brass); font-family:var(--mono); font-size:12px; margin:28px 0 6px;">KIỂU CHÂN BỤNG (PEDES SPURII)</p>
 <div class="type-list c-lichen">
-<div class="type-row"><div class="tname">Đầy đủ 5 đôi</div><div class="tdesc">Điển hình bộ Cánh vẩy — di chuyển bò thông thường.</div><div class="tspecies">Spodoptera litura</div></div>
-<div class="type-row"><div class="tname">Thiếu, chỉ 2 đôi cuối</div><div class="tdesc">Họ Sâu đo (Geometridae) — di chuyển kiểu "đo" đặc trưng.</div><div class="tspecies">Hyposidra talaca</div></div>
-<div class="type-row"><div class="tname">Không có (dạng dòi)</div><div class="tdesc">Không chân bụng, cơ thể hình trụ trơn.</div><div class="tspecies">Bactrocera dorsalis</div></div>
+<div class="type-row"><div class="tname">Đầy đủ 5 đôi</div><div class="tdesc">Điển hình bộ Cánh vẩy — di chuyển bò thông thường.</div><div class="tspecies">Spodoptera litura<span class="vn-species">Tiếng Việt: Sâu khoang</span></div></div>
+<div class="type-row"><div class="tname">Thiếu, chỉ 2 đôi cuối</div><div class="tdesc">Họ Sâu đo (Geometridae) — di chuyển kiểu "đo" đặc trưng.</div><div class="tspecies">Hyposidra talaca<span class="vn-species">Tiếng Việt: Sâu đo Hyposidra</span></div></div>
+<div class="type-row"><div class="tname">Không có (dạng dòi)</div><div class="tdesc">Không chân bụng, cơ thể hình trụ trơn.</div><div class="tspecies">Bactrocera dorsalis<span class="vn-species">Tiếng Việt: Ruồi đục quả phương Đông</span></div></div>
 </div>
 </div>
 <!-- Classification: hairs/spines -->
 <div class="block reveal">
 <div class="block-title"><span class="no">06</span> Phân loại lông, gai trên cơ thể</div>
 <div class="grid-2 stagger">
-<div class="panel reveal" style="--i:0"><span class="num">TRƠN</span><h4>Bề mặt tương đối trơn</h4><p>Bề mặt nhìn tương đối nhẵn, không có lông hoặc gai nổi bật trong ảnh; không nên hiểu là hoàn toàn không có setae ở cấp vi thể.</p><p class="sp">Spodoptera exigua</p></div>
+<div class="panel reveal" style="--i:0"><span class="num">TRƠN</span><h4>Bề mặt tương đối trơn</h4><p>Bề mặt nhìn tương đối nhẵn, không có lông hoặc gai nổi bật trong ảnh; không nên hiểu là hoàn toàn không có setae ở cấp vi thể.</p><p class="sp">Spodoptera exigua<span class="vn-species">Tiếng Việt: Sâu xanh da láng</span></p></div>
 <div class="panel reveal" style="--i:1"><span class="num">LÔNG / SETAE</span><h4>Mảnh, mềm hoặc cứng</h4><p>Setae là các cấu trúc dạng lông trên biểu bì; mật độ, chiều dài và hình dạng thay đổi theo loài.</p><p class="sp">Saturniidae · Noctuidae</p></div>
-<div class="panel reveal" style="--i:2"><span class="num">LÔNG GÂY KÍCH ỨNG</span><h4>Urticating setae / spines</h4><p>Một số sâu non có lông hoặc gai gây kích ứng khi tiếp xúc; không phải mọi setae đều có độc tố.</p><p class="sp">Dendrolimus punctatus</p></div>
+<div class="panel reveal" style="--i:2"><span class="num">LÔNG GÂY KÍCH ỨNG</span><h4>Urticating setae / spines</h4><p>Một số sâu non có lông hoặc gai gây kích ứng khi tiếp xúc; không phải mọi setae đều có độc tố.</p><p class="sp">Dendrolimus punctatus<span class="vn-species">Tiếng Việt: Sâu róm thông</span></p></div>
 <div class="panel reveal" style="--i:3"><span class="num">GAI / SỪNG</span><h4>Cấu trúc nhô cứng</h4><p>Gai hoặc sừng là cấu trúc nhô rõ trên cơ thể, có thể có vai trò phòng vệ hoặc nhận diện hình thái.</p><p class="sp">Sâu non Lepidoptera</p></div>
 </div>
 <div class="science-image-row hair-visuals">
-  <figure class="science-image-card reveal"><img alt="Sâu non Spodoptera exigua với bề mặt tương đối trơn" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Spodoptera_exigua_(44579475401).jpg?width=1000"/><figcaption class="science-image-caption"><strong>Bề mặt tương đối trơn</strong><span class="science-species"><em>Spodoptera exigua · Noctuidae</em></span><p>Ví dụ sâu non có bề mặt nhìn tương đối nhẵn; dùng để đối chiếu với các dạng có lông hoặc gai rõ.</p><small>Wikimedia Commons · CC BY 2.0</small></figcaption></figure>
-  <figure class="science-image-card reveal"><img alt="Lông trên sâu non Saturnia pyri" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bruco_Saturnia_Pyri_014a.jpg?width=1000"/><figcaption class="science-image-caption"><strong>Lông/setae dày</strong><span class="science-species"><em>Saturnia pyri · Saturniidae</em></span><p>Lông/setae phủ dày trên cơ thể, tạo bề mặt “có lông”; đây là đặc điểm hình thái dễ quan sát ở nhiều sâu non.</p><small>Wikimedia Commons · Insect setae</small></figcaption></figure>
-  <figure class="science-image-card reveal"><img alt="Sâu non Dendrolimus punctatus có lông gai" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dendrolimus_punctatus_(37963899204).jpg?width=1000"/><figcaption class="science-image-caption"><strong>Lông/gai gây kích ứng</strong><span class="science-species"><em>Dendrolimus punctatus · Lasiocampidae</em></span><p>Các lông/gai trên cơ thể có thể gây kích ứng khi tiếp xúc; không nên đồng nhất mọi loại lông sâu non với “lông độc”.</p><small>Wikimedia Commons</small></figcaption></figure>
-  <figure class="science-image-card reveal"><img alt="Sâu non có gai trên cơ thể" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_with_spines_-_5.jpg?width=1000"/><figcaption class="science-image-caption"><strong>Gai/cấu trúc nhọn</strong><span class="science-species"><em>Apochima sp. · Geometridae</em></span><p>Gai là cấu trúc nhô cứng hơn setae mềm; hình thái này giúp phân biệt nhóm “gai” với lớp lông tơ phủ bề mặt.</p><small>Wikimedia Commons · CC BY-SA 4.0</small></figcaption></figure>
+<figure class="science-image-card reveal"><img alt="Sâu non Spodoptera exigua với bề mặt tương đối trơn" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Spodoptera_exigua_(44579475401).jpg?width=1000"/><figcaption class="science-image-caption"><strong>Bề mặt tương đối trơn</strong><span class="science-species"><em>Spodoptera exigua · Noctuidae</em></span><p>Ví dụ sâu non có bề mặt nhìn tương đối nhẵn; dùng để đối chiếu với các dạng có lông hoặc gai rõ.</p><small>Wikimedia Commons · CC BY 2.0</small></figcaption></figure>
+<figure class="science-image-card reveal"><img alt="Lông trên sâu non Saturnia pyri" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bruco_Saturnia_Pyri_014a.jpg?width=1000"/><figcaption class="science-image-caption"><strong>Lông/setae dày</strong><span class="science-species"><em>Saturnia pyri · Saturniidae</em><span class="vn-species">Tiếng Việt: Ngài mắt công lớn</span></span><p>Lông/setae phủ dày trên cơ thể, tạo bề mặt “có lông”; đây là đặc điểm hình thái dễ quan sát ở nhiều sâu non.</p><small>Wikimedia Commons · Insect setae</small></figcaption></figure>
+<figure class="science-image-card reveal"><img alt="Sâu non Dendrolimus punctatus có lông gai" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dendrolimus_punctatus_(37963899204).jpg?width=1000"/><figcaption class="science-image-caption"><strong>Lông/gai gây kích ứng</strong><span class="science-species"><em>Dendrolimus punctatus · Lasiocampidae</em><span class="vn-species">Tiếng Việt: Sâu róm thông</span></span><p>Các lông/gai trên cơ thể có thể gây kích ứng khi tiếp xúc; không nên đồng nhất mọi loại lông sâu non với “lông độc”.</p><small>Wikimedia Commons</small></figcaption></figure>
+<figure class="science-image-card reveal"><img alt="Sâu non có gai trên cơ thể" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_with_spines_-_5.jpg?width=1000"/><figcaption class="science-image-caption"><strong>Gai/cấu trúc nhọn</strong><span class="science-species"><em>Apochima sp. · Geometridae</em><span class="vn-species">Tiếng Việt: Sâu non họ Geometridae</span></span><p>Gai là cấu trúc nhô cứng hơn setae mềm; hình thái này giúp phân biệt nhóm “gai” với lớp lông tơ phủ bề mặt.</p><small>Wikimedia Commons · CC BY-SA 4.0</small></figcaption></figure>
 </div>
 <figure class="science-image-card reveal hair-sensillum"><img alt="Sơ đồ cấu tạo sensillum dạng lông" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bristle_sensillum_cartoon.png?width=1000"/><figcaption class="science-image-caption"><strong>Lông cảm giác (bristle sensillum)</strong><span class="science-species"><em>Insect sensory hair · sơ đồ vi cấu tạo</em></span><p>Lông cảm giác có thể hoạt động như cơ quan thụ cảm cơ học; hình minh họa cho thấy lông liên kết với neuron cảm giác ở gốc.</p><small>Wikimedia Commons · CC BY-SA 4.0</small></figcaption></figure>
 <!-- BVTV significance -->
@@ -802,7 +807,7 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 </div>
 </div>
 </div>
-</section>
+</div></section>
 <!-- ============ STAGE 02 — NHỘNG ============ -->
 <section class="stage bg-ink" data-rail="02 · Nhộng" id="pupa">
 <div class="wrap">
@@ -815,15 +820,15 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="photo-feature reveal-zoom">
 <img alt="Nhộng bướm Monarch (Danaus plexippus)" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_chrysalis.jpg?width=1600"/>
 <div class="pf-cap">
-<div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · DANAUS PLEXIPPUS</div>
+<div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · DANAUS PLEXIPPUS<span class="vn-species">Tiếng Việt: Bướm vua</span></div>
 <div class="pf-title">Nhộng bướm — hình thái đặc trưng của pha nhộng</div>
 <div class="pf-credit">Ảnh: SharingLight · Wikimedia Commons · CC0</div>
 </div>
 </div>
 <div aria-label="Hình ảnh minh họa nhộng" class="photo-gallery reveal">
-<figure class="gallery-card"><img alt="Nhộng bướm" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Butterfly_chrysalis.jpg?width=1200"/><figcaption class="gc-cap">Nhộng bướm (chrysalis)<span class="gc-species"><em>Papilio</em> sp.</span><small>Lepidoptera · Wikimedia Commons</small><span class="gc-desc">Các phần phụ trưởng thành phát triển bên trong lớp vỏ nhộng; hoạt động bên ngoài giảm mạnh.</span></figcaption></figure>
-<figure class="gallery-card"><img alt="Nhộng Euploea core" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Butterfly_pupa_Euploea_core_(Cramer,_1780)_(49277108727).jpg?width=900"/><figcaption class="gc-cap">Nhộng Euploea core<span class="gc-species"><em>Euploea core</em></span><small>Nymphalidae · Lepidoptera</small><span class="gc-desc">Nhộng kiểu obtect điển hình ở nhiều bướm; cánh và phần phụ áp sát cơ thể.</span></figcaption></figure>
-<figure class="gallery-card"><img alt="Bướm vừa vũ hóa" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Common_Crow_Butterfly,_newly_emerged_from_its_chrysalis_or_pupa.jpg?width=900"/><figcaption class="gc-cap">Khoảnh khắc vũ hóa<span class="gc-species"><em>Euploea core</em> (Common Crow)</span><small>Nymphalidae · Lepidoptera</small><span class="gc-desc">Côn trùng trưởng thành thoát khỏi vỏ nhộng; cánh còn mềm và được bơm dịch để duỗi hoàn toàn.</span></figcaption></figure>
+<figure class="gallery-card"><img alt="Nhộng bướm" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Butterfly_chrysalis.jpg?width=1200"/><figcaption class="gc-cap">Nhộng bướm (chrysalis)<span class="gc-species"><em>Papilio</em> sp.<span class="vn-species">Tiếng Việt: Bướm thuộc chi Papilio</span></span><small>Lepidoptera · Wikimedia Commons</small><span class="gc-desc">Các phần phụ trưởng thành phát triển bên trong lớp vỏ nhộng; hoạt động bên ngoài giảm mạnh.</span></figcaption></figure>
+<figure class="gallery-card"><img alt="Nhộng Euploea core" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Butterfly_pupa_Euploea_core_(Cramer,_1780)_(49277108727).jpg?width=900"/><figcaption class="gc-cap">Nhộng Euploea core<span class="gc-species"><em>Euploea core</em><span class="vn-species">Tiếng Việt: Bướm quạ thường</span></span><small>Nymphalidae · Lepidoptera</small><span class="gc-desc">Nhộng kiểu obtect điển hình ở nhiều bướm; cánh và phần phụ áp sát cơ thể.</span></figcaption></figure>
+<figure class="gallery-card"><img alt="Bướm vừa vũ hóa" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Common_Crow_Butterfly,_newly_emerged_from_its_chrysalis_or_pupa.jpg?width=900"/><figcaption class="gc-cap">Khoảnh khắc vũ hóa<span class="gc-species"><em>Euploea core</em> (Common Crow)<span class="vn-species">Tiếng Việt: Bướm quạ thường</span></span><small>Nymphalidae · Lepidoptera</small><span class="gc-desc">Côn trùng trưởng thành thoát khỏi vỏ nhộng; cánh còn mềm và được bơm dịch để duỗi hoàn toàn.</span></figcaption></figure>
 </div>
 <!-- Pupa types -->
 <div class="block">
@@ -835,7 +840,7 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <img alt="Nhộng Osmylus fulvicephalus, bộ Neuroptera" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/OsmylusPupa.jpg?width=1400"/>
 <span class="zoom-badge">＋ Zoom</span>
 </button>
-<figcaption><span class="num">DECTICOUS · CÓ HÀM</span><strong>Osmylus fulvicephalus</strong><em>Osmylidae · Neuroptera</em><p>Nhộng có hàm trên có khớp; thuộc nhóm nhộng exarate. Hàm có thể tham gia phá kén/cấu trúc bao khi vũ hóa.</p></figcaption>
+<figcaption><span class="num">DECTICOUS · CÓ HÀM</span><strong>Osmylus fulvicephalus</strong><em>Osmylidae · Neuroptera</em><p>Nhộng có hàm trên có khớp; thuộc nhóm nhộng exarate. Hàm có thể tham gia phá kén/cấu trúc bao khi vũ hóa.</p><span class="vn-species">Tiếng Việt: Chuồn chuồn lửa Osmylus</span></figcaption>
 </figure>
 <figure class="pupa-photo-card reveal-zoom">
 <button aria-label="Phóng to nhộng ong mật Apis mellifera" class="pupa-photo-btn" type="button">
@@ -849,14 +854,14 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <img alt="Nhộng bọ rùa bảy chấm Coccinella septempunctata" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coccinella_septempunctata_emerging_from_pupa.jpg?width=1400"/>
 <span class="zoom-badge">＋ Zoom</span>
 </button>
-<figcaption><span class="num">ADECTICOUS · OBTECT</span><strong>Coccinella septempunctata</strong><em>Coccinellidae · Coleoptera</em><p>Nhộng adecticous; phần phụ trưởng thành áp sát cơ thể, phù hợp với dạng obtect điển hình của nhiều Coleoptera.</p></figcaption>
+<figcaption><span class="num">ADECTICOUS · OBTECT</span><strong>Coccinella septempunctata</strong><em>Coccinellidae · Coleoptera</em><p>Nhộng adecticous; phần phụ trưởng thành áp sát cơ thể, phù hợp với dạng obtect điển hình của nhiều Coleoptera.</p><span class="vn-species">Tiếng Việt: Bọ rùa bảy chấm</span></figcaption>
 </figure>
 <figure class="pupa-photo-card reveal-zoom">
 <button aria-label="Phóng to puparium Calliphora" class="pupa-photo-btn" type="button">
 <img alt="Puparium và nhộng Calliphora vomitoria" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Calliphora_puparium_pupa_Leuckart.png?width=1400"/>
 <span class="zoom-badge">＋ Zoom</span>
 </button>
-<figcaption><span class="num">ADECTICOUS · COARCTATE</span><strong>Calliphora vomitoria</strong><em>Calliphoridae · Diptera</em><p>Nhộng thật nằm trong puparium — lớp vỏ cứng hình thành từ da sâu non tuổi cuối. Bản thân nhộng thuộc dạng exarate adecticous.</p></figcaption>
+<figcaption><span class="num">ADECTICOUS · COARCTATE</span><strong>Calliphora vomitoria</strong><em>Calliphoridae · Diptera</em><p>Nhộng thật nằm trong puparium — lớp vỏ cứng hình thành từ da sâu non tuổi cuối. Bản thân nhộng thuộc dạng exarate adecticous.</p><span class="vn-species">Tiếng Việt: Ruồi xanh Calliphora</span></figcaption>
 </figure>
 </div>
 <div class="pupa-key reveal">
@@ -894,9 +899,9 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="block-title"><span class="no">03</span> Nhộng bọc — Kén giả (Puparium)</div>
 <p style="color:var(--parchment-dim); margin-bottom:24px;">Ở bộ Hai cánh (Diptera), da sâu non tuổi cuối KHÔNG lột bỏ mà co ngắn, cứng hóa, sẫm màu — tạo vỏ bọc riêng bao bọc nhộng thật bên trong.</p>
 <div class="type-list c-brass">
-<div class="type-row"><img alt="Minh họa Musca domestica" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/A_common_housefly_01.jpg?width=500" title="Bấm để phóng to — Musca domestica"/><div class="tname">Ruồi nhà</div><div class="tdesc">Sâu non không chân (dòi), sống trong chất hữu cơ phân hủy.</div><div class="tspecies">Musca domestica</div></div>
-<div class="type-row"><div class="tname">Ruồi đục quả</div><div class="tdesc">Gây hại nghiêm trọng trên nhiều loại cây ăn quả.</div><div class="tspecies">Bactrocera dorsalis</div></div>
-<div class="type-row"><div class="tname">Ruồi đục lá</div><div class="tdesc">Sâu non đục hầm bên trong mô lá.</div><div class="tspecies">Liriomyza sativae</div></div>
+<div class="type-row"><img alt="Minh họa Musca domestica" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/A_common_housefly_01.jpg?width=500" title="Bấm để phóng to — Musca domestica"/><div class="tname">Ruồi nhà</div><div class="tdesc">Sâu non không chân (dòi), sống trong chất hữu cơ phân hủy.</div><div class="tspecies">Musca domestica<span class="vn-species">Tiếng Việt: Ruồi nhà</span></div></div>
+<div class="type-row"><div class="tname">Ruồi đục quả</div><div class="tdesc">Gây hại nghiêm trọng trên nhiều loại cây ăn quả.</div><div class="tspecies">Bactrocera dorsalis<span class="vn-species">Tiếng Việt: Ruồi đục quả phương Đông</span></div></div>
+<div class="type-row"><div class="tname">Ruồi đục lá</div><div class="tdesc">Sâu non đục hầm bên trong mô lá.</div><div class="tspecies">Liriomyza sativae<span class="vn-species">Tiếng Việt: Ruồi đục lá rau</span></div></div>
 </div>
 </div>
 <div class="illus-frame">
@@ -919,16 +924,14 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <h2>Đặc điểm hình thái và sinh lý — trưởng thành</h2>
 <p>Cơ thể đạt hình thái trưởng thành và nhìn chung ngừng lột xác; các phần phụ được hoàn thiện và chuyên hóa cho vận động, cảm nhận, kiếm ăn và sinh sản.</p>
 </div>
-
 <div class="photo-feature reveal-zoom">
 <img alt="Bướm phượng hổ (Papilio rutulus) trưởng thành với đôi cánh hoàn chỉnh" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Swallowtail_butterfly_2.JPG?width=1600"/>
 <div class="pf-cap">
-<div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · PAPILIO RUTULUS</div>
+<div class="tag pf-tag"><span class="dot"></span>MẪU VẬT · PAPILIO RUTULUS<span class="vn-species">Tiếng Việt: Bướm phượng đuôi hổ</span></div>
 <div class="pf-title">Hình thái trưởng thành — đầu, ngực, bụng và đôi cánh vảy hoàn chỉnh</div>
 <div class="pf-credit">Ảnh: Brocken Inaglory · Wikimedia Commons</div>
 </div>
 </div>
-
 <!-- 01. External morphology -->
 <div class="block reveal">
 <div class="block-title"><span class="no">01</span> Hình thái cơ thể trưởng thành</div>
@@ -950,7 +953,6 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 </div>
 </div>
 </div>
-
 <!-- 02. Locomotion -->
 <div class="block reveal">
 <div class="block-title"><span class="no">02</span> Cơ quan vận động — chân và cánh</div>
@@ -979,21 +981,19 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 </div>
 <p class="note">Côn trùng trưởng thành có 3 đôi chân ngực. Hình thái từng đôi chân biến đổi theo chức năng: đi, chạy, nhảy, đào, bơi, bắt mồi hoặc thu phấn.</p>
 </div>
-
 <div class="adult-subblock">
 <h3>Cánh — cấu tạo và dạng chuyên hóa</h3>
 <div class="type-list c-brass">
-<div class="type-row"><img alt="Minh họa Apis mellifera" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bee_wing,_apis_mellifera.jpg?width=700" title="Bấm để phóng to — Apis mellifera · cánh"/><div class="tname">Cánh màng <span style="opacity:.55;font-weight:400;">(Membranous)</span></div><div class="tdesc">Mỏng, có gân; điển hình ở ong và chuồn chuồn.</div><div class="tspecies">Apis mellifera · Orthetrum sabina</div></div>
-<div class="type-row"><img alt="Minh họa Scarabaeidae" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dung_Beetle_(Scarabaeidae)_(12882848315).jpg?width=500" title="Bấm để phóng to — Scarabaeidae"/><div class="tname">Cánh cứng <span style="opacity:.55;font-weight:400;">(Elytra)</span></div><div class="tdesc">Cánh trước hóa cứng, bảo vệ cánh sau dạng màng.</div><div class="tspecies">Scarabaeidae · Coleoptera</div></div>
-<div class="type-row"><img alt="Minh họa Papilio demoleus" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Papilio_demoleus_wing.jpg?width=700" title="Bấm để phóng to — Papilio demoleus · cánh vảy"/><div class="tname">Cánh vảy <span style="opacity:.55;font-weight:400;">(Scaled)</span></div><div class="tdesc">Bề mặt phủ vảy nhỏ, tạo màu sắc và hoa văn đặc trưng.</div><div class="tspecies">Papilio demoleus · Lepidoptera</div></div>
-<div class="type-row"><img alt="Minh họa Alydidae, cánh nửa" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Alydidae_at_Mechode_Padur.jpg?width=700" title="Bấm để phóng to — Alydidae · hemelytra"/><div class="tname">Cánh nửa <span style="opacity:.55;font-weight:400;">(Hemelytra)</span></div><div class="tdesc">Phần gốc dày/cứng hơn, phần ngọn dạng màng; điển hình ở nhiều Hemiptera.</div><div class="tspecies">Alydidae · Hemiptera</div></div>
-<div class="type-row"><img alt="Tegmina của châu chấu cỏ" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/ITWAMOL_-_Fig_18.png?width=700" title="Bấm để phóng to — Orchelimum laticauda · tegmina"/><div class="tname">Cánh da <span style="opacity:.55;font-weight:400;">(Tegmina)</span></div><div class="tdesc">Cánh trước dai hơn, che và bảo vệ cánh sau; gặp ở Orthoptera.</div><div class="tspecies">Orchelimum laticauda · Orthoptera</div></div>
+<div class="type-row"><img alt="Minh họa Apis mellifera" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bee_wing,_apis_mellifera.jpg?width=700" title="Bấm để phóng to — Apis mellifera · cánh"/><div class="tname">Cánh màng <span style="opacity:.55;font-weight:400;">(Membranous)</span></div><div class="tdesc">Mỏng, có gân; điển hình ở ong và chuồn chuồn.</div><div class="tspecies">Apis mellifera · Orthetrum sabina<span class="vn-species">Tiếng Việt: Ong mật phương Tây · chuồn chuồn Orthetrum sabina</span></div></div>
+<div class="type-row"><img alt="Minh họa Scarabaeidae" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dung_Beetle_(Scarabaeidae)_(12882848315).jpg?width=500" title="Bấm để phóng to — Scarabaeidae"/><div class="tname">Cánh cứng <span style="opacity:.55;font-weight:400;">(Elytra)</span></div><div class="tdesc">Cánh trước hóa cứng, bảo vệ cánh sau dạng màng.</div><div class="tspecies">Scarabaeidae · Coleoptera<span class="vn-species">Tiếng Việt: Họ Bọ hung</span></div></div>
+<div class="type-row"><img alt="Minh họa Papilio demoleus" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Papilio_demoleus_wing.jpg?width=700" title="Bấm để phóng to — Papilio demoleus · cánh vảy"/><div class="tname">Cánh vảy <span style="opacity:.55;font-weight:400;">(Scaled)</span></div><div class="tdesc">Bề mặt phủ vảy nhỏ, tạo màu sắc và hoa văn đặc trưng.</div><div class="tspecies">Papilio demoleus · Lepidoptera<span class="vn-species">Tiếng Việt: Bướm phượng chanh</span></div></div>
+<div class="type-row"><img alt="Minh họa Alydidae, cánh nửa" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Alydidae_at_Mechode_Padur.jpg?width=700" title="Bấm để phóng to — Alydidae · hemelytra"/><div class="tname">Cánh nửa <span style="opacity:.55;font-weight:400;">(Hemelytra)</span></div><div class="tdesc">Phần gốc dày/cứng hơn, phần ngọn dạng màng; điển hình ở nhiều Hemiptera.</div><div class="tspecies">Alydidae · Hemiptera<span class="vn-species">Tiếng Việt: Họ bọ xít chân dài</span></div></div>
+<div class="type-row"><img alt="Tegmina của châu chấu cỏ" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/ITWAMOL_-_Fig_18.png?width=700" title="Bấm để phóng to — Orchelimum laticauda · tegmina"/><div class="tname">Cánh da <span style="opacity:.55;font-weight:400;">(Tegmina)</span></div><div class="tdesc">Cánh trước dai hơn, che và bảo vệ cánh sau; gặp ở Orthoptera.</div><div class="tspecies">Orchelimum laticauda · Orthoptera<span class="vn-species">Tiếng Việt: Châu chấu Orchelimum</span></div></div>
 </div>
 <p class="note">Gân cánh tạo khung nâng đỡ và các ô cánh; chi tiết gân cánh có giá trị trong nhận diện và nghiên cứu cơ học bay, nhưng không cần tách thành một mục riêng trong bài này.</p>
 </div>
 </div>
 </div>
-
 <!-- 03. Head appendages -->
 <div class="block reveal">
 <div class="block-title"><span class="no">03</span> Cơ quan đầu — râu và bộ phận miệng</div>
@@ -1001,27 +1001,26 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="adult-subblock">
 <h3>Kiểu râu</h3>
 <div class="type-list c-rust">
-<div class="type-row"><img alt="Minh họa Periplaneta americana" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Periplaneta_americana_-_American_cockroach_(25765232092).jpg?width=500" title="Bấm để phóng to — Periplaneta americana"/><div class="tname">Sợi chỉ <span style="opacity:.55;font-weight:400;">(Filiform)</span></div><div class="tdesc">Các đốt tương đối đều nhau, dạng sợi dài.</div><div class="tspecies">Periplaneta americana</div></div>
-<div class="type-row"><img alt="Minh họa Bombyx mori đực" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/EB1911_Lepidoptera_-_Bombyx_mori.jpg?width=500" title="Bấm để phóng to — Bombyx mori (đực)"/><div class="tname">Lông chim <span style="opacity:.55;font-weight:400;">(Plumose)</span></div><div class="tdesc">Nhiều nhánh mảnh, tăng diện tích cảm nhận hóa học.</div><div class="tspecies">Bombyx mori (đực)</div></div>
-<div class="type-row"><img alt="Minh họa Pieris rapae" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pieris_rapae.JPG?width=500" title="Bấm để phóng to — Pieris rapae"/><div class="tname">Dùi trống <span style="opacity:.55;font-weight:400;">(Clavate)</span></div><div class="tdesc">Phình rõ về phía đầu mút.</div><div class="tspecies">Pieris rapae</div></div>
-<div class="type-row"><img alt="Minh họa Formicidae" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ant_Formica_sp.jpg?width=500" title="Bấm để phóng to — Formicidae"/><div class="tname">Đầu gối <span style="opacity:.55;font-weight:400;">(Geniculate)</span></div><div class="tdesc">Gấp khúc rõ tại khớp giữa.</div><div class="tspecies">Formicidae</div></div>
-<div class="type-row"><img alt="Minh họa Oryctes rhinoceros" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Oryctes_rhinoceros_(13476409405).jpg?width=500" title="Bấm để phóng to — Oryctes rhinoceros"/><div class="tname">Lá lợp <span style="opacity:.55;font-weight:400;">(Lamellate)</span></div><div class="tdesc">Các đốt cuối xòe rộng, xếp chồng như lá.</div><div class="tspecies">Oryctes rhinoceros</div></div>
+<div class="type-row"><img alt="Minh họa Periplaneta americana" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Periplaneta_americana_-_American_cockroach_(25765232092).jpg?width=500" title="Bấm để phóng to — Periplaneta americana"/><div class="tname">Sợi chỉ <span style="opacity:.55;font-weight:400;">(Filiform)</span></div><div class="tdesc">Các đốt tương đối đều nhau, dạng sợi dài.</div><div class="tspecies">Periplaneta americana<span class="vn-species">Tiếng Việt: Gián Mỹ</span></div></div>
+<div class="type-row"><img alt="Minh họa Bombyx mori đực" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/EB1911_Lepidoptera_-_Bombyx_mori.jpg?width=500" title="Bấm để phóng to — Bombyx mori (đực)"/><div class="tname">Lông chim <span style="opacity:.55;font-weight:400;">(Plumose)</span></div><div class="tdesc">Nhiều nhánh mảnh, tăng diện tích cảm nhận hóa học.</div><div class="tspecies">Bombyx mori (đực)<span class="vn-species">Tiếng Việt: Tằm dâu (con đực)</span></div></div>
+<div class="type-row"><img alt="Minh họa Pieris rapae" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pieris_rapae.JPG?width=500" title="Bấm để phóng to — Pieris rapae"/><div class="tname">Dùi trống <span style="opacity:.55;font-weight:400;">(Clavate)</span></div><div class="tdesc">Phình rõ về phía đầu mút.</div><div class="tspecies">Pieris rapae<span class="vn-species">Tiếng Việt: Bướm cải trắng</span></div></div>
+<div class="type-row"><img alt="Minh họa Formicidae" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ant_Formica_sp.jpg?width=500" title="Bấm để phóng to — Formicidae"/><div class="tname">Đầu gối <span style="opacity:.55;font-weight:400;">(Geniculate)</span></div><div class="tdesc">Gấp khúc rõ tại khớp giữa.</div><div class="tspecies">Formicidae<span class="vn-species">Tiếng Việt: Họ Kiến</span></div></div>
+<div class="type-row"><img alt="Minh họa Oryctes rhinoceros" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Oryctes_rhinoceros_(13476409405).jpg?width=500" title="Bấm để phóng to — Oryctes rhinoceros"/><div class="tname">Lá lợp <span style="opacity:.55;font-weight:400;">(Lamellate)</span></div><div class="tdesc">Các đốt cuối xòe rộng, xếp chồng như lá.</div><div class="tspecies">Oryctes rhinoceros<span class="vn-species">Tiếng Việt: Bọ cánh cứng tê giác</span></div></div>
 </div>
 </div>
 <div class="adult-subblock">
 <h3>Kiểu miệng</h3>
 <div class="type-list c-rust">
-<div class="type-row"><img alt="Minh họa Oxya chinensis" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Chinese_rice_grasshopper_(Oxya_chinensis).jpg?width=500" title="Bấm để phóng to — Oxya chinensis"/><div class="tname">Gặm nhai <span style="opacity:.55;font-weight:400;">(Mandibulate)</span></div><div class="tdesc">Hàm trên phát triển, dùng để cắn và nghiền thức ăn rắn.</div><div class="tspecies">Oxya chinensis · Orthoptera</div></div>
-<div class="type-row"><img alt="Minh họa Aedes aegypti" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Aedes_aegypti.jpg?width=500" title="Bấm để phóng to — Aedes aegypti"/><div class="tname">Chích hút <span style="opacity:.55;font-weight:400;">(Piercing–sucking)</span></div><div class="tdesc">Các phần phụ miệng dạng kim đâm xuyên mô để hút dịch.</div><div class="tspecies">Aedes aegypti</div></div>
-<div class="type-row"><img alt="Minh họa Nezara viridula" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Nezara_viridula_(Southern_green_stink_bug).jpg?width=500" title="Bấm để phóng to — Nezara viridula"/><div class="tname">Chích hút thực vật</div><div class="tdesc">Vòi chích hút chuyên hóa để lấy dịch từ mô thực vật.</div><div class="tspecies">Nezara viridula · Hemiptera</div></div>
-<div class="type-row"><img alt="Minh họa Papilio polytes" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Proboscis_of_butterfly_(9610068050).jpg?width=900" title="Bấm để phóng to — Papilio polytes · vòi hút"/><div class="tname">Hút vòi cuộn <span style="opacity:.55;font-weight:400;">(Siphoning)</span></div><div class="tdesc">Hai galea của hàm dưới ghép lại thành vòi hút, thường cuộn khi nghỉ.</div><div class="tspecies">Papilio polytes · Lepidoptera</div></div>
-<div class="type-row"><img alt="Minh họa Musca domestica" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Musca_domestica_2005-07-08.JPG?width=500" title="Bấm để phóng to — Musca domestica"/><div class="tname">Liếm hút <span style="opacity:.55;font-weight:400;">(Sponging)</span></div><div class="tdesc">Phần tận cùng dạng đệm xốp giúp thấm và hút thức ăn lỏng.</div><div class="tspecies">Musca domestica</div></div>
-<div class="type-row"><img alt="Minh họa Apis mellifera" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Honey_bee_(Apis_mellifera).jpg?width=500" title="Bấm để phóng to — Apis mellifera"/><div class="tname">Nghiền – liếm <span style="opacity:.55;font-weight:400;">(Chewing–lapping)</span></div><div class="tdesc">Hàm nghiền kết hợp cấu trúc lưỡi/liếm để lấy và xử lý thức ăn lỏng, phấn hoa.</div><div class="tspecies">Apis mellifera · Hymenoptera</div></div>
+<div class="type-row"><img alt="Minh họa Oxya chinensis" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Chinese_rice_grasshopper_(Oxya_chinensis).jpg?width=500" title="Bấm để phóng to — Oxya chinensis"/><div class="tname">Gặm nhai <span style="opacity:.55;font-weight:400;">(Mandibulate)</span></div><div class="tdesc">Hàm trên phát triển, dùng để cắn và nghiền thức ăn rắn.</div><div class="tspecies">Oxya chinensis · Orthoptera<span class="vn-species">Tiếng Việt: Châu chấu Oxya chinensis</span></div></div>
+<div class="type-row"><img alt="Minh họa Aedes aegypti" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Aedes_aegypti.jpg?width=500" title="Bấm để phóng to — Aedes aegypti"/><div class="tname">Chích hút <span style="opacity:.55;font-weight:400;">(Piercing–sucking)</span></div><div class="tdesc">Các phần phụ miệng dạng kim đâm xuyên mô để hút dịch.</div><div class="tspecies">Aedes aegypti<span class="vn-species">Tiếng Việt: Muỗi vằn</span></div></div>
+<div class="type-row"><img alt="Minh họa Nezara viridula" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Nezara_viridula_(Southern_green_stink_bug).jpg?width=500" title="Bấm để phóng to — Nezara viridula"/><div class="tname">Chích hút thực vật</div><div class="tdesc">Vòi chích hút chuyên hóa để lấy dịch từ mô thực vật.</div><div class="tspecies">Nezara viridula · Hemiptera<span class="vn-species">Tiếng Việt: Bọ xít xanh</span></div></div>
+<div class="type-row"><img alt="Minh họa Papilio polytes" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Proboscis_of_butterfly_(9610068050).jpg?width=900" title="Bấm để phóng to — Papilio polytes · vòi hút"/><div class="tname">Hút vòi cuộn <span style="opacity:.55;font-weight:400;">(Siphoning)</span></div><div class="tdesc">Hai galea của hàm dưới ghép lại thành vòi hút, thường cuộn khi nghỉ.</div><div class="tspecies">Papilio polytes · Lepidoptera<span class="vn-species">Tiếng Việt: Bướm phượng thường</span></div></div>
+<div class="type-row"><img alt="Minh họa Musca domestica" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Musca_domestica_2005-07-08.JPG?width=500" title="Bấm để phóng to — Musca domestica"/><div class="tname">Liếm hút <span style="opacity:.55;font-weight:400;">(Sponging)</span></div><div class="tdesc">Phần tận cùng dạng đệm xốp giúp thấm và hút thức ăn lỏng.</div><div class="tspecies">Musca domestica<span class="vn-species">Tiếng Việt: Ruồi nhà</span></div></div>
+<div class="type-row"><img alt="Minh họa Apis mellifera" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Honey_bee_(Apis_mellifera).jpg?width=500" title="Bấm để phóng to — Apis mellifera"/><div class="tname">Nghiền – liếm <span style="opacity:.55;font-weight:400;">(Chewing–lapping)</span></div><div class="tdesc">Hàm nghiền kết hợp cấu trúc lưỡi/liếm để lấy và xử lý thức ăn lỏng, phấn hoa.</div><div class="tspecies">Apis mellifera · Hymenoptera<span class="vn-species">Tiếng Việt: Ong mật phương Tây</span></div></div>
 </div>
 </div>
 </div>
 </div>
-
 <!-- 04. Adult physiology -->
 <div class="block reveal">
 <div class="block-title"><span class="no">04</span> Chức năng sinh lý của trưởng thành</div>
@@ -1033,7 +1032,6 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 </div>
 <p class="note">Tuổi thọ trưởng thành biến động rất lớn giữa các loài và điều kiện môi trường; vì vậy không nên gán một khoảng thời gian cố định cho toàn bộ côn trùng.</p>
 </div>
-
 <!-- Compact special morphology note -->
 <div class="block reveal adult-special">
 <div class="block-title"><span class="no">05</span> Biến đổi hình thái đặc biệt</div>
@@ -1043,7 +1041,6 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="panel"><span class="num">Ý NGHĨA</span><p>Biến đổi hình thái phản ánh sự chuyên hóa theo giới tính, môi trường hoặc chức năng sống.</p></div>
 </div>
 </div>
-
 <div class="block reveal academic-sources">
 <div class="block-title"><span class="no">06</span> Tài liệu nền tảng</div>
 <div class="grid-3">
@@ -1054,7 +1051,6 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 </div>
 </div>
 </section>
-
 <style>
 /* ---------- Adult stage: compact, logical hierarchy ---------- */
 .adult-morph-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:22px;align-items:start;}
@@ -1075,7 +1071,6 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
   .adult-morph-notes{grid-template-columns:1fr;}
 }
 </style>
-
 <section class="stage bg-ink" data-rail="Tổng hợp" id="compare">
 <div class="wrap">
 <div class="stage-head reveal">
