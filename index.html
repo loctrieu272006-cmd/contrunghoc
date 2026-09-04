@@ -594,7 +594,7 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="wrap">
 <div class="stage-head reveal">
 <div class="tag"><span class="dot"></span>ĐC.00 — TỔNG QUAN VÒNG ĐỜI</div>
-<h2>Bốn giai đoạn của biến thái hoàn toàn</h2>
+<h2>Các giai đoạn chính</h2>
 <p>Ở côn trùng biến thái hoàn toàn (Holometabola), vòng đời gồm trứng → sâu non (ấu trùng) → nhộng → trưởng thành. Ba pha trọng tâm của bài là sâu non, nhộng và trưởng thành.</p><p class="note scope-note"><b>Phạm vi trình bày:</b> trọng tâm là biến thái hoàn toàn và các ví dụ hình thái chủ yếu ở Lepidoptera; các đặc điểm được diễn đạt theo hướng “điển hình/ở nhiều nhóm” để tránh khái quát hóa cho toàn bộ Insecta.</p>
 </div>
 <div class="lifecycle reveal">
@@ -1015,7 +1015,7 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 <div class="type-row"><img alt="Minh họa Aedes aegypti" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Aedes_aegypti.jpg?width=500" title="Bấm để phóng to — Aedes aegypti"/><div class="tname">Chích hút <span style="opacity:.55;font-weight:400;">(Piercing–sucking)</span></div><div class="tdesc">Các phần phụ miệng dạng kim đâm xuyên mô để hút dịch.</div><div class="tspecies">Aedes aegypti<span class="vn-species">Tiếng Việt: Muỗi vằn</span></div></div>
 <div class="type-row"><img alt="Minh họa Nezara viridula" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Nezara_viridula_(Southern_green_stink_bug).jpg?width=500" title="Bấm để phóng to — Nezara viridula"/><div class="tname">Chích hút thực vật</div><div class="tdesc">Vòi chích hút chuyên hóa để lấy dịch từ mô thực vật.</div><div class="tspecies">Nezara viridula · Hemiptera<span class="vn-species">Tiếng Việt: Bọ xít xanh</span></div></div>
 <div class="type-row"><img alt="Minh họa Papilio polytes" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Proboscis_of_butterfly_(9610068050).jpg?width=900" title="Bấm để phóng to — Papilio polytes · vòi hút"/><div class="tname">Hút vòi cuộn <span style="opacity:.55;font-weight:400;">(Siphoning)</span></div><div class="tdesc">Hai galea của hàm dưới ghép lại thành vòi hút, thường cuộn khi nghỉ.</div><div class="tspecies">Papilio polytes · Lepidoptera<span class="vn-species">Tiếng Việt: Bướm phượng thường</span></div></div>
-<div class="type-row"><img alt="Minh họa Musca domestica" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Musca_domestica_2005-07-08.JPG?width=500" title="Bấm để phóng to — Musca domestica"/><div class="tname">Liếm hút <span style="opacity:.55;font-weight:400;">(Sponging)</span></div><div class="tdesc">Phần tận cùng dạng đệm xốp giúp thấm và hút thức ăn lỏng.</div><div class="tspecies">Musca domestica<span class="vn-species">Tiếng Việt: Ruồi nhà</span></div></div>
+<div class="type-row"><img alt="Minh họa Musca domestica" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/A_common_housefly_01.jpg?width=500" title="Bấm để phóng to — Musca domestica"/><div class="tname">Liếm hút <span style="opacity:.55;font-weight:400;">(Sponging)</span></div><div class="tdesc">Phần tận cùng dạng đệm xốp giúp thấm và hút thức ăn lỏng.</div><div class="tspecies">Musca domestica<span class="vn-species">Tiếng Việt: Ruồi nhà</span></div></div>
 <div class="type-row"><img alt="Minh họa Apis mellifera" class="type-img" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Honey_bee_(Apis_mellifera).jpg?width=500" title="Bấm để phóng to — Apis mellifera"/><div class="tname">Nghiền – liếm <span style="opacity:.55;font-weight:400;">(Chewing–lapping)</span></div><div class="tdesc">Hàm nghiền kết hợp cấu trúc lưỡi/liếm để lấy và xử lý thức ăn lỏng, phấn hoa.</div><div class="tspecies">Apis mellifera · Hymenoptera<span class="vn-species">Tiếng Việt: Ong mật phương Tây</span></div></div>
 </div>
 </div>
@@ -1057,15 +1057,35 @@ body{background:#F5F8FA;color:var(--ink)}::selection{background:var(--lichen);co
 .adult-morph-grid .science-image-card{height:100%;}
 .adult-morph-notes{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .adult-morph-notes .panel{padding:18px;}
-.adult-two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
-.adult-subblock{min-width:0;}
+.adult-two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start;}
+.adult-subblock{min-width:0;overflow:hidden;}
 .adult-subblock>h3{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin:0 0 14px;color:var(--parchment);}
 .adult-subblock .science-image-card{margin:0;}
-.adult-subblock .type-list{margin-top:0;}
+.adult-subblock .type-list{margin-top:0;min-width:0;}
+/* Desktop: rows inside the two-column adult layout must fit the half-width panel. */
+.adult-two-col .type-row:has(.type-img){
+  grid-template-columns:72px minmax(0,1fr);
+  grid-template-areas:
+    "img name"
+    "img desc"
+    "img species";
+  gap:6px 12px;
+  padding:10px 8px;
+  align-items:center;
+}
+.adult-two-col .type-row:has(.type-img) .type-img{grid-area:img;width:72px;height:60px;}
+.adult-two-col .type-row:has(.type-img) .tname{grid-area:name;font-size:.98rem;line-height:1.2;}
+.adult-two-col .type-row:has(.type-img) .tdesc{grid-area:desc;font-size:.84rem;line-height:1.35;}
+.adult-two-col .type-row:has(.type-img) .tspecies{grid-area:species;justify-self:start;max-width:100%;font-size:10px;line-height:1.25;padding:5px 8px;overflow-wrap:anywhere;}
 .adult-physiology .panel{min-height:150px;}
 .adult-special .panel{padding:18px;}
+@media(max-width:1100px){
+  .adult-two-col .type-row:has(.type-img){grid-template-columns:64px minmax(0,1fr);}
+  .adult-two-col .type-row:has(.type-img) .type-img{width:64px;height:56px;}
+}
 @media(max-width:900px){
   .adult-morph-grid,.adult-two-col{grid-template-columns:1fr;}
+  .adult-two-col .type-row:has(.type-img){grid-template-columns:64px 1fr;grid-template-areas:"img name" "img desc" "img species";}
 }
 @media(max-width:600px){
   .adult-morph-notes{grid-template-columns:1fr;}
